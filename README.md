@@ -2,55 +2,53 @@
 
 ## 项目定位
 
-本仓库是企业知识工作流 Agent 落地案例集，用于求职作品集和轻量级接单展示。案例基于开源项目、公开资料和本地可复现流程进行理解、复现与改造整理，不写成真实客户交付项目，不虚构企业名称、客户结果或上线效果。
+本仓库是企业知识工作流 Agent 落地案例集，用于求职作品集和轻量级接单展示。案例均基于本地 `~/Documents/hello-agents` 中的开源项目复现、理解和改造整理，不写成真实客户交付项目，不虚构企业名称、客户结果、上线效果或生产部署。
 
 ## 案例总览
 
-| 案例 | 目标场景 | 当前状态 | 主要产出 |
-| --- | --- | --- | --- |
-| [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | 汇总公开竞品信息，生成结构化分析 | 初版骨架 | 竞品对比表、风险点、行动建议 |
-| [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | 面向 CSV/表格数据生成经营分析 | 初版骨架 | 指标解读、异常识别、分析摘要 |
-| [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | 将自然语言流程转换为流程图草案 | 初版骨架 | Mermaid 流程图、节点说明 |
-| [自动化深度研究 Agent](cases/deep-research-agent/README.md) | 围绕主题进行资料检索、归纳和引用整理 | 初版骨架 | 研究提纲、来源摘要、结论草案 |
-| [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | 将自然语言问题转换为 SQL 并解释结果 | 初版骨架 | SQL、查询结果解释、校验记录 |
+| 案例 | 参考项目 | 解决的问题 | Agent 与工具设计 | 当前产出 |
+| --- | --- | --- | --- | --- |
+| [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | `czxgg0630-ProductAnalysisAgent` | 竞品信息收集慢、对比维度不统一、报告整理成本高 | SimpleAgent 与 PlanAndSolveAgent；Tavily Search、结构化解析、Markdown 报告生成 | Notebook 示例、`outputs/demo_result_*.md`、架构评估记录 |
+| [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | `alexrunner-DataAnalysisAgent`、`1zrj-DataAnalysisAgent` | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；SimpleAgent 表格清洗与统计；pandas、matplotlib、ECharts | Markdown 报告、图表路径、Notebook 和 Python 主程序 |
+| [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | `usernamedadad-AutoFlow` | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | FastAPI + React/Vite；SimpleAgent 生成 Mermaid；Validator 校验与修复；SSE 流式返回 | 本地前后端应用、实时预览、`.mmd`/SVG 导出 |
+| [自动化深度研究 Agent](cases/deep-research-agent/README.md) | `docs/chapter14/` | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、Task Summarizer、Report Writer；SearchTool、NoteTool；FastAPI + Vue + SSE 方案 | 教程级架构、流程说明、可复现方向 |
+| [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | `939147533-DatabaseAgent` | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 命令行交互、测试 SQL 脚本、查询结果表格化输出 |
 
 ## 技术能力地图
 
-- Agent 任务拆解：将开放问题拆为检索、分析、生成、复核等步骤。
-- 工具调用设计：根据任务选择搜索、文件读取、数据库查询、图表生成或文档生成工具。
-- RAG 与资料归纳：围绕公开资料建立证据链，减少无来源结论。
-- 数据分析：对结构化数据进行指标计算、异常识别、解释和可视化规划。
-- Text-to-SQL：把自然语言问题转换为可审查 SQL，并补充安全校验。
-- 可复现工程：为每个案例提供 README、sample 和 runbook，记录阻塞点与替代演示方式。
-- 评估意识：通过人工复核、样例集、事实一致性检查和输出结构检查评估结果。
+- Agent 编排：SimpleAgent、ReAct、Plan-and-Solve、多阶段研究流水线。
+- 工具调用：搜索、网页信息提取、数据探查、统计分析、图表生成、Mermaid 校验、SQL 生成与执行。
+- 结构化输出：Markdown 报告、对比矩阵、图表引用、Mermaid 流程图、SQL 查询结果表格。
+- 工程化封装：Notebook 原型、Python CLI、FastAPI 后端、React/Vite 或 Vue 前端、SSE 流式状态。
+- 评估意识：工具链有效性、规划质量、数据口径、SQL 安全、Mermaid 可渲染性、人工复核清单。
 
 ## 重点案例
 
 ### 智能竞品分析 Agent
 
-面向公开网页、产品文档和新闻材料，整理竞品定位、能力差异、价格策略和风险信号。第一版重点展示任务拆解、检索记录、结构化输出和人工复核。
+该案例对比了 SimpleAgent 和 PlanAndSolveAgent 两种范式。SimpleAgent 适合作为快速调试脚手架；Plan-and-Solve 将竞品分析拆成规划、搜索、结构化解析和报告生成，执行过程更白盒。原项目记录了工具链评估：搜索工具已接入 Tavily，数据处理和报告工具在 PlanSolve 版本中升级为基于结构化数据输出。
 
 ### 企业经营数据分析 Agent
 
-面向样例经营数据，生成指标口径说明、趋势分析、异常点解释和后续分析建议。第一版不接入真实企业数据，只使用脱敏或模拟数据。
+该案例融合两个数据分析项目：一个采用 Plan-and-Solve + ReAct，把数据探查、任务规划、任务执行和报告生成拆开；另一个使用 SimpleAgent 和 Notebook 完成 Excel 数据清洗、统计、ECharts 图表和 Markdown 报告生成。作品集版本重点展示“从表格到报告”的自动化链路，而不是声称接入真实企业数据。
 
-### 自然语言数据库查询 Agent
+### AutoFlow 流程图生成 Agent
 
-面向本地样例数据库，将自然语言问题转换为 SQL，执行查询并解释结果。第一版重点展示 SQL 生成、只读约束、结果解释和人工校验。
+该案例是前后端分离应用，包含计划模式、灵感模式、标准模式和 Mermaid 代码模式。后端通过 HelloAgents 构建 Mermaid 生成 Agent，并用 MermaidValidatorTool 做结构校验和有限修复；前端提供实时渲染、方向切换、缩放、拖拽和导出能力。
 
 ## 演示材料
 
-- 截图：计划放置在 `assets/screenshots/`，当前尚未补充。
+- 截图：参考源项目中已有图片，但本仓库 `assets/screenshots/` 尚未正式整理。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
 - 录屏或交互演示：计划放置在 `assets/demos/`，当前尚未补充。
-- 报告样例：计划放置在 `assets/reports/`，当前尚未补充。
+- 报告样例：计划从源项目输出中筛选后放置在 `assets/reports/`，当前尚未补充。
 
-以上材料在生成前均不写成已完成交付。
+以上材料在生成和整理前均不写成已完成交付。
 
 ## 后续计划
 
-1. 补齐 5 个案例的可运行最小版本。
-2. 为每个案例加入 1 组稳定示例输入和对应输出。
-3. 增加截图、架构图和报告样例。
-4. 建立统一评估表，记录准确性、可解释性和人工复核结果。
-5. 整理 PDF 作品集文案和简历表述，保持克制、不夸大。
+1. 将 5 个案例整理为统一可运行入口或最小复现脚本。
+2. 为每个案例补充固定示例输入、输出和人工复核表。
+3. 整理截图、架构图和报告样例，放入 `assets/`。
+4. 建立统一评估清单，覆盖事实一致性、工具调用有效性和输出可复核性。
+5. 提炼 PDF 作品集和简历话术，保持克制，不写真实客户交付。

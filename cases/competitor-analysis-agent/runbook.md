@@ -2,34 +2,51 @@
 
 ## 环境准备
 
-- 准备 Python 或 Node.js 运行环境。
-- 准备可访问公开网页的网络环境。
-- 准备用于演示的公开产品名称，不使用真实客户资料。
+- Python 3.10+
+- Jupyter Lab 或 Notebook
+- 可访问 Tavily 和 LLM 服务的网络环境
+- 本地参考目录：`~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent`
 
 ## 依赖安装
 
-当前仓库尚未固定依赖。后续可根据实现选择安装搜索、网页解析和 Markdown 生成相关依赖。
+```bash
+cd ~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent
+pip install -r requirements.txt
+```
+
+主要依赖包括 `hello-agents[all]`、`openai`、`anthropic`、`pandas`、`requests`、`beautifulsoup4`、`tavily-python`、`python-dotenv`。
 
 ## 配置说明
 
-- 配置搜索 API 或浏览器检索方式。
-- 配置输出目录。
-- 如使用模型 API，需要通过环境变量配置密钥。
+```bash
+cp .env.example .env
+```
+
+需要配置 LLM API Key 和 Tavily API Key。不同模型服务可通过 HelloAgents 兼容配置接入。
 
 ## 启动方式
 
-当前为案例骨架，尚未提供统一启动命令。后续可扩展为：
-
 ```bash
-python run.py --case competitor-analysis
+jupyter lab
 ```
+
+打开以下任一 Notebook：
+
+- `ProductAnalysis_SimpleAgent.ipynb`
+- `ProductAnalysis_PlanSolveAgent.ipynb`
 
 ## 示例运行
 
-输入目标产品和竞品列表，生成 Markdown 分析草案。当前可通过 `sample.md` 查看预期记录结构。
+推荐先运行 PlanSolve 版本，观察“生成计划、逐步执行、保存报告”的完整链路。运行完成后查看：
+
+```bash
+ls outputs/
+```
+
+示例输出为 `demo_result_*.md`。
 
 ## 常见问题
 
-- 搜索结果不稳定：固定演示数据集或保存来源快照。
-- 来源内容冲突：保留冲突记录，不强行合并为确定结论。
-- 信息缺失：写入待验证清单。
+- Tavily 超时或限流：记录为外部服务问题，可重试或后续接入 DuckDuckGo。
+- LLM 响应慢：Notebook 同步执行会表现为卡顿，需要增加超时控制或异步化。
+- 搜索结果无法结构化：保留原始文本和失败原因，不强行生成确定结论。

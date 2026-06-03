@@ -2,34 +2,75 @@
 
 ## 环境准备
 
-- 准备 Python 或 Node.js 运行环境。
-- 准备用于演示的流程文本。
-- 安装可选的 Mermaid 渲染工具。
+- Python 3.10+
+- Node.js 18+
+- npm 9+
+- 本地参考目录：`~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow`
 
 ## 依赖安装
 
-当前仓库尚未固定依赖。后续可根据实现选择安装 Mermaid CLI 或 Markdown 渲染工具。
+后端：
+
+```bash
+cd ~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow/backend
+pip install -r requirements.txt
+```
+
+前端：
+
+```bash
+cd ~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow/frontend
+npm install
+```
 
 ## 配置说明
 
-- 配置输入文本路径。
-- 配置输出 Markdown 或 Mermaid 文件路径。
-- 如使用模型 API，需要通过环境变量配置密钥。
+在后端目录创建 `.env`：
+
+```bash
+cp .env.example .env
+```
+
+至少配置：
+
+- `LLM_MODEL_ID`
+- `LLM_API_KEY`
+- `LLM_BASE_URL`
+- `LLM_TIMEOUT`
+
+前端如需修改 API 地址，可参考 `frontend/.env.example`。
 
 ## 启动方式
 
-当前为案例骨架，尚未提供统一启动命令。后续可扩展为：
+后端：
 
 ```bash
-python run.py --case autoflow --input flow.txt
+cd ~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow/backend
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+前端：
+
+```bash
+cd ~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow/frontend
+npm run dev
+```
+
+浏览器访问默认地址：
+
+```text
+http://localhost:5173
 ```
 
 ## 示例运行
 
-输入一段流程描述，输出 Mermaid 流程图和待确认问题。当前可通过 `sample.md` 查看预期记录结构。
+1. 打开前端页面。
+2. 在计划模式输入多行步骤。
+3. 点击生成，观察右侧 Mermaid 预览。
+4. 切换方向、缩放或导出 `.mmd`/SVG。
 
 ## 常见问题
 
-- 条件分支缺失：补充更明确的流程文本。
-- Mermaid 无法渲染：检查节点文本和特殊字符。
-- 流程边界不清：在输出中保留待确认问题。
+- 后端跨域错误：源项目在非生产环境放宽 localhost/127.0.0.1 任意端口，可检查 CORS 配置。
+- Mermaid 渲染错误：查看前端错误提示和 Validator 返回信息。
+- LLM 超时：检查 `LLM_TIMEOUT`、模型服务和网络状态。

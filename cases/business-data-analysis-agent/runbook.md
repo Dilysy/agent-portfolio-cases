@@ -2,34 +2,66 @@
 
 ## 环境准备
 
-- 准备 Python 或 Node.js 运行环境。
-- 准备模拟 CSV 数据。
-- 不使用真实客户或企业敏感数据。
+- Python 3.10+
+- Jupyter Lab 或 Notebook
+- 本地参考目录：
+  - `~/Documents/hello-agents/Co-creation-projects/alexrunner-DataAnalysisAgent`
+  - `~/Documents/hello-agents/Co-creation-projects/1zrj-DataAnalysisAgent`
 
 ## 依赖安装
 
-当前仓库尚未固定依赖。后续可根据实现选择安装数据分析库，例如 pandas 或同类工具。
+`alexrunner` 版本：
+
+```bash
+cd ~/Documents/hello-agents/Co-creation-projects/alexrunner-DataAnalysisAgent
+python3 -m venv venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+```
+
+`1zrj` 版本：
+
+```bash
+cd ~/Documents/hello-agents/Co-creation-projects/1zrj-DataAnalysisAgent
+pip install -r requirements.txt
+```
 
 ## 配置说明
 
-- 配置输入数据路径。
-- 配置指标口径和异常阈值。
-- 如使用模型 API，需要通过环境变量配置密钥。
+`alexrunner` 项目：
+
+```bash
+cp .env.example .env
+```
+
+配置 `OPENAI_API_KEY` 或 HelloAgents 支持的兼容模型服务。
+
+`1zrj` 项目支持 `.env` 配置，也可在 Notebook 中设置 `LLM_MODEL_ID`、`LLM_API_KEY`、`LLM_BASE_URL`。
 
 ## 启动方式
 
-当前为案例骨架，尚未提供统一启动命令。后续可扩展为：
+`alexrunner` 版本：
 
 ```bash
-python run.py --case business-data-analysis --input data/sample.csv
+python3 ./main.py
 ```
+
+`1zrj` 版本：
+
+```bash
+jupyter lab
+```
+
+打开 `main.ipynb` 并运行。
 
 ## 示例运行
 
-准备模拟 CSV 后运行分析流程，输出 Markdown 报告草案。当前可通过 `sample.md` 查看预期记录结构。
+- `alexrunner` 输出：`out/analysis_report.md` 和 `out/figures/` 下的图表。
+- `1zrj` 输出：`output/report.md` 和 `output/echarts.html`。
 
 ## 常见问题
 
-- 字段无法识别：补充字段映射配置。
-- 指标结果不符合预期：检查时间范围和聚合口径。
-- 结论过度推断：改写为假设并加入待验证问题。
+- 报告没有图表：检查 `out/figures` 或 `output` 目录是否创建成功。
+- 分析任务格式错误：检查 PlanningAgent 是否返回 Python 列表。
+- Excel 读取失败：确认安装 `xlrd`，并检查文件路径。
+- 结论过度推断：回到计算结果，改写为“基于样例数据的观察”。
