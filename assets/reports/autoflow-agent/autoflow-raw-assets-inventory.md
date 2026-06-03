@@ -6,6 +6,18 @@
 
 本清单仅用于归档和剪辑前判断。未移动、未修改、未删除原始素材，也未开始剪辑。
 
+## 已归档素材路径
+
+以下文件已复制到作品集标准素材目录，作为 AutoFlow 原始演示素材归档副本：
+
+| 归档文件 | 标准路径 |
+| --- | --- |
+| 原始演示视频 | `assets/demos/autoflow-agent/raw/autoflow-raw-demo.mov` |
+| 灵感模式截图 | `assets/screenshots/autoflow-agent/raw/inspiration-mode.png` |
+| 标准模式截图 | `assets/screenshots/autoflow-agent/raw/standard-mode.png` |
+| 计划模式截图 | `assets/screenshots/autoflow-agent/raw/plan-mode.png` |
+| 代码模式截图 | `assets/screenshots/autoflow-agent/raw/code-mode.png` |
+
 ## 文件列表
 
 ### 视频文件
