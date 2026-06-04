@@ -10,7 +10,7 @@
 | --- | --- | --- | --- | --- |
 | [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | `czxgg0630-ProductAnalysisAgent` | 竞品信息收集慢、对比维度不统一、报告整理成本高 | SimpleAgent 与 PlanAndSolveAgent；Tavily Search、结构化解析、Markdown 报告生成 | Notebook 示例、`outputs/demo_result_*.md`、架构评估记录 |
 | [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | `alexrunner-DataAnalysisAgent`、`1zrj-DataAnalysisAgent` | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；SimpleAgent 表格清洗与统计；pandas、matplotlib、ECharts | Markdown 报告、图表路径、Notebook 和 Python 主程序 |
-| [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | `usernamedadad-AutoFlow` | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | FastAPI + React/Vite；SimpleAgent 生成 Mermaid；Validator 校验与修复；SSE 流式返回 | 本地前后端应用、实时预览、`.mmd`/SVG 导出 |
+| [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | `usernamedadad-AutoFlow` | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | FastAPI + React/Vite；SimpleAgent 生成 Mermaid；Validator 校验与修复；SSE 流式返回 | 已完成字幕版演示视频、四模式截图、实时预览、`.mmd`/SVG 导出 |
 | [自动化深度研究 Agent](cases/deep-research-agent/README.md) | `docs/chapter14/` | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、Task Summarizer、Report Writer；SearchTool、NoteTool；FastAPI + Vue + SSE 方案 | 教程级架构、流程说明、可复现方向 |
 | [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | `939147533-DatabaseAgent` | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 命令行交互、测试 SQL 脚本、查询结果表格化输出 |
 
@@ -34,13 +34,17 @@
 
 ### AutoFlow 流程图生成 Agent
 
-该案例是前后端分离应用，包含计划模式、灵感模式、标准模式和 Mermaid 代码模式。后端通过 HelloAgents 构建 Mermaid 生成 Agent，并用 MermaidValidatorTool 做结构校验和有限修复；前端提供实时渲染、方向切换、缩放、拖拽和导出能力。
+该案例是前后端分离应用，包含计划模式、灵感模式、标准模式和 Mermaid 代码模式。后端通过 HelloAgents 构建 Mermaid 生成 Agent，并用 MermaidValidatorTool 做结构校验和有限修复；前端提供实时渲染、方向切换、缩放、拖拽和导出能力。当前已完成字幕版演示视频，可用于展示本地复现、LLM 接入、四模式验证和导出链路。
+
+- 演示视频：[autoflow-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/autoflow-agent/autoflow-agent-demo.mp4)
+- 关键截图：[standard-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/standard-mode.png)、[inspiration-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/inspiration-mode.png)、[plan-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/plan-mode.png)、[code-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/code-mode.png)
 
 ## 演示材料
 
-- 截图：参考源项目中已有图片，但本仓库 `assets/screenshots/` 尚未正式整理。
+- AutoFlow：已完成字幕版演示视频 `assets/demos/autoflow-agent/autoflow-agent-demo.mp4`，并整理四模式截图到 `assets/screenshots/autoflow-agent/raw/`。
+- 截图：其他案例仍需继续整理正式展示截图。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
-- 录屏或交互演示：计划放置在 `assets/demos/`，当前尚未补充。
+- 录屏或交互演示：AutoFlow 已完成，其他案例仍需补充。
 - 报告样例：计划从源项目输出中筛选后放置在 `assets/reports/`，当前尚未补充。
 
 以上材料在生成和整理前均不写成已完成交付。
