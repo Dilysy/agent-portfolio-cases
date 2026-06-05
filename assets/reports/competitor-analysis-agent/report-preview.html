@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>智能竞品分析 Agent 报告预览</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e4e7ec;
+      --head: #f2f4f7;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --warn: #92400e;
+      --warn-soft: #fffbeb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    .hero {
+      padding: 28px 32px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 920px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      padding: 14px 16px;
+      background: var(--accent-soft);
+      border: 1px solid #dbeafe;
+      border-radius: 8px;
+    }
+
+    .metric b {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 18px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card {
+      margin-top: 22px;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.04);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .note {
+      padding: 12px 14px;
+      color: var(--warn);
+      background: var(--warn-soft);
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    th {
+      background: var(--head);
+      font-weight: 700;
+      color: #344054;
+      white-space: nowrap;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mini {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .mini h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .source-list {
+      columns: 2;
+      column-gap: 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-list li {
+      break-inside: avoid;
+      word-break: break-all;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 28px, 1180px);
+        padding-top: 20px;
+      }
+
+      .hero,
+      .card {
+        padding: 18px;
+      }
+
+      .grid,
+      .columns {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .source-list {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">智能竞品分析 Agent · 报告预览</p>
+      <h1>Notion、飞书文档、语雀团队知识管理场景竞品分析</h1>
+      <p class="subtitle">本页面用于录屏展示真实运行报告的核心内容。报告由本地化运行验证生成，已调用 Tavily 搜索和 LLM；正式展示前仍需人工复核官网、帮助中心、价格页和产品更新信息，不代表真实客户交付结论。</p>
+      <div class="grid">
+        <div class="metric"><b>3 个竞品</b><span>Notion / 飞书文档 / 语雀</span></div>
+        <div class="metric"><b>15 条来源</b><span>Tavily 搜索结果摘要</span></div>
+        <div class="metric"><b>7 类维度</b><span>定位、功能、协作、知识库、价格、优劣势、销售建议</span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>分析目标</h2>
+      <p>为团队知识管理场景的选型或销售策略制定提供参考，明确 Notion、飞书文档、语雀三款产品在定位、功能、协作、知识库构建及商业模式上的差异，并基于公开信息梳理各自的优势与短板，形成可操作的销售切入建议。</p>
+      <div class="note">价格、套餐、AI 功能、权限与企业版能力属于易变化信息，正式展示前必须人工复核。</div>
+    </section>
+
+    <section class="card">
+      <h2>竞品对象</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>产品</th>
+              <th>核心定位</th>
+              <th>目标客群</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Notion</strong></td>
+              <td>一体化工作空间，将文档、数据库、任务管理、Wiki 等功能高度自定义结合。</td>
+              <td>个人用户、中小型团队、初创公司，追求灵活性和高度自定义的团队。</td>
+            </tr>
+            <tr>
+              <td><strong>飞书文档</strong></td>
+              <td>飞书协作套件中的核心组件，与即时通讯、会议、日历等深度打通。</td>
+              <td>已使用或计划使用飞书生态的中大型企业，重视流程整合与信息流转效率的组织。</td>
+            </tr>
+            <tr>
+              <td><strong>语雀</strong></td>
+              <td>专业云端知识库，强调结构化知识管理、文档沉淀、分类与分享。</td>
+              <td>重视知识沉淀和内容创作的团队，如产研团队、设计团队、教育组织等。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>核心能力对比</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>维度</th>
+              <th>Notion</th>
+              <th>飞书文档</th>
+              <th>语雀</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>文档编辑器</strong></td>
+              <td>块编辑器，支持丰富内容类型，适合自定义工作空间。</td>
+              <td>在线协作文档，支持多维表格、流程图、思维导图等，与飞书生态联动。</td>
+              <td>支持 Markdown 及扩展语法，适合技术型写作。</td>
+            </tr>
+            <tr>
+              <td><strong>协作能力</strong></td>
+              <td>支持团队协作和实时编辑，沟通主要依赖评论。</td>
+              <td>与云文档、聊天、会议等深度集成，信息流转效率高。</td>
+              <td>支持多人协作，但搜索结果未体现与即时通讯工具的深度集成。</td>
+            </tr>
+            <tr>
+              <td><strong>知识库能力</strong></td>
+              <td>通过页面嵌套和数据库构建 Wiki，灵活但可能缺乏强约束。</td>
+              <td>提供知识库产品，支持结构化知识管理和 AI 知识问答。</td>
+              <td>通过空间功能做结构化沉淀，分类清晰，适合知识分享。</td>
+            </tr>
+            <tr>
+              <td><strong>AI 能力</strong></td>
+              <td>搜索结果提及 Notion AI，但具体功能需复核。</td>
+              <td>搜索结果重点提及 AI 知识问答，可跨文档、消息、知识库检索。</td>
+              <td>搜索结果未提及明确 AI 功能。</td>
+            </tr>
+            <tr>
+              <td><strong>商业模式</strong></td>
+              <td>免费增值模式，具体套餐与价格需复核。</td>
+              <td>作为飞书套件的一部分提供，免费和企业版本能力需复核。</td>
+              <td>免费增值模式，区分个人、团队和企业版本，具体价格需复核。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>优势与短板分析</h2>
+      <div class="columns">
+        <div class="mini">
+          <h3>Notion</h3>
+          <p><strong>优势</strong></p>
+          <ul>
+            <li>高度灵活与自定义。</li>
+            <li>All-in-one，覆盖文档、项目管理、数据库等场景。</li>
+            <li>界面简洁，上手门槛较低。</li>
+          </ul>
+          <p><strong>短板</strong></p>
+          <ul>
+            <li>大型文档和大量数据可能存在性能瓶颈。</li>
+            <li>数据合规与存储位置需重点评估。</li>
+            <li>结构过于灵活，可能导致知识库治理松散。</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>飞书文档</h3>
+          <p><strong>优势</strong></p>
+          <ul>
+            <li>与飞书套件无缝集成，协作链路完整。</li>
+            <li>AI 知识问答能盘活企业知识资产。</li>
+            <li>企业级权限和安全体系较完整。</li>
+          </ul>
+          <p><strong>短板</strong></p>
+          <ul>
+            <li>对非飞书用户存在生态绑定。</li>
+            <li>相比 Notion，自定义空间相对有限。</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>语雀</h3>
+          <p><strong>优势</strong></p>
+          <ul>
+            <li>聚焦结构化知识管理和内容沉淀。</li>
+            <li>对 Markdown 和技术型写作友好。</li>
+            <li>强调知识分享与对外输出。</li>
+          </ul>
+          <p><strong>短板</strong></p>
+          <ul>
+            <li>搜索结果指出移动端功能有限。</li>
+            <li>与办公套件的深度集成体现较少。</li>
+            <li>搜索结果未提及明确 AI 能力。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>销售切入建议</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>目标客户</th>
+              <th>切入点</th>
+              <th>建议话术方向</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Notion 用户或潜在用户</td>
+              <td>合规、性能、知识库治理</td>
+              <td>强调数据合规风险、大型文档性能和结构治理成本；对已使用飞书的客户突出一体化协作与 AI 知识问答。</td>
+            </tr>
+            <tr>
+              <td>飞书文档用户或潜在用户</td>
+              <td>生态协同与组织效率</td>
+              <td>对飞书生态内客户强调低迁移成本和协作闭环；对非飞书用户需先评估生态绑定与迁移成本。</td>
+            </tr>
+            <tr>
+              <td>语雀用户或潜在用户</td>
+              <td>结构化沉淀与知识分享</td>
+              <td>适合产研、技术文档和内容沉淀场景；若客户重视 AI 问答和移动协同，可对比飞书文档能力。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>人工复核说明</h2>
+      <ul>
+        <li>所有产品的具体价格、套餐版本及包含功能必须复核官网价格页。</li>
+        <li>AI 功能可用性、收费方式和企业权限能力需要复核最新官方文档。</li>
+        <li>数据存储、合规、审计等企业级能力不能只依赖第三方文章。</li>
+        <li>销售建议仅作为场景化分析草案，不写成真实客户交付结论。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>本次搜索来源</h2>
+      <ol class="source-list">
+        <li>https://www.baklib.com/blog/0695</li>
+        <li>https://www.notion.com/zh-cn/templates/category/free-knowledge-base-templates</li>
+        <li>https://www.notion.com/zh-cn/compare-against/comparison-notion-vs-asana</li>
+        <li>https://www.notion.com/zh-cn/pricing</li>
+        <li>https://www.feishu.cn/content/notion-alternatives-2024</li>
+        <li>https://www.feishu.cn/product/wiki</li>
+        <li>https://www.woshipm.com/pd/5151887.html</li>
+        <li>https://adg.csdn.net/697080de437a6b40336a7837.html</li>
+        <li>https://www.tanmer.com/baklib/feishu</li>
+        <li>https://zhuanlan.zhihu.com/p/1973826933352588531</li>
+        <li>https://zhuanlan.zhihu.com/p/165948161</li>
+        <li>https://www.geekpark.net/news/310278</li>
+        <li>https://www.larksuite.com/zh_cn/blog/confluence-wiki-software</li>
+        <li>https://worktile.com/kb/p/2805313</li>
+        <li>https://www.36dianping.com/dianping/5466280113</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

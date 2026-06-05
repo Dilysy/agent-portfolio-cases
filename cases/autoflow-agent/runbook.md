@@ -1,12 +1,12 @@
-# AutoFlow 流程图生成 Agent 本地复现步骤
+# AutoFlow 流程图生成 Agent 本地化运行验证步骤
 
 ## 环境准备
 
-- 源项目目录：`~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow`
+- 工程目录：`~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow`
 - 项目要求：Python 3.10+、Node.js 18+、npm 9+
-- 本次复现环境：
+- 本次验证环境：
   - 系统 `python3`：3.8.7，不满足项目要求
-  - Codex 打包 Python：3.12.13，可用于后端复现
+  - Codex 打包 Python：3.12.13，可用于后端运行验证
   - Node.js：25.8.0
   - npm：11.11.0
 
@@ -27,7 +27,7 @@ hello-agents=1.0.0
 
 pip 报错为：`= is not a valid operator. Did you mean == ?`
 
-前置修复记录：已将源项目 `backend/requirements.txt` 修复为合法 pip 依赖写法：
+前置修复记录：已将工程目录中的 `backend/requirements.txt` 修复为合法 pip 依赖写法：
 
 ```text
 hello-agents==1.0.0
@@ -51,14 +51,14 @@ npm install
 
 ## 配置说明
 
-源项目配置文件：
+工程配置文件：
 
 - `backend/.env.example`
 - `frontend/.env.example`
 - `backend/app/config.py`
 - `backend/app/services/llm_service.py`
 
-前置修复记录：已更新源项目 `backend/.env.example`，其中 LLM 字段为占位空值：
+前置修复记录：已更新工程目录中的 `backend/.env.example`，其中 LLM 字段为占位空值：
 
 ```env
 LLM_MODEL_ID=
@@ -66,10 +66,10 @@ LLM_API_KEY=
 LLM_BASE_URL=
 ```
 
-`backend/app/config.py` 会从 `backend/.env` 读取环境变量。`backend/app/services/llm_service.py` 将配置传给 `HelloAgentsLLM`：
+`backend/app/config.py` 会从 `backend/.env` 读取环境变量。`backend/app/services/llm_service.py` 将配置传给 LLM 客户端：
 
 ```python
-HelloAgentsLLM(
+LLMClient(
     model=settings.llm_model_id,
     api_key=settings.llm_api_key,
     base_url=settings.llm_base_url,
@@ -119,7 +119,7 @@ VITE_API_BASE_URL=http://localhost:8000
 
 `.env` 提交规则：
 
-- 源项目根 `.gitignore` 已包含 `.env`，因此 `backend/.env` 不应提交。
+- 工程根目录 `.gitignore` 已包含 `.env`，因此 `backend/.env` 不应提交。
 - 本轮验证未读取、输出、创建或修改真实 `backend/.env`。
 - 如果本地尚未配置真实 LLM 参数，需要用户手动执行：
 
@@ -135,7 +135,7 @@ cp .env.example .env
 LLM 调用相关代码路径：
 
 - `backend/app/config.py`：读取 `.env` 中的 `LLM_MODEL_ID`、`LLM_API_KEY`、`LLM_BASE_URL`、`LLM_TIMEOUT`。
-- `backend/app/services/llm_service.py`：创建 `HelloAgentsLLM`。
+- `backend/app/services/llm_service.py`：创建 LLM 客户端。
 - `backend/app/agents/mermaid/agent_factory.py`：为灵感模式、标准代码生成模式构建 `SimpleAgent`。
 - `backend/app/services/rule_flow_converter.py`：规则优先的快速路径，覆盖销售条件流程和线性计划拆解。
 - `backend/app/agents/mermaid/pipeline.py`：灵感模式、标准模式先尝试规则快速路径；规则不命中时，标准模式使用一次 LLM 直接生成 Mermaid，不再默认走“文本优化 + 代码生成”的两段式调用。
@@ -144,8 +144,8 @@ LLM 调用相关代码路径：
 OpenAI-compatible API 支持判断：
 
 - 支持自定义 `base_url`、`api_key`、`model`。
-- `HelloAgentsLLM` 构造函数接收 `model`、`api_key`、`base_url`、`timeout`。
-- 本次检查到 HelloAgents 的 adapter 逻辑为：`anthropic.com` 使用 AnthropicAdapter，`googleapis.com` 或 `generativelanguage` 使用 GeminiAdapter，其他 base_url 默认使用 OpenAIAdapter。
+- LLM 客户端构造函数接收 `model`、`api_key`、`base_url`、`timeout`。
+- 本次检查到模型适配逻辑为：`anthropic.com` 使用 AnthropicAdapter，`googleapis.com` 或 `generativelanguage` 使用 GeminiAdapter，其他 base_url 默认使用 OpenAIAdapter。
 - 因此，AutoFlow 可接入 OpenAI-compatible API，前提是模型服务兼容 OpenAI Chat Completions 风格，并正确配置 `LLM_BASE_URL`、`LLM_API_KEY`、`LLM_MODEL_ID`。
 
 未配置真实 LLM 时的表现：
@@ -172,7 +172,7 @@ OpenAI-compatible API 支持判断：
 - 已定位超时配置在 `backend/app/config.py`、`backend/app/services/llm_service.py` 和 `backend/app/agents/mermaid_agent_service.py`。
 - 已将 `backend/app/config.py` 中 `LLM_TIMEOUT` 默认值从 60 调整为 120。
 - 已将 `backend/app/agents/mermaid_agent_service.py` 中运行时最低 `llm_timeout` 从 30 调整为 120。
-- 已将源项目 `backend/.env.example` 中 `LLM_TIMEOUT=60` 更新为 `LLM_TIMEOUT=120`。
+- 已将工程目录 `backend/.env.example` 中 `LLM_TIMEOUT=60` 更新为 `LLM_TIMEOUT=120`。
 - 已修复计划模式伪成功问题：原实现位于 `backend/app/services/plan_converter.py`，只按换行或 `A -> B -> C` 拆分文本；单段自然语言会被当成一个大节点渲染。
 - 已增强 `backend/app/tools/mermaid_validator_tool.py`，补充结构校验：图声明、节点数量、连接数量、整段输入节点检测、条件分支判断节点检测。
 - 已增强 `backend/app/services/plan_converter.py`，对“包含 A、B、C...”类单段输入先做规则拆解，生成 `Start -> N1 -> ... -> End` 结构；规则结果不合格时，再使用已有 `LLMService` 作为最小 LLM 兜底分支。
@@ -293,7 +293,7 @@ http://127.0.0.1:5173/
 ## 常见问题
 
 - 后端依赖安装失败：确认 `backend/requirements.txt` 中为 `hello-agents==1.0.0`，不是 `hello-agents=1.0.0`。
-- Python 版本过低：使用 Python 3.10+，本次用 Python 3.12.13 复现。
+- Python 版本过低：使用 Python 3.10+，本次用 Python 3.12.13 完成运行验证。
 - 标准/灵感模式慢或失败：检查 `LLM_MODEL_ID`、`LLM_API_KEY`、`LLM_BASE_URL`、`LLM_TIMEOUT`，不要把真实 Key 写入仓库。
 - OpenAI-compatible 服务无法调用：确认 `LLM_BASE_URL` 是否为兼容 OpenAI 的接口地址，模型名是否与服务端一致。
 - 前端 API 不通：确认后端在 8000 端口运行；Vite 配置已将 `/api` 代理到 `http://127.0.0.1:8000`。

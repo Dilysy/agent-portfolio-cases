@@ -1,11 +1,11 @@
-# 自动化深度研究 Agent 本地复现步骤
+# 自动化深度研究 Agent 本地化运行验证步骤
 
 ## 环境准备
 
 - Python 3.10+
 - Node.js 16+ 或更高
 - npm 8+ 或更高
-- 本地参考材料：`~/Documents/hello-agents/docs/chapter14/`
+- 工程方案材料：`~/Documents/hello-agents/docs/chapter14/`
 
 ## 依赖安装
 
@@ -63,7 +63,7 @@ http://localhost:5174
 
 ## 示例运行
 
-在前端输入研究主题，例如 `Datawhale 是一个什么样的组织？`，系统应展示任务列表、进度日志和最终 Markdown 报告。当前作品集未直接包含该完整应用源码，因此此 runbook 是基于 chapter14 的复现说明。
+在前端输入研究主题，例如 `Datawhale 是一个什么样的组织？`，系统应展示任务列表、进度日志和最终 Markdown 报告。当前作品集未直接包含该完整应用源码，因此此 runbook 记录的是工程方案的本地化运行验证路径。
 
 ## 常见问题
 

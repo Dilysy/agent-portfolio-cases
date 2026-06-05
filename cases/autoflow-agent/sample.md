@@ -2,9 +2,9 @@
 
 ## 示例输入
 
-- 参考项目：`~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow`
-- 复现日期：2026-06-03
-- 本轮测试目标：验证用户已在源项目后端本地 `.env` 中配置真实 LLM 参数后，AutoFlow 四个模式是否可用。
+- 工程目录：`~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow`
+- 验证日期：2026-06-03
+- 本轮测试目标：验证用户已在工程后端本地 `.env` 中配置真实 LLM 参数后，AutoFlow 四个模式是否可用。
 - 标准模式演示文本：
 
 ```text
@@ -13,7 +13,7 @@
 
 ## 执行过程
 
-1. 阅读源项目 README、`backend/app`、`frontend/src`、依赖文件和 `.env.example`。
+1. 阅读工程 README、`backend/app`、`frontend/src`、依赖文件和 `.env.example`。
 2. 确认后端入口为 `backend/app/main.py`，启动命令为 `uvicorn app.main:app --host 127.0.0.1 --port 8000`。
 3. 确认前端入口为 Vite React 应用，启动命令为 `npm run dev -- --host 127.0.0.1 --port 5173`。
 4. 已完成依赖前置修复：`backend/requirements.txt` 中的 `hello-agents=1.0.0` 已改为 `hello-agents==1.0.0`。
@@ -77,7 +77,7 @@ graph TD
 
 ## 当前不足
 
-- 默认系统 Python 为 3.8.7，低于项目要求；本次使用 Codex 打包 Python 3.12.13 建立临时虚拟环境复现。
+- 默认系统 Python 为 3.8.7，低于项目要求；本次使用 Codex 打包 Python 3.12.13 建立临时虚拟环境完成运行验证。
 - 灵感模式和标准模式对当前演示输入已不依赖外部模型服务，本轮分别约 0.087 秒和 0.007 秒。
 - 规则快速路径适合常见销售流程和线性计划；超出规则覆盖范围时仍会进入 LLM，耗时取决于模型服务。
 - 灵感模式规则结果偏向阶段拆解，复杂业务条件仍需要人工检查完整性。

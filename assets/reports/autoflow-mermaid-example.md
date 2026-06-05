@@ -8,7 +8,7 @@
 
 ## Mermaid 输出
 
-说明：本示例是在复现过程中基于用户输入手工整理的替代演示输出，并已使用源项目 `MermaidValidatorTool` 校验为 `VALID`。完整标准模式需要配置真实 LLM 环境变量后由 Agent 生成。
+说明：本示例是在运行验证过程中基于用户输入手工整理的替代演示输出，并已使用 `MermaidValidatorTool` 校验为 `VALID`。完整标准模式需要配置真实 LLM 环境变量后由 Agent 生成。
 
 ```mermaid
 flowchart TD

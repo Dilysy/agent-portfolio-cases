@@ -2,7 +2,7 @@
 
 ## 1. 项目背景
 
-本案例基于 `~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent` 复现和改造整理。原项目是一个基于 HelloAgents ReAct 框架的数据库查询助手，支持将中文自然语言转换为 Oracle SQL，并执行查询返回格式化结果。
+本案例围绕自然语言数据库查询场景进行 Text-to-SQL Agent 工程化实现整理，支持将中文自然语言转换为 Oracle SQL，并执行查询返回格式化结果。
 
 ## 2. 业务问题
 
@@ -10,11 +10,11 @@
 
 ## 3. 解决方案
 
-Agent 按 ReAct 流程执行：先获取数据库 schema，再根据用户问题生成 Oracle SQL，随后进行基础安全校验，最后执行 SQL 并将结果格式化为文本表格。当前只写成本地样例和测试数据库复现，不连接真实生产数据库。
+Agent 按 ReAct 流程执行：先获取数据库 schema，再根据用户问题生成 Oracle SQL，随后进行基础安全校验，最后执行 SQL 并将结果格式化为文本表格。当前只写成本地样例和测试数据库验证，不连接真实生产数据库。
 
 ## 4. Agent 设计
 
-- `DatabaseAgent` 继承 HelloAgents `ReActAgent`。
+- `DatabaseAgent` 继承 ReAct 风格 Agent。
 - Prompt 要求使用 `Thought` 和 `Action` 格式，按照 `GetSchema -> GenerateSQL -> ExecuteQuery` 的顺序处理问题。
 - `ToolRegistry` 注册三个工具函数：获取 schema、生成 SQL、执行查询。
 - `schema_cache` 缓存表结构，避免重复读取。
@@ -38,7 +38,7 @@ Agent 按 ReAct 流程执行：先获取数据库 schema，再根据用户问题
 
 ## 7. 输出结果
 
-原项目 README 展示了“查询所有员工信息”和“查询 IT 部门员工平均工资”等示例截图。代码中的输出结果为命令行文本表格。当前作品集不声明已接入企业生产数据库，也不展示未授权数据。
+已有工程文档展示了“查询所有员工信息”和“查询 IT 部门员工平均工资”等示例截图。代码中的输出结果为命令行文本表格。当前作品集不声明已接入企业生产数据库，也不展示未授权数据。
 
 ## 8. 评估方式
 

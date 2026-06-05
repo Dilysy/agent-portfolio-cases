@@ -1,10 +1,10 @@
-# 自然语言数据库查询 Agent 本地复现步骤
+# 自然语言数据库查询 Agent 本地化运行验证步骤
 
 ## 环境准备
 
 - Python 3.10+
 - Oracle 数据库或可用的 Oracle 测试环境
-- 本地参考目录：`~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent`
+- 工程目录：`~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent`
 
 ## 依赖安装
 
@@ -13,7 +13,7 @@ cd ~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent
 pip install -r requirements.txt
 ```
 
-主要依赖包括 HelloAgents、LLM 相关库、`oracledb` 和 `python-dotenv`。
+主要依赖包括 Agent 编排框架、LLM 相关库、`oracledb` 和 `python-dotenv`。
 
 ## 配置说明
 

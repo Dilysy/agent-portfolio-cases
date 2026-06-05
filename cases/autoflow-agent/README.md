@@ -2,7 +2,7 @@
 
 ## 1. 项目背景
 
-本案例基于 `~/Documents/hello-agents/Co-creation-projects/usernamedadad-AutoFlow` 复现和改造整理。原项目是一个前后端分离的智能流程图生成工具，目标是把自然语言想法、计划或 Mermaid 代码转换为可预览、可导出的 Mermaid 流程图。
+本案例围绕流程图生成场景进行前后端分离的 Agent 应用工程化实现，目标是把自然语言想法、计划或 Mermaid 代码转换为可预览、可导出的 Mermaid 流程图。
 
 ## 2. 业务问题
 
@@ -17,7 +17,7 @@
 - 后端使用 FastAPI，包含 `/api/plan` 和 `/api/agent/chat/stream` 路由。
 - `MermaidAgentService` 负责流式状态输出，执行生成、校验和返回结果。
 - `MermaidPipeline` 负责标准模式的提示词优化、代码生成、修复和后置校验。
-- `build_agent` 使用 HelloAgents `SimpleAgent`，注册 `MermaidValidatorTool`，要求先校验、必要时修复，再输出 Mermaid 代码。
+- `build_agent` 使用工具调用 Agent，注册 `MermaidValidatorTool`，要求先校验、必要时修复，再输出 Mermaid 代码。
 - 前端使用 React + Vite + Mermaid，负责模式切换、聊天输入、预览渲染和导出。
 
 ## 5. 工具调用
@@ -38,7 +38,7 @@
 
 ## 7. 输出结果
 
-输出为 Mermaid 代码和前端 SVG 预览。本作品集已整理 AutoFlow 四模式截图，并完成一版 72 秒字幕版演示视频，用于展示本地复现、LLM 接入、四模式验证、实时预览和导出能力。
+输出为 Mermaid 代码和前端 SVG 预览。本作品集已整理 AutoFlow 四模式截图，并完成一版 72 秒字幕版演示视频，用于展示 LLM 接入、四模式验证、本地化运行验证、实时预览和导出能力。
 
 ## 演示材料
 

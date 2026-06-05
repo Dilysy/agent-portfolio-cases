@@ -2,9 +2,9 @@
 
 ## 示例输入
 
-- 参考项目一：`alexrunner-DataAnalysisAgent`
+- 工程入口一：`alexrunner-DataAnalysisAgent`
 - 数据文件：`data/shopping_behavior_updated.csv`
-- 参考项目二：`1zrj-DataAnalysisAgent`
+- 工程入口二：`1zrj-DataAnalysisAgent`
 - 数据文件：`data/simple_data.xls`
 - 分析目标：从样例购物行为或 CPI 表格中生成结构化分析报告和图表。
 
@@ -40,7 +40,7 @@
 
 - `alexrunner` 的分析工具与 `shopping_behavior_updated.csv` 强绑定，泛化到其他数据集需要改造。
 - `1zrj` 项目主要通过 Notebook 演示，工程化入口较弱。
-- 原项目未提供完整自动化评估基准。
+- 当前工程未提供完整自动化评估基准。
 
 ## 可改进方向
 

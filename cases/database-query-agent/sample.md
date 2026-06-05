@@ -2,7 +2,7 @@
 
 ## 示例输入
 
-- 参考项目：`939147533-DatabaseAgent`
+- 工程入口：`939147533-DatabaseAgent`
 - 数据库：Oracle 测试库
 - 测试数据：`setup_database.sql`
 - 示例问题：
@@ -14,7 +14,7 @@
 ## 执行过程
 
 1. 运行 `python main.py`。
-2. 主程序加载 `.env`，初始化 `HelloAgentsLLM` 和 `DatabaseConfig`。
+2. 主程序加载 `.env`，初始化 LLM 客户端和 `DatabaseConfig`。
 3. `DatabaseAgent` 注册 `GetSchema`、`GenerateSQL`、`ExecuteQuery`。
 4. 用户输入自然语言查询。
 5. Agent 按 ReAct 格式输出思考和行动。

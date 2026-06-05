@@ -9,8 +9,24 @@
 | 抽帧复核 | 已完成 | `assets/reports/autoflow-agent/frame-preview-index.md` 记录了原始视频抽帧判断和建议剪辑时间段。 |
 | Mermaid 示例 | 已完成 | `assets/reports/autoflow-agent/` 下保留四模式 Mermaid 记录和测试总表。 |
 
+## 智能竞品分析 Agent
+
+| 材料 | 当前状态 | 说明 |
+| --- | --- | --- |
+| README | 已完成 | `cases/competitor-analysis-agent/README.md` 已整理项目定位、Agent 设计、工具调用、输出结果、评估方式和演示材料。 |
+| runbook | 已完成 | `cases/competitor-analysis-agent/runbook.md` 已记录正确运行目录、虚拟环境、依赖安装、模型配置、Tavily 配置、运行入口和已知问题。 |
+| sample | 已完成 | `cases/competitor-analysis-agent/sample.md` 已记录实际演示任务、执行过程、工具调用、输出结果和演示材料路径。 |
+| 运行验证 | 已完成 | LLM 与 Tavily 均已调用成功，真实运行记录见 `assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md`。 |
+| 输出报告 | 已完成 | 已生成真实竞品分析报告 `assets/reports/competitor-analysis-agent/competitor-analysis-report.md`。 |
+| HTML 预览 | 已完成 | 已生成报告预览页 `assets/reports/competitor-analysis-agent/report-preview.html`。 |
+| 原始录屏 | 已完成 | 桌面原始录屏已扫描并记录到 `assets/reports/competitor-analysis-agent/raw-assets-inventory.md`；标准 raw 归档目录当前待补充。 |
+| 演示视频 | 已完成 | 已完成字幕版演示视频 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。 |
+| 环境变量样例 | 已完成 | `cases/competitor-analysis-agent/.env.example` 仅包含占位符，不包含真实密钥。 |
+
+当前状态：已完成。
+
 ## 复核要求
 
 - 截图和录屏素材进入作品集前，必须检查页面中是否出现 API Key、账号、微信、邮箱、桌面隐私或浏览器私人页面。
-- 当前正式演示视频只作为开源项目本地复现和改造案例展示，不写成真实客户交付项目。
+- 当前正式演示视频只作为工程化演示和本地化运行验证案例展示，不写成真实客户交付项目。
 - 废弃目录中的素材仅用于临时追溯，不进入正式作品集展示。

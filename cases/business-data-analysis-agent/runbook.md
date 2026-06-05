@@ -1,10 +1,10 @@
-# 企业经营数据分析 Agent 本地复现步骤
+# 企业经营数据分析 Agent 本地化运行验证步骤
 
 ## 环境准备
 
 - Python 3.10+
 - Jupyter Lab 或 Notebook
-- 本地参考目录：
+- 工程目录：
   - `~/Documents/hello-agents/Co-creation-projects/alexrunner-DataAnalysisAgent`
   - `~/Documents/hello-agents/Co-creation-projects/1zrj-DataAnalysisAgent`
 
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-配置 `OPENAI_API_KEY` 或 HelloAgents 支持的兼容模型服务。
+配置 `OPENAI_API_KEY` 或兼容模型服务。
 
 `1zrj` 项目支持 `.env` 配置，也可在 Notebook 中设置 `LLM_MODEL_ID`、`LLM_API_KEY`、`LLM_BASE_URL`。
 

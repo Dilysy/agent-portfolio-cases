@@ -1,53 +1,98 @@
 # 智能竞品分析 Agent 示例运行记录
 
-## 示例输入
+## 1. 示例输入
 
-- 参考项目：`czxgg0630-ProductAnalysisAgent`
-- 运行入口：`ProductAnalysis_PlanSolveAgent.ipynb`
-- 示例任务：分析盒马、叮咚买菜、盒马会员商店三类生鲜零售相关品牌
-- 输出路径：`outputs/demo_result_20260409_142128.md`
+```text
+请分析 Notion、飞书文档、语雀在团队知识管理场景下的差异，输出竞品对比表、优劣势分析和销售切入建议。
+```
 
-## 执行过程
+示例场景：产品或销售团队希望快速了解三类团队知识管理工具的定位差异、协作能力、知识库能力和销售切入点，为后续方案准备提供初步材料。
 
-1. 初始化 `HelloAgentsLLM` 和 `PlanAndSolveAgent`。
-2. Agent 生成分析计划，包含竞品名称确认、逐个搜索、对比分析和报告生成。
-3. 调用 `CompetitiveInfoSearchTool` 检索公开信息。
-4. 使用 `DataProcessorTool v2.0` 抽取产品定位、功能、定价、优势、劣势等字段。
-5. 使用 `ReportGeneratorTool v2.0` 生成 Markdown 报告。
-6. 将报告保存到 `outputs/demo_result_*.md`。
+## 2. 执行过程
 
-## 工具调用记录
+本阶段已尝试运行 PlanSolve Notebook 的 Plan-and-Solve 逻辑。Notebook 原生命令行执行仍有导入兼容问题，因此本次真实验证采用临时本地验证脚本完成 LLM + Tavily 联动。以下为本次实际验证过程：
 
-| 步骤 | 工具 | 输入 | 输出 |
-| --- | --- | --- | --- |
-| 1 | PlanAndSolveAgent | 竞品分析任务 | 分步骤执行计划 |
-| 2 | CompetitiveInfoSearchTool | 产品名 + 功能/定价/优缺点关键词 | Tavily 搜索结果或失败反馈 |
-| 3 | DataProcessorTool | 搜索文本 | 结构化产品字段 |
-| 4 | ReportGeneratorTool | 结构化字段列表 | Markdown 竞品报告 |
+1. 检查系统默认 Python，发现为 Python 3.8.7，低于项目要求。
+2. 使用 Python 3.12.13 创建 `.venv`。
+3. 按 `requirements.txt` 安装依赖，主依赖安装完成。
+4. 检查 PlanSolve Notebook，确认推荐入口是 `ProductAnalysis_PlanSolveAgent.ipynb`。
+5. 发现当前安装包中可用类名为 `PlanSolveAgent`，Notebook 中的 `PlanAndSolveAgent` 需要兼容调整。
+6. 发现当前安装包未提供 Notebook 引用的内置 `SearchTool` 模块，因此改用 `tavily-python` 做搜索烟测。
+7. 安装 `notebook`、`nbconvert`、`ipykernel`，并注册 `competitor-analysis-agent` kernel。
+8. 使用 `nbconvert` 执行 `ProductAnalysis_PlanSolveAgent.ipynb`，在导入 `hello_agents.tools.builtin.search_tool.SearchTool` 时失败。
+9. 使用临时本地验证脚本运行 Notion / 飞书文档 / 语雀任务。
+10. Tavily 搜索调用成功，获取到 Notion、飞书文档、语雀相关公开信息。
+11. LLM 调用成功，基于搜索结果生成 Markdown 竞品分析报告。
+12. 真实运行结果已写入 `assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md` 和 `assets/reports/competitor-analysis-agent/competitor-analysis-report.md`。
 
-## 示例输出
+## 3. 工具调用记录
 
-示例报告包含以下模块：
+| 步骤 | 工具 | 输入 | 输出 | 说明 |
+| --- | --- | --- | --- | --- |
+| 1 | Tavily 搜索 | Notion / 飞书文档 / 语雀相关查询 | 成功获取公开信息 | 共获取 15 条搜索结果。 |
+| 2 | LLM 调用 | 搜索结果 + 竞品分析任务 | 成功生成 Markdown 报告 | 报告包含定位对比、功能对比、知识库能力、价格模式、优劣势和销售切入建议。 |
+| 3 | 临时本地验证脚本 | Tavily 结果 + LLM 输出 | 写入运行记录和报告文件 | 用于规避 Notebook 搜索工具导入不兼容问题。 |
+| 4 | 人工复核 | 真实运行报告 | 待复核 | 正式展示前需核对来源、价格、功能和建议口径。 |
 
-- 报告摘要
-- 竞品基本信息回顾
-- 核心特性对比表
-- 盒马、叮咚买菜、盒马会员商店的 SWOT 分析
-- 针对各品牌的策略建议
+## 4. 示例输出
 
-## 人工复核结论
+已整理本次真实运行输出：
 
-需要人工复核公司归属、配送时效、SKU 数量、定价和策略建议是否有可靠来源支持。报告中的建议属于分析草案，不能写成真实咨询交付结论。
+- [competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
+- [competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
 
-## 当前不足
+真实竞品分析报告包含：
 
-- 搜索依赖 Tavily 和网络状态，存在超时或限流风险。
-- SimpleAgent 版本中的数据处理和报告工具曾是 PoC 占位，需要避免引用为完整能力。
-- PlanSolve 版本的结构化抽取以规则和正则为主，对复杂网页文本的泛化能力有限。
+1. 分析目标
+2. 竞品对象
+3. 信息来源说明
+4. 产品定位对比
+5. 核心功能对比
+6. 协作能力对比
+7. 知识库能力对比
+8. 价格与商业模式对比
+9. 优势与短板分析
+10. 销售切入建议
+11. 人工复核说明
+12. 后续可扩展方向
 
-## 可改进方向
+`competitor-analysis-report.md` 为本次真实运行生成的 Markdown 报告，正式展示前仍需人工复核来源、价格和功能口径。`competitor-analysis-run-result.md` 记录了搜索来源、运行入口和 Notebook 兼容性说明。HTML 预览页已生成到 `assets/reports/competitor-analysis-agent/report-preview.html`，字幕版演示视频已生成到 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。
 
-- 增加来源链接和引用编号。
-- 增加缓存与重试。
-- 增加事实冲突检测和人工复核表。
-- 将报告生成改为模板化渲染，减少模型自由发挥。
+## 5. 人工复核结论
+
+当前结论：
+
+- 文档结构适合作为竞品分析 Agent 的作品集样例。
+- 报告样例可以展示“输入任务 → 分析维度 → 对比表 → 建议”的输出形态。
+- 本次已成功调用 Tavily 搜索工具，并获取公开信息。
+- 本次已成功调用 LLM，并生成真实联网竞品分析报告。
+- 虚拟环境、依赖安装、Jupyter kernel 注册已经完成。
+- 原始 Notebook 仍存在搜索工具导入不兼容问题，因此本次真实运行使用临时本地验证脚本完成。
+- 正式对外展示前，需要人工核对 Notion、飞书文档、语雀官网、帮助中心、价格页和公开资料。
+
+## 6. 当前不足
+
+1. 原始 Notebook 不能直接通过 `nbconvert` 执行，需要修复搜索工具导入路径。
+2. 搜索来源已归档，但部分来源为第三方文章，正式展示前需要优先复核官网和价格页。
+3. 价格与套餐信息变化较快，需要正式展示前重新核对。
+4. 当前没有前端界面，后续录屏可能需要展示 VS Code 中的运行记录和报告文件，或改造轻量演示入口。
+5. SimpleAgent 版本工具链存在 PoC 占位，展示时应优先使用真实运行报告或兼容后的 PlanSolve 版本。
+6. 当前字幕版演示视频展示的是报告预览页和结果链路，不展示 Notebook 原生执行过程。
+
+## 7. 可改进方向
+
+1. 接入真实搜索后，将来源链接写入报告脚注。
+2. 增加“事实复核表”，标注每个结论的来源和可信度。
+3. 将 `DataProcessorTool` 升级为 JSON Schema 约束的 LLM 结构化抽取。
+4. 增加缓存和重试，降低 Tavily 或 LLM 超时影响。
+5. 后续可修复 Notebook 原生导入兼容问题，录制更完整的执行过程。
+6. 后续可补充配音版或更短版本，但当前字幕版视频已满足作品集演示需要。
+
+## 8. 演示材料路径
+
+- 真实竞品分析报告：[competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
+- 运行验证记录：[competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
+- HTML 预览页：`assets/reports/competitor-analysis-agent/report-preview.html`
+- 字幕版演示视频：`assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`
+- 原始录屏标准归档目录：`assets/demos/competitor-analysis-agent/raw/`，当前待补充；本次桌面原始录屏路径为 `/Users/wangyu/Desktop/案例视频录制/智能竞品分析 Agent /智能竞品.mov`。
+- 输出样例：`~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent/outputs/demo_result_*.md`

@@ -2,7 +2,7 @@
 
 ## 1. 项目背景
 
-本案例基于两个本地开源项目复现和改造整理：`alexrunner-DataAnalysisAgent` 和 `1zrj-DataAnalysisAgent`。前者面向商品销售数据，采用 Plan-and-Solve + ReAct 多智能体流水线；后者使用 SimpleAgent 和 Notebook 对 Excel 表格做清洗、统计、ECharts 可视化和 Markdown 报告生成。
+本案例围绕企业经营表格分析场景进行工程化封装和流程编排整理，包含两类实现形态：一类面向商品销售数据，采用 Plan-and-Solve + ReAct 多智能体流水线；另一类使用 Notebook 对 Excel 表格做清洗、统计、ECharts 可视化和 Markdown 报告生成。
 
 ## 2. 业务问题
 
