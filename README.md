@@ -9,7 +9,7 @@
 | 案例 | 实现形态 | 解决的问题 | Agent 与工具设计 | 当前产出 |
 | --- | --- | --- | --- | --- |
 | [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | Notebook 多工具分析链路 | 竞品信息收集慢、对比维度不统一、报告整理成本高 | 快速工具调用 Agent 与 Plan-and-Solve；Tavily Search、结构化解析、Markdown 报告生成 | 已完成本地运行验证、真实竞品报告、HTML 预览和字幕版演示视频 |
-| [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | Python 主程序 + Notebook 分析链路 | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；表格清洗与统计；pandas、matplotlib、ECharts | Markdown 报告、图表路径、Notebook 和 Python 主程序 |
+| [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | Python 主程序 + Notebook 分析链路 | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；表格清洗与统计；pandas、matplotlib、ECharts | 已完成模拟销售数据、图表、经营分析报告和字幕版演示视频 |
 | [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | FastAPI + React/Vite 产品化界面 | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | 流程图生成 Agent；Validator 校验与修复；SSE 流式返回 | 已完成字幕版演示视频、四模式截图、实时预览、`.mmd`/SVG 导出 |
 | [自动化深度研究 Agent](cases/deep-research-agent/README.md) | FastAPI + Vue + SSE 研究工作流方案 | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、Task Summarizer、Report Writer；SearchTool、NoteTool；流式进度返回 | 架构方案、流程说明、可运行验证方向 |
 | [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 命令行交互、测试 SQL 脚本、查询结果表格化输出 |
@@ -34,7 +34,11 @@
 
 ### 企业经营数据分析 Agent
 
-该案例融合两个数据分析项目：一个采用 Plan-and-Solve + ReAct，把数据探查、任务规划、任务执行和报告生成拆开；另一个使用 SimpleAgent 和 Notebook 完成 Excel 数据清洗、统计、ECharts 图表和 Markdown 报告生成。作品集版本重点展示“从表格到报告”的自动化链路，而不是声称接入真实企业数据。
+该案例融合两个数据分析项目：一个采用 Plan-and-Solve + ReAct，把数据探查、任务规划、任务执行和报告生成拆开；另一个使用 SimpleAgent 和 Notebook 完成 Excel 数据清洗、统计、ECharts 图表和 Markdown 报告生成。企业经营数据分析 Agent 已完成模拟销售数据分析演示，支持销售趋势、地区表现、商品类别贡献、客户类型差异和经营建议输出。
+
+- 演示视频：[business-data-analysis-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4)
+- 经营分析报告：[business-data-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/business-data-analysis-agent/business-data-analysis-report.md)
+- 关键图表：[01-sales-trend.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png)、[02-region-comparison.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png)、[03-category-contribution.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png)、[04-customer-type-analysis.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png)
 
 ### AutoFlow 流程图生成 Agent
 
@@ -47,10 +51,11 @@
 
 - AutoFlow：已完成字幕版演示视频 `assets/demos/autoflow-agent/autoflow-agent-demo.mp4`，并整理四模式截图到 `assets/screenshots/autoflow-agent/raw/`。
 - 智能竞品分析 Agent：已完成字幕版演示视频 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`，并整理真实运行报告与 HTML 预览到 `assets/reports/competitor-analysis-agent/`。
-- 截图：其他案例仍需继续整理正式展示截图。
+- 企业经营数据分析 Agent：已完成字幕版演示视频 `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`，并整理模拟销售数据、4 张图表和经营分析报告到 `assets/reports/business-data-analysis-agent/` 与 `assets/screenshots/business-data-analysis-agent/`。
+- 截图：其余案例仍需继续整理正式展示截图。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
-- 录屏或交互演示：AutoFlow 和智能竞品分析 Agent 已完成，其他案例仍需补充。
-- 报告样例：AutoFlow 和智能竞品分析 Agent 已补充，其他案例后续继续整理到 `assets/reports/`。
+- 录屏或交互演示：AutoFlow、智能竞品分析 Agent 和企业经营数据分析 Agent 已完成，其他案例仍需补充。
+- 报告样例：AutoFlow、智能竞品分析 Agent 和企业经营数据分析 Agent 已补充，其他案例后续继续整理到 `assets/reports/`。
 
 以上材料在生成和整理前均不写成已完成交付。
 
