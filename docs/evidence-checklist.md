@@ -42,6 +42,29 @@
 
 当前状态：已完成。
 
+## 自动化深度研究 Agent
+
+| 材料 | 当前状态 | 说明 |
+| --- | --- | --- |
+| README | 已完成 | `cases/deep-research-agent/README.md` 已更新为完整工程复现和演示材料口径。 |
+| runbook | 已完成 | `cases/deep-research-agent/runbook.md` 已记录环境配置、启动方式、搜索 Provider、SSE 验证和修复记录。 |
+| sample | 已完成 | `cases/deep-research-agent/sample.md` 已记录实际演示主题、任务拆解、搜索来源、任务总结和报告结果。 |
+| 完整工程复现 | 已完成 | 已找到并验证 `~/Documents/hello-agents/code/chapter14/helloagents-deepresearch`，包含 `backend/` 和 `frontend/`。 |
+| LLM 接入 | 已完成 | 已验证 TODO Planner、Task Summarizer 和 Report Writer 的 LLM 调用链路。 |
+| 搜索工具接入 | 已完成 | 已验证 Tavily SearchTool 返回公开来源。 |
+| SSE 流式返回 | 已完成 | `/research/stream` 已返回 status、todo_list、sources、task_summary_chunk、final_report 和 done。 |
+| TODO Planner | 已完成 | 已生成研究任务拆解。 |
+| SearchTool | 已完成 | 已返回搜索来源并进入前端来源区域。 |
+| NoteTool | 已完成 | 已创建和更新任务笔记。 |
+| Task Summarizer | 已完成 | 已生成阶段性任务总结。 |
+| Report Writer | 已完成 | 已生成最终研究报告。 |
+| 原始录屏 | 已完成 | 已归档 `assets/demos/deep-research-agent/raw/deep-research-agent-raw-demo.mov`。 |
+| 关键截图 | 已完成 | 已归档 `01-topic-input.png`、`03-search-sources.png`、`04-task-summary.png`、`05-final-report.png`；`02` 和 `06` 独立截图待补充。 |
+| 演示视频 | 已完成 | 已生成 `assets/demos/deep-research-agent/deep-research-agent-demo.mp4`。 |
+| 最终研究报告 | 已完成 | 已生成 `assets/reports/deep-research-agent/deep-research-report.md`。 |
+
+当前状态：已完成。
+
 ## 复核要求
 
 - 截图和录屏素材进入作品集前，必须检查页面中是否出现 API Key、账号、微信、邮箱、桌面隐私或浏览器私人页面。

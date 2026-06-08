@@ -11,7 +11,7 @@
 | [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | Notebook 多工具分析链路 | 竞品信息收集慢、对比维度不统一、报告整理成本高 | 快速工具调用 Agent 与 Plan-and-Solve；Tavily Search、结构化解析、Markdown 报告生成 | 已完成本地运行验证、真实竞品报告、HTML 预览和字幕版演示视频 |
 | [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | Python 主程序 + Notebook 分析链路 | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；表格清洗与统计；pandas、matplotlib、ECharts | 已完成模拟销售数据、图表、经营分析报告和字幕版演示视频 |
 | [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | FastAPI + React/Vite 产品化界面 | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | 流程图生成 Agent；Validator 校验与修复；SSE 流式返回 | 已完成字幕版演示视频、四模式截图、实时预览、`.mmd`/SVG 导出 |
-| [自动化深度研究 Agent](cases/deep-research-agent/README.md) | FastAPI + Vue + SSE 研究工作流方案 | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、Task Summarizer、Report Writer；SearchTool、NoteTool；流式进度返回 | 架构方案、流程说明、可运行验证方向 |
+| [自动化深度研究 Agent](cases/deep-research-agent/README.md) | FastAPI + Vue + SSE 研究工作流 | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、SearchTool、NoteTool、Task Summarizer、Report Writer；SSE 流式返回 | 已完成完整工程复现、真实运行验证、最终研究报告和演示视频 |
 | [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 命令行交互、测试 SQL 脚本、查询结果表格化输出 |
 
 ## 技术能力地图
@@ -47,15 +47,24 @@
 - 演示视频：[autoflow-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/autoflow-agent/autoflow-agent-demo.mp4)
 - 关键截图：[standard-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/standard-mode.png)、[inspiration-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/inspiration-mode.png)、[plan-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/plan-mode.png)、[code-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/code-mode.png)
 
+### 自动化深度研究 Agent
+
+自动化深度研究 Agent 已完成完整工程复现，支持输入开放式研究主题，自动完成任务拆解、搜索来源获取、阶段总结和最终研究报告生成。该案例验证了 FastAPI 后端、Vue 3 前端、HelloAgents 多阶段 Agent、Tavily 搜索、NoteTool 记录和 `/research/stream` SSE 流式返回链路。
+
+- 演示视频：[deep-research-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/deep-research-agent/deep-research-agent-demo.mp4)
+- 最终研究报告：[deep-research-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/deep-research-agent/deep-research-report.md)
+- 关键截图：[01-topic-input.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/01-topic-input.png)、[03-search-sources.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/03-search-sources.png)、[04-task-summary.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/04-task-summary.png)、[05-final-report.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/05-final-report.png)
+
 ## 演示材料
 
 - AutoFlow：已完成字幕版演示视频 `assets/demos/autoflow-agent/autoflow-agent-demo.mp4`，并整理四模式截图到 `assets/screenshots/autoflow-agent/raw/`。
 - 智能竞品分析 Agent：已完成字幕版演示视频 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`，并整理真实运行报告与 HTML 预览到 `assets/reports/competitor-analysis-agent/`。
 - 企业经营数据分析 Agent：已完成字幕版演示视频 `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`，并整理模拟销售数据、4 张图表和经营分析报告到 `assets/reports/business-data-analysis-agent/` 与 `assets/screenshots/business-data-analysis-agent/`。
-- 截图：其余案例仍需继续整理正式展示截图。
+- 自动化深度研究 Agent：已完成演示视频 `assets/demos/deep-research-agent/deep-research-agent-demo.mp4`，并整理原始录屏、关键截图、最终研究报告、素材清单和抽帧索引。
+- 截图：自然语言数据库查询 Agent 仍需继续整理正式展示截图。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
-- 录屏或交互演示：AutoFlow、智能竞品分析 Agent 和企业经营数据分析 Agent 已完成，其他案例仍需补充。
-- 报告样例：AutoFlow、智能竞品分析 Agent 和企业经营数据分析 Agent 已补充，其他案例后续继续整理到 `assets/reports/`。
+- 录屏或交互演示：AutoFlow、智能竞品分析 Agent、企业经营数据分析 Agent 和自动化深度研究 Agent 已完成，自然语言数据库查询 Agent 仍需补充。
+- 报告样例：AutoFlow、智能竞品分析 Agent、企业经营数据分析 Agent 和自动化深度研究 Agent 已补充，自然语言数据库查询 Agent 后续继续整理到 `assets/reports/`。
 
 以上材料在生成和整理前均不写成已完成交付。
 
