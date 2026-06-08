@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自然语言数据库查询 Agent 报告预览</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #667085;
+      --line: #d9e0ea;
+      --accent: #2563eb;
+      --soft: #eef4ff;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+    }
+    .hero {
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .card.full {
+      grid-column: 1 / -1;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+    .badge {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    pre {
+      overflow: auto;
+      margin: 0;
+      padding: 14px;
+      border-radius: 8px;
+      background: #101828;
+      color: #f8fafc;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f2f5f9;
+      font-weight: 700;
+    }
+    td.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .note {
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      color: #344054;
+      border-radius: 6px;
+    }
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .page {
+        padding: 24px 14px 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>自然语言数据库查询 Agent</h1>
+      <p class="subtitle">本地演示 Schema / 自然语言转 SQL / 查询结果解释 / 安全控制说明</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <span class="badge">自然语言问题</span>
+        <h2>业务查询输入</h2>
+        <p>查询 2025 年各地区销售额排名前 5 的地区，并返回销售额和订单数。</p>
+        <div class="note">当前页面使用模拟销售业务 Schema，不连接真实企业数据库，不代表真实客户交付结果。</div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Schema 示例</span>
+        <h2>核心表结构</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>表名</th>
+              <th>用途</th>
+              <th>关键字段</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>orders</td>
+              <td>订单事实表</td>
+              <td>order_date, region, customer_type, product_category, sales_amount, order_count, gross_margin</td>
+            </tr>
+            <tr>
+              <td>customers</td>
+              <td>客户维表</td>
+              <td>customer_id, customer_type, region, industry</td>
+            </tr>
+            <tr>
+              <td>products</td>
+              <td>商品维表</td>
+              <td>product_id, product_name, product_category, price</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card full">
+        <span class="badge">生成 SQL</span>
+        <h2>Oracle 兼容 SQL 示例</h2>
+        <pre><code>SELECT
+  region,
+  SUM(sales_amount) AS total_sales,
+  SUM(order_count) AS total_orders
+FROM orders
+WHERE order_date &gt;= DATE '2025-01-01'
+  AND order_date &lt; DATE '2026-01-01'
+GROUP BY region
+ORDER BY total_sales DESC
+FETCH FIRST 5 ROWS ONLY;</code></pre>
+      </article>
+
+      <article class="card">
+        <span class="badge">查询结果</span>
+        <h2>结果表格</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>地区</th>
+              <th>销售额</th>
+              <th>订单数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>华东</td>
+              <td class="num">1,284,600</td>
+              <td class="num">1,248</td>
+            </tr>
+            <tr>
+              <td>华南</td>
+              <td class="num">1,063,800</td>
+              <td class="num">1,016</td>
+            </tr>
+            <tr>
+              <td>华北</td>
+              <td class="num">936,200</td>
+              <td class="num">884</td>
+            </tr>
+            <tr>
+              <td>西南</td>
+              <td class="num">742,500</td>
+              <td class="num">691</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card">
+        <span class="badge">结果解释</span>
+        <h2>业务含义</h2>
+        <p>华东地区销售额和订单数均最高，说明该区域市场基础更强；华南具备继续增长空间；西南销售规模相对较低，后续可结合客户类型和商品类别进一步分析。</p>
+      </article>
+
+      <article class="card full">
+        <span class="badge">安全控制</span>
+        <h2>企业落地必须补充的控制项</h2>
+        <ul>
+          <li>使用只读数据库账号，禁止使用管理员账号演示或上线。</li>
+          <li>建立 SQL 白名单，禁止 DROP、DELETE、UPDATE、INSERT 等危险语句。</li>
+          <li>增加查询行数限制、查询超时限制和 SQL 执行前确认机制。</li>
+          <li>对敏感字段脱敏，建立表级和字段级权限控制。</li>
+          <li>记录查询审计日志，包括用户、问题、SQL、时间和结果行数。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

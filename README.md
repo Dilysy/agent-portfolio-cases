@@ -12,7 +12,7 @@
 | [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | Python 主程序 + Notebook 分析链路 | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；表格清洗与统计；pandas、matplotlib、ECharts | 已完成模拟销售数据、图表、经营分析报告和字幕版演示视频 |
 | [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | FastAPI + React/Vite 产品化界面 | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | 流程图生成 Agent；Validator 校验与修复；SSE 流式返回 | 已完成字幕版演示视频、四模式截图、实时预览、`.mmd`/SVG 导出 |
 | [自动化深度研究 Agent](cases/deep-research-agent/README.md) | FastAPI + Vue + SSE 研究工作流 | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、SearchTool、NoteTool、Task Summarizer、Report Writer；SSE 流式返回 | 已完成完整工程复现、真实运行验证、最终研究报告和演示视频 |
-| [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 命令行交互、测试 SQL 脚本、查询结果表格化输出 |
+| [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 + 本地演示 Schema | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 已完成文档、模拟 Schema、SQL 示例、HTML 预览、关键截图和演示视频 |
 
 ## 技术能力地图
 
@@ -55,16 +55,25 @@
 - 最终研究报告：[deep-research-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/deep-research-agent/deep-research-report.md)
 - 关键截图：[01-topic-input.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/01-topic-input.png)、[03-search-sources.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/03-search-sources.png)、[04-task-summary.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/04-task-summary.png)、[05-final-report.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/05-final-report.png)
 
+### 自然语言数据库查询 Agent
+
+自然语言数据库查询 Agent 已完成本地演示流程，支持从业务自然语言问题到 SQL 生成、查询结果展示和安全控制说明的完整链路。当前版本使用本地模拟销售业务 Schema，不是真实企业数据库；原项目依赖 Oracle 环境，作品集版本用于展示 Text-to-SQL 流程和企业落地安全控制要求。
+
+- 演示视频：[database-query-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/database-query-agent/database-query-agent-demo.mp4)
+- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/database-query-agent/report-preview.html)
+- SQL 示例：[database-query-sql-example.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/database-query-agent/database-query-sql-example.md)
+- 关键截图：[01-natural-language-question.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/01-natural-language-question.png)、[02-schema-example.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/02-schema-example.png)、[03-generated-sql.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/03-generated-sql.png)、[04-query-result-security.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/04-query-result-security.png)
+
 ## 演示材料
 
 - AutoFlow：已完成字幕版演示视频 `assets/demos/autoflow-agent/autoflow-agent-demo.mp4`，并整理四模式截图到 `assets/screenshots/autoflow-agent/raw/`。
 - 智能竞品分析 Agent：已完成字幕版演示视频 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`，并整理真实运行报告与 HTML 预览到 `assets/reports/competitor-analysis-agent/`。
 - 企业经营数据分析 Agent：已完成字幕版演示视频 `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`，并整理模拟销售数据、4 张图表和经营分析报告到 `assets/reports/business-data-analysis-agent/` 与 `assets/screenshots/business-data-analysis-agent/`。
 - 自动化深度研究 Agent：已完成演示视频 `assets/demos/deep-research-agent/deep-research-agent-demo.mp4`，并整理原始录屏、关键截图、最终研究报告、素材清单和抽帧索引。
-- 截图：自然语言数据库查询 Agent 仍需继续整理正式展示截图。
+- 自然语言数据库查询 Agent：已完成演示视频 `assets/demos/database-query-agent/database-query-agent-demo.mp4`，并整理原始录屏、4 张关键截图、模拟 Schema、SQL 示例、查询结果样例和 HTML 预览。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
-- 录屏或交互演示：AutoFlow、智能竞品分析 Agent、企业经营数据分析 Agent 和自动化深度研究 Agent 已完成，自然语言数据库查询 Agent 仍需补充。
-- 报告样例：AutoFlow、智能竞品分析 Agent、企业经营数据分析 Agent 和自动化深度研究 Agent 已补充，自然语言数据库查询 Agent 后续继续整理到 `assets/reports/`。
+- 录屏或交互演示：5 个主案例均已完成第一版演示视频。
+- 报告样例：5 个主案例均已补充到对应 `assets/reports/` 目录。
 
 以上材料在生成和整理前均不写成已完成交付。
 

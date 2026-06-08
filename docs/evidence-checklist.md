@@ -65,6 +65,26 @@
 
 当前状态：已完成。
 
+## 自然语言数据库查询 Agent
+
+| 材料 | 当前状态 | 说明 |
+| --- | --- | --- |
+| README | 已完成 | `cases/database-query-agent/README.md` 已整理项目定位、Agent 设计、工具调用、安全控制、输出结果和演示材料。 |
+| runbook | 已完成 | `cases/database-query-agent/runbook.md` 已记录原项目结构、Oracle 依赖、环境变量、启动方式、当前本地化运行验证状态和安全注意事项。 |
+| sample | 已完成 | `cases/database-query-agent/sample.md` 已记录自然语言输入、Schema 示例、SQL 生成过程、查询结果和人工复核结论。 |
+| Schema 示例 | 已完成 | 已生成 `assets/reports/database-query-agent/database-schema-example.md`。 |
+| SQL 示例 | 已完成 | 已生成 `assets/reports/database-query-agent/database-query-sql-example.md`，包含 5 个自然语言问题和对应 SQL。 |
+| 查询结果样例 | 已完成 | 已生成 `assets/reports/database-query-agent/database-query-result.md`，明确标注基于模拟数据逻辑。 |
+| 运行结果记录 | 已完成 | 已生成 `assets/reports/database-query-agent/database-query-run-result.md`。 |
+| HTML 预览页 | 已完成 | 已生成 `assets/reports/database-query-agent/report-preview.html`。 |
+| 原始录屏 | 已完成 | 已归档 `assets/demos/database-query-agent/raw/database-query-agent-raw-demo.mov`。 |
+| 关键截图 | 已完成 | 已归档自然语言问题、Schema 示例、SQL 生成、查询结果与安全控制 4 张截图。 |
+| 演示视频 | 已完成 | 已生成 `assets/demos/database-query-agent/database-query-agent-demo.mp4`。 |
+| 安全控制说明 | 已完成 | README、runbook、sample 和运行记录中均已说明只读账号、SQL 白名单、危险语句拦截、行数限制、审计日志和脱敏控制。 |
+| 原项目运行验证 | 待扩展 | 原项目依赖 Oracle 数据库和 LLM 配置，当前作品集版本采用模拟 Schema 展示 Text-to-SQL 流程。 |
+
+当前状态：已完成。
+
 ## 复核要求
 
 - 截图和录屏素材进入作品集前，必须检查页面中是否出现 API Key、账号、微信、邮箱、桌面隐私或浏览器私人页面。
