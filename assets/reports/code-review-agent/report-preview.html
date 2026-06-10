@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>代码审查 Agent - 真实报告预览</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #20242c;
+      --muted: #667085;
+      --line: #d8dee8;
+      --high: #b42318;
+      --medium: #b54708;
+      --low: #475467;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: #fff8e6;
+      border: 1px solid #f2d48a;
+      border-radius: 8px;
+      color: #664500;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .metric,
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .metric {
+      padding: 16px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    .metric span,
+    .footer {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    section {
+      padding: 22px;
+      margin-top: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #eef3f9;
+      color: #344054;
+      font-weight: 650;
+    }
+    code,
+    pre {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+    pre {
+      margin: 10px 0 0;
+      padding: 14px;
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .badge {
+      display: inline-block;
+      min-width: 44px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 650;
+      text-align: center;
+      border: 1px solid currentColor;
+    }
+    .high { color: var(--high); background: #fff1f0; }
+    .medium { color: var(--medium); background: #fff7ed; }
+    .low { color: var(--low); background: #f2f4f7; }
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+    li + li { margin-top: 6px; }
+    .footer { margin-top: 20px; }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 16px; }
+      table { font-size: 13px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>代码审查 Agent 真实报告预览</h1>
+      <p class="subtitle">围绕代码审查场景，完成代码理解、问题定位、风险分级、修复建议和审查报告生成流程。</p>
+      <div class="notice">本页面不是客户交付报告。原始 Agent 输出已保存到 <code>code-review-real-output.md</code>；正式使用时仍需人工复核。</div>
+    </header>
+
+    <div class="grid">
+      <div class="metric"><strong>7</strong><span>识别问题</span></div>
+      <div class="metric"><strong>1</strong><span>高风险项</span></div>
+      <div class="metric"><strong>已通过</strong><span>LLM 健康检查</span></div>
+    </div>
+
+    <section>
+      <h2>审查目标</h2>
+      <p>审查 <code>assets/reports/code-review-agent/code-review-sample.py</code> 中的 SQL 拼接风险、硬编码配置、异常处理、资源释放、重复逻辑和人工复核要求。</p>
+    </section>
+
+    <section>
+      <h2>运行说明</h2>
+      <p>真实代码审查调用链路已完成验证。由于直接将 <code>--repo</code> 指向作品集仓库会触发 prompts 路径限制，本次审查使用审查 Agent 的运行目录作为 Agent 根目录，并将待审查文件内容传入只读审查任务。</p>
+    </section>
+
+    <section>
+      <h2>问题清单</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>问题</th>
+            <th>风险等级</th>
+            <th>定位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CR-001</td><td>SQL 查询使用字符串拼接</td><td><span class="badge high">高</span></td><td><code>load_users()</code>、<code>load_user_detail()</code></td></tr>
+          <tr><td>CR-002</td><td>硬编码配置</td><td><span class="badge medium">中</span></td><td>模块级常量</td></tr>
+          <tr><td>CR-003</td><td>重复格式化逻辑</td><td><span class="badge medium">中</span></td><td><code>format_active_user()</code>、<code>format_inactive_user()</code></td></tr>
+          <tr><td>CR-004</td><td>文件写入未使用上下文管理器</td><td><span class="badge medium">中</span></td><td><code>export_users()</code></td></tr>
+          <tr><td>CR-005</td><td>异常捕获过宽</td><td><span class="badge medium">中</span></td><td><code>main()</code></td></tr>
+          <tr><td>CR-006</td><td>JSON 解析缺少异常处理</td><td><span class="badge low">低</span></td><td><code>parse_profile()</code></td></tr>
+          <tr><td>CR-007</td><td>数据库连接未使用上下文管理器</td><td><span class="badge low">低</span></td><td><code>connect_database()</code> 和调用处</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>风险等级</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>风险等级</th>
+            <th>数量</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge high">高</span></td><td>1</td><td>SQL 拼接风险应优先修复。</td></tr>
+          <tr><td><span class="badge medium">中</span></td><td>4</td><td>影响稳定性、可维护性和环境隔离。</td></tr>
+          <tr><td><span class="badge low">低</span></td><td>2</td><td>主要影响防御性编码和长期维护。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>修复建议</h2>
+      <ul>
+        <li>使用参数化查询替代 SQL 字符串拼接，并校验输入类型、范围和允许值。</li>
+        <li>从环境变量或配置文件读取数据库路径和环境名。</li>
+        <li>合并重复格式化函数，或使用 <code>sqlite3.Row</code> 按列名访问。</li>
+        <li>使用上下文管理器处理文件写入和数据库连接。</li>
+        <li>捕获具体异常，保留可复核错误信息。</li>
+        <li>为 JSON 解析增加异常处理和默认策略。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>修复方向片段</h2>
+      <pre><code>def load_users(status: str, limit: int) -> list[tuple]:
+    if status not in {"active", "inactive", "pending"}:
+        raise ValueError("unsupported status")
+    if not isinstance(limit, int) or limit < 1 or limit > 500:
+        raise ValueError("limit must be between 1 and 500")
+
+    query = """
+        SELECT id, name, email, status
+        FROM users
+        WHERE status = ?
+        LIMIT ?
+    """
+    with sqlite3.connect(DATABASE_PATH) as conn:
+        return conn.execute(query, (status, limit)).fetchall()</code></pre>
+    </section>
+
+    <section>
+      <h2>人工复核说明</h2>
+      <p>正式使用时需要确认 Agent 是否基于正确文件内容生成结论、风险等级是否与实际调用边界一致、是否存在误报或漏报、修复建议是否符合项目真实运行方式，并检查报告中是否包含敏感信息。</p>
+    </section>
+
+    <p class="footer">当前状态：已完成真实 LLM 调用验证、真实代码审查调用链路验证、Markdown 报告、HTML 预览页和中文字幕版最终演示视频。</p>
+  </main>
+</body>
+</html>

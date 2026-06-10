@@ -21,7 +21,7 @@
 | HTML 预览 | 已完成 | 已生成报告预览页 `assets/reports/competitor-analysis-agent/report-preview.html`。 |
 | 原始录屏 | 已完成 | 桌面原始录屏已扫描并记录到 `assets/reports/competitor-analysis-agent/raw-assets-inventory.md`；标准 raw 归档目录当前待补充。 |
 | 演示视频 | 已完成 | 已完成字幕版演示视频 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。 |
-| 环境变量样例 | 已完成 | `cases/competitor-analysis-agent/.env.example` 仅包含占位符，不包含真实密钥。 |
+| 配置样例 | 已完成 | 竞品分析案例保留本地配置占位示例，不包含真实密钥。 |
 
 当前状态：已完成。
 
@@ -85,8 +85,64 @@
 
 当前状态：已完成。
 
+## 金融研报 Agent
+
+| 材料 | 当前状态 | 说明 |
+| --- | --- | --- |
+| README | 已完成 | `cases/financial-report-agent/README.md` 已替换为 StockInsightAgent 口径，覆盖 Agent 设计、工具调用、风险边界、评估方式和演示材料。 |
+| runbook | 已完成 | `cases/financial-report-agent/runbook.md` 已记录 StockInsightAgent 代码结构、环境变量、CLI 入口、Gradio 前端入口和当前验证状态。 |
+| sample | 已完成 | `cases/financial-report-agent/sample.md` 已记录示例输入、预期执行过程、工具调用记录、样例结构和风险提示。 |
+| 运行入口梳理 | 已完成 | 已确认 `python main.py`、`python main.py "..."`、`python main.py -d`、`python main.py -r`、`python app.py` 和 `FrameworkStockAgent` Python 调用。 |
+| 样例结构 | 已完成 | 已生成 `assets/reports/financial-report-agent/stock-insight-sample.md`，明确标注尚未真实运行、不构成投资建议。 |
+| HTML 预览页 | 已完成 | 已生成新版 `assets/reports/financial-report-agent/report-preview.html`，体现 StockInsightAgent 核心功能。 |
+| 运行结果记录 | 已完成 | 已生成 `assets/reports/financial-report-agent/stock-insight-run-result.md`。 |
+| 原项目运行验证 | 待运行验证 | 当前尚未安装依赖、配置 LLM 并运行 StockInsightAgent。 |
+| 截图与演示视频 | 待补充 | 当前阶段不截图、不录屏、不剪辑视频。 |
+
+当前状态：已替换为 StockInsightAgent，已完成文档重建与运行入口梳理，待 LLM 配置、运行验证、截图、录屏和剪辑。
+
+## 代码审查 Agent
+
+| 材料 | 当前状态 | 说明 |
+| --- | --- | --- |
+| README | 已完成 | `cases/code-review-agent/README.md` 已整理项目定位、Agent 设计、工具调用、输出结果、评估方式和最终演示材料。 |
+| runbook | 已完成 | `cases/code-review-agent/runbook.md` 已记录复现过程、本地运行边界、真实运行验证状态、CLI 路径限制和后续扩展方向。 |
+| sample | 已完成 | `cases/code-review-agent/sample.md` 已记录待审查 Python 代码输入、真实调用过程、问题清单、风险等级、问题定位、修复建议和人工复核说明。 |
+| 代码样例 | 已完成 | 已生成 `assets/reports/code-review-agent/code-review-sample.py`，用于展示异常处理、输入校验、硬编码配置、SQL 拼接风险、重复逻辑和命名问题。 |
+| 真实 LLM 调用验证 | 已完成 | 已完成本地模型调用健康检查，并通过真实代码审查调用链路生成审查结果。 |
+| 真实审查输出 | 已完成 | 已生成 `assets/reports/code-review-agent/code-review-real-output.md`，不记录敏感配置。 |
+| 审查报告 | 已完成 | 已生成 `assets/reports/code-review-agent/code-review-report.md`，基于真实 Agent 输出人工整理，正式使用时仍需人工复核。 |
+| HTML 报告预览 | 已完成 | 已生成 `assets/reports/code-review-agent/report-preview.html`，用于录屏展示。 |
+| 运行结果记录 | 已完成 | 已生成 `assets/reports/code-review-agent/code-review-run-result.md`，记录 LLM 健康检查、CLI 入口验证、真实 Agent 审查结果和当前限制。 |
+| 原始录屏 | 已完成 | 已归档 `assets/demos/code-review-agent/raw/code-review-agent-raw-demo.mov`。 |
+| 原始截图 | 已完成 | 已归档 `assets/screenshots/code-review-agent/raw/`。 |
+| 抽帧预览 | 已完成 | 已生成 `assets/reports/code-review-agent/frame-preview-index.md`。 |
+| 字幕版最终视频 | 已完成 | 已生成 `assets/demos/code-review-agent/code-review-agent-demo.mp4`。 |
+| 原项目复现 | 已完成本阶段验证 | 已完成 Python 3.12 虚拟环境、主链路依赖安装、LLM 健康检查和 CLI 启动验证；直接 `--repo` 指向作品集仓库存在 prompts 路径限制，因此采用真实代码审查调用链路完成验证。 |
+
+当前状态：已完成 README、runbook、sample、真实 LLM 调用验证、真实审查输出、HTML 报告预览、原始录屏归档、抽帧预览和字幕版最终视频。最终视频路径：`assets/demos/code-review-agent/code-review-agent-demo.mp4`。
+
+## 科研创新助手 Agent
+
+| 材料 | 当前状态 | 说明 |
+| --- | --- | --- |
+| README | 已完成初版 | `cases/research-innovation-agent/README.md` 已整理项目定位、Agent 设计、工具调用、系统架构、输出结果、评估方式和演示材料。 |
+| runbook | 已完成初版 | `cases/research-innovation-agent/runbook.md` 已记录原项目来源、代码结构、环境准备、依赖安装、环境变量、启动方式、健康检查、API 文档入口和当前复现状态。 |
+| sample | 已完成初版 | `cases/research-innovation-agent/sample.md` 已记录示例输入、科研工作流、Agent 分工、工具调用记录、示例输出、人工复核结论和演示材料路径。 |
+| 原项目结构检查 | 已完成 | 已找到并阅读 `~/Documents/hello-agents/Co-creation-projects/Apricity-InnocoreAI` 的 README、QUICKSTART、USAGE_GUIDE、FEATURES、入口文件、路由、Agent、核心服务和工具。 |
+| 四大 Agent 梳理 | 已完成 | 已确认 Hunter、Miner、Coach、Validator 的输入、输出、工具、当前可复现状态和外部依赖。 |
+| FastAPI / REST API / 前端梳理 | 已完成 | 已确认 `run.py`、`api/main.py`、`frontend/index.html`、REST 路由和 `/docs`、`/health` 入口。 |
+| WebSocket 梳理 | 已完成，待验证 | `api/routes/tasks.py` 存在 WebSocket 路由，但任务控制器当前被临时置空，待修复和运行验证。 |
+| 科研工作流样例 | 已完成 | 已生成 `assets/reports/research-innovation-agent/research-workflow-sample.md`，明确标注为流程演示样例。 |
+| 运行结果记录 | 已完成 | 已生成 `assets/reports/research-innovation-agent/research-innovation-run-result.md`，记录依赖、LLM、持久层和下一步验证状态。 |
+| HTML 预览页 | 已完成 | 已生成 `assets/reports/research-innovation-agent/report-preview.html`，用于后续录屏展示。 |
+| 原项目运行验证 | 待运行验证 | 当前未安装依赖、未配置 LLM、未启动 FastAPI，真实 ArXiv 搜索、PDF 分析、写作辅助、引用校验和完整工作流待验证。 |
+| 截图与演示视频 | 待补充 | 当前阶段不截图、不录屏、不剪辑视频。 |
+
+当前状态：已完成文档初版、工作流样例和 HTML 预览页，待 LLM 配置、运行验证、截图、录屏和剪辑。
+
 ## 复核要求
 
-- 截图和录屏素材进入作品集前，必须检查页面中是否出现 API Key、账号、微信、邮箱、桌面隐私或浏览器私人页面。
+- 截图和录屏素材进入作品集前，必须检查页面中是否出现敏感配置、账号、微信、邮箱、桌面隐私或浏览器私人页面。
 - 当前正式演示视频只作为工程化演示和本地化运行验证案例展示，不写成真实客户交付项目。
 - 废弃目录中的素材仅用于临时追溯，不进入正式作品集展示。
