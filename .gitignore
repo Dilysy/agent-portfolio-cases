@@ -10,6 +10,12 @@ __pycache__/
 assets/**/.video-build/
 *.log
 
+# Raw recording files.
+assets/demos/**/raw/*.mov
+assets/demos/**/raw/*.mp4
+assets/demos/**/raw/*.mkv
+assets/demos/**/raw/*.avi
+
 # Local video build intermediates.
 **/.autoflow-demo-build/
 assets/reports/**/video-build-tmp/
