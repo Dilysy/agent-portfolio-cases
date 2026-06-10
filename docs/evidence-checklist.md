@@ -85,21 +85,26 @@
 
 当前状态：已完成。
 
-## 金融研报 Agent
+## 智能股票分析助手 Agent
 
 | 材料 | 当前状态 | 说明 |
 | --- | --- | --- |
-| README | 已完成 | `cases/financial-report-agent/README.md` 已替换为 StockInsightAgent 口径，覆盖 Agent 设计、工具调用、风险边界、评估方式和演示材料。 |
-| runbook | 已完成 | `cases/financial-report-agent/runbook.md` 已记录 StockInsightAgent 代码结构、环境变量、CLI 入口、Gradio 前端入口和当前验证状态。 |
-| sample | 已完成 | `cases/financial-report-agent/sample.md` 已记录示例输入、预期执行过程、工具调用记录、样例结构和风险提示。 |
-| 运行入口梳理 | 已完成 | 已确认 `python main.py`、`python main.py "..."`、`python main.py -d`、`python main.py -r`、`python app.py` 和 `FrameworkStockAgent` Python 调用。 |
-| 样例结构 | 已完成 | 已生成 `assets/reports/financial-report-agent/stock-insight-sample.md`，明确标注尚未真实运行、不构成投资建议。 |
-| HTML 预览页 | 已完成 | 已生成新版 `assets/reports/financial-report-agent/report-preview.html`，体现 StockInsightAgent 核心功能。 |
-| 运行结果记录 | 已完成 | 已生成 `assets/reports/financial-report-agent/stock-insight-run-result.md`。 |
-| 原项目运行验证 | 待运行验证 | 当前尚未安装依赖、配置 LLM 并运行 StockInsightAgent。 |
-| 截图与演示视频 | 待补充 | 当前阶段不截图、不录屏、不剪辑视频。 |
+| README | 已完成 | `cases/stock-insight-agent/README.md` 已整理项目背景、业务问题、解决方案、Agent 设计、工具调用、输出结果、评估方式、可扩展方向和演示材料。 |
+| runbook | 已完成 | `cases/stock-insight-agent/runbook.md` 已记录本地复现过程、前端启动、运行边界、验证状态和后续扩展方向。 |
+| sample | 已完成 | `cases/stock-insight-agent/sample.md` 已记录实时行情、技术指标和近期行情风险分析三个前端输入样例。 |
+| LLM 调用验证 | 已完成 | 已完成本地 LLM 调用验证，不记录私密配置。 |
+| Gradio 前端验证 | 已完成 | 已验证 Gradio 前端可访问并返回分析结果。 |
+| 实时行情查询 | 已完成 | 已验证实时行情查询路径。 |
+| 技术指标分析 | 已完成 | 已验证技术指标分析路径。 |
+| 近期行情与风险分析 | 已完成 | 已验证近期行情和主要风险因素归纳路径。 |
+| 原始录屏 | 已完成 | 已归档 `assets/demos/stock-insight-agent/raw/stock-insight-agent-raw-demo.mov`。 |
+| 原始截图 | 已完成 | 已归档 `assets/screenshots/stock-insight-agent/raw/01-gradio-home.png`。 |
+| 抽帧预览 | 已完成 | 已生成 `assets/reports/stock-insight-agent/frame-preview-index.md`。 |
+| 素材清单 | 已完成 | 已生成 `assets/reports/stock-insight-agent/raw-assets-inventory.md`。 |
+| 报告预览 | 已完成 | 已生成 `assets/reports/stock-insight-agent/report-preview.html`。 |
+| 中文字幕最终视频 | 已完成 | 已生成 `assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`。 |
 
-当前状态：已替换为 StockInsightAgent，已完成文档重建与运行入口梳理，待 LLM 配置、运行验证、截图、录屏和剪辑。
+当前状态：已完成。最终视频路径：`assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`。
 
 ## 代码审查 Agent
 

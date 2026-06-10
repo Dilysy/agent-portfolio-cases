@@ -2,7 +2,7 @@
 
 ## 项目定位
 
-本仓库是企业知识工作流 Agent 落地案例集，用于求职作品集和轻量级接单展示。案例围绕竞品分析、经营数据分析、流程图生成、深度研究、自然语言数据库查询和金融研报等场景，进行自主工程化实现、能力封装、流程编排和本地化验证；不写成真实客户交付项目，不虚构企业名称、客户结果、上线效果或生产部署。
+本仓库是企业知识工作流 Agent 落地案例集，用于求职作品集和轻量级接单展示。案例围绕竞品分析、经营数据分析、流程图生成、深度研究、自然语言数据库查询和股票公开信息分析等场景，进行自主工程化实现、能力封装、流程编排和本地化验证；不写成真实客户交付项目，不虚构企业名称、客户结果、上线效果或生产部署。
 
 ## 案例总览
 
@@ -13,7 +13,7 @@
 | [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | FastAPI + React/Vite 产品化界面 | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | 流程图生成 Agent；Validator 校验与修复；SSE 流式返回 | 已完成字幕版演示视频、四模式截图、实时预览、`.mmd`/SVG 导出 |
 | [自动化深度研究 Agent](cases/deep-research-agent/README.md) | FastAPI + Vue + SSE 研究工作流 | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、SearchTool、NoteTool、Task Summarizer、Report Writer；SSE 流式返回 | 已完成完整工程复现、真实运行验证、最终研究报告和演示视频 |
 | [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 + 本地演示 Schema | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 已完成文档、模拟 Schema、SQL 示例、HTML 预览、关键截图和演示视频 |
-| [金融研报 Agent](cases/financial-report-agent/README.md) | Python CLI + Gradio 股票研究助手 | 公开行情、K 线、财务数据、技术指标和新闻舆情整理成本高 | StockInsightAgent；akshare 数据工具；ReAct / PlanSolve / Reflection；记忆系统和知识库检索 | 制作中：已替换为 StockInsightAgent，已完成文档重建与运行入口梳理 |
+| [智能股票分析助手 Agent](cases/stock-insight-agent/README.md) | Gradio 股票公开信息分析助手 | 公开行情、技术指标和风险因素整理成本高 | ReAct 风格工具调用；公开行情查询、技术指标计算、结构化输出和人工复核边界 | 已完成真实 LLM 调用验证、Gradio 前端验证和中文字幕演示视频 |
 | [代码审查 Agent](cases/code-review-agent/README.md) | Python CLI + 本地代码仓库审查流程 | 代码理解、问题识别、风险分级和修复建议整理成本高 | ReAct Code Agent；TerminalTool、ContextFetchTool、PlanTool、TodoTool、NoteTool、ApplyPatchExecutor | 已完成真实 LLM 调用验证、真实审查输出、HTML 预览和字幕版演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4` |
 | [科研创新助手 Agent](cases/research-innovation-agent/README.md) | FastAPI + Web 前端 + 科研工作流 API | 论文搜索、PDF 分析、写作辅助、引用校验和综述报告整理链路分散 | Hunter / Miner / Coach / Validator 多智能体协作；ArXiv、PDF 解析、LLM、引用校验、Workflow API | 制作中：已完成文档初版、工作流样例和 HTML 预览页，待 LLM 配置与运行验证 |
 
@@ -67,13 +67,13 @@
 - SQL 示例：[database-query-sql-example.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/database-query-agent/database-query-sql-example.md)
 - 关键截图：[01-natural-language-question.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/01-natural-language-question.png)、[02-schema-example.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/02-schema-example.png)、[03-generated-sql.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/03-generated-sql.png)、[04-query-result-security.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/04-query-result-security.png)
 
-### 金融研报 Agent
+### 智能股票分析助手 Agent
 
-金融研报 Agent 基于 StockInsightAgent 复现，支持公开行情、K 线、技术指标、财务数据、新闻舆情、记忆系统和知识库检索，并通过 ReAct / PlanSolve / Reflection 三种范式生成结构化股票研究报告。当前处于制作中，已完成文档重建、运行入口梳理和样例结构整理；后续将补充 LLM 配置、运行验证、截图和演示视频。
+智能股票分析助手 Agent 已完成本地运行验证，支持通过 Gradio 前端输入股票分析问题，调用公开行情和技术指标工具，输出实时行情、基础指标、技术指标分析、近期行情和主要风险因素。本案例仅用于公开信息分析流程演示，不构成投资建议。
 
-- 样例结构：[stock-insight-sample.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/financial-report-agent/stock-insight-sample.md)
-- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/financial-report-agent/report-preview.html)
-- 运行记录：[stock-insight-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/financial-report-agent/stock-insight-run-result.md)
+- 演示视频：[stock-insight-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4)
+- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/stock-insight-agent/report-preview.html)
+- 运行记录：[stock-insight-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/stock-insight-agent/stock-insight-run-result.md)
 
 ### 代码审查 Agent
 
@@ -101,12 +101,12 @@
 - 企业经营数据分析 Agent：已完成字幕版演示视频 `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`，并整理模拟销售数据、4 张图表和经营分析报告到 `assets/reports/business-data-analysis-agent/` 与 `assets/screenshots/business-data-analysis-agent/`。
 - 自动化深度研究 Agent：已完成演示视频 `assets/demos/deep-research-agent/deep-research-agent-demo.mp4`，并整理原始录屏、关键截图、最终研究报告、素材清单和抽帧索引。
 - 自然语言数据库查询 Agent：已完成演示视频 `assets/demos/database-query-agent/database-query-agent-demo.mp4`，并整理原始录屏、4 张关键截图、模拟 Schema、SQL 示例、查询结果样例和 HTML 预览。
-- 金融研报 Agent：制作中，已替换为 StockInsightAgent，并生成样例结构 `assets/reports/financial-report-agent/stock-insight-sample.md` 和 HTML 预览 `assets/reports/financial-report-agent/report-preview.html`。
+- 智能股票分析助手 Agent：已完成中文字幕演示视频 `assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`，并整理运行记录、报告预览、原始录屏、抽帧索引和素材清单。
 - 代码审查 Agent：已完成字幕版演示视频 `assets/demos/code-review-agent/code-review-agent-demo.mp4`，并整理代码审查样例、真实 Agent 输出、审查报告、HTML 预览、原始素材清单和抽帧索引。
 - 科研创新助手 Agent：制作中，已生成科研工作流样例 `assets/reports/research-innovation-agent/research-workflow-sample.md`、运行记录 `assets/reports/research-innovation-agent/research-innovation-run-result.md` 和 HTML 预览 `assets/reports/research-innovation-agent/report-preview.html`。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
-- 录屏或交互演示：前 5 个案例和代码审查 Agent 已完成第一版演示视频，金融研报 Agent 待补充。
-- 报告样例：前 5 个案例已补充到对应 `assets/reports/` 目录；金融研报 Agent 当前为 StockInsightAgent 样例结构，代码审查 Agent 已补充真实 Agent 审查输出和整理版报告，科研创新助手 Agent 当前为流程演示样例，待真实运行报告。
+- 录屏或交互演示：前 5 个案例、代码审查 Agent 和智能股票分析助手 Agent 已完成第一版演示视频。
+- 报告样例：前 5 个案例已补充到对应 `assets/reports/` 目录；智能股票分析助手 Agent 已补充运行记录、展示报告和 HTML 预览，代码审查 Agent 已补充真实 Agent 审查输出和整理版报告，科研创新助手 Agent 当前为流程演示样例，待真实运行报告。
 
 以上材料在生成和整理前均不写成已完成交付。
 
