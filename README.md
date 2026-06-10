@@ -103,6 +103,8 @@
 
 ## 演示视频入口
 
+8 个正式案例的最终 demo MP4 均已统一为中文字幕演示视频。
+
 | 案例 | 视频路径 |
 | --- | --- |
 | AutoFlow 流程图生成 Agent | `assets/demos/autoflow-agent/autoflow-agent-demo.mp4` |
