@@ -131,20 +131,24 @@
 
 | 材料 | 当前状态 | 说明 |
 | --- | --- | --- |
-| README | 已完成初版 | `cases/research-innovation-agent/README.md` 已整理项目定位、Agent 设计、工具调用、系统架构、输出结果、评估方式和演示材料。 |
-| runbook | 已完成初版 | `cases/research-innovation-agent/runbook.md` 已记录原项目来源、代码结构、环境准备、依赖安装、环境变量、启动方式、健康检查、API 文档入口和当前复现状态。 |
-| sample | 已完成初版 | `cases/research-innovation-agent/sample.md` 已记录示例输入、科研工作流、Agent 分工、工具调用记录、示例输出、人工复核结论和演示材料路径。 |
-| 原项目结构检查 | 已完成 | 已找到并阅读 `~/Documents/hello-agents/Co-creation-projects/Apricity-InnocoreAI` 的 README、QUICKSTART、USAGE_GUIDE、FEATURES、入口文件、路由、Agent、核心服务和工具。 |
-| 四大 Agent 梳理 | 已完成 | 已确认 Hunter、Miner、Coach、Validator 的输入、输出、工具、当前可复现状态和外部依赖。 |
-| FastAPI / REST API / 前端梳理 | 已完成 | 已确认 `run.py`、`api/main.py`、`frontend/index.html`、REST 路由和 `/docs`、`/health` 入口。 |
-| WebSocket 梳理 | 已完成，待验证 | `api/routes/tasks.py` 存在 WebSocket 路由，但任务控制器当前被临时置空，待修复和运行验证。 |
+| README | 已完成 | `cases/research-innovation-agent/README.md` 已更新为最终状态，包含演示材料路径和人工复核边界。 |
+| runbook | 已完成 | `cases/research-innovation-agent/runbook.md` 已记录本地复现过程、Web/API 验证、LLM 验证、运行边界和最终视频。 |
+| sample | 已完成 | `cases/research-innovation-agent/sample.md` 已记录论文搜索、论文分析、写作辅助、引用校验输入输出样例和人工复核说明。 |
+| Web/API 服务验证 | 已完成 | 首页、健康检查和接口文档均已完成本地验证。 |
+| LLM 调用验证 | 已完成 | LLM health check、Coach 写作辅助和 Miner 论文分析真实调用均已验证。 |
+| Hunter 论文搜索 | 已完成 | 已验证论文搜索和元数据返回。 |
+| Miner 论文分析 | 已完成 | 已验证论文结构化分析结果返回。 |
+| Coach 写作辅助 | 已完成 | 已验证短输入学术写作建议生成。 |
+| Validator 引用校验 | 已完成 | 已验证引用校验、元数据返回和 BibTeX 生成。 |
 | 科研工作流样例 | 已完成 | 已生成 `assets/reports/research-innovation-agent/research-workflow-sample.md`，明确标注为流程演示样例。 |
-| 运行结果记录 | 已完成 | 已生成 `assets/reports/research-innovation-agent/research-innovation-run-result.md`，记录依赖、LLM、持久层和下一步验证状态。 |
-| HTML 预览页 | 已完成 | 已生成 `assets/reports/research-innovation-agent/report-preview.html`，用于后续录屏展示。 |
-| 原项目运行验证 | 待运行验证 | 当前未安装依赖、未配置 LLM、未启动 FastAPI，真实 ArXiv 搜索、PDF 分析、写作辅助、引用校验和完整工作流待验证。 |
-| 截图与演示视频 | 待补充 | 当前阶段不截图、不录屏、不剪辑视频。 |
+| 运行结果记录 | 已完成 | 已生成 `assets/reports/research-innovation-agent/research-innovation-run-result.md`。 |
+| HTML 预览页 | 已完成 | 已生成 `assets/reports/research-innovation-agent/report-preview.html`。 |
+| 原始录屏 | 已完成 | 已归档到 `assets/demos/research-innovation-agent/raw/`。 |
+| 抽帧预览 | 已完成 | 已生成 `assets/reports/research-innovation-agent/frame-preview-index.md`。 |
+| 等待片段处理 | 已完成 | 最终剪辑中对等待片段做加速或压缩处理，避免突出模型调用耗时。 |
+| 中文字幕最终视频 | 已完成 | 已生成 `assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4`。 |
 
-当前状态：已完成文档初版、工作流样例和 HTML 预览页，待 LLM 配置、运行验证、截图、录屏和剪辑。
+当前状态：已完成。最终视频路径：`assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4`。结果用于科研辅助流程演示，正式研究结论仍需人工复核。
 
 ## 复核要求
 

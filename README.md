@@ -15,7 +15,7 @@
 | [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 + 本地演示 Schema | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 已完成文档、模拟 Schema、SQL 示例、HTML 预览、关键截图和演示视频 |
 | [智能股票分析助手 Agent](cases/stock-insight-agent/README.md) | Gradio 股票公开信息分析助手 | 公开行情、技术指标和风险因素整理成本高 | ReAct 风格工具调用；公开行情查询、技术指标计算、结构化输出和人工复核边界 | 已完成真实 LLM 调用验证、Gradio 前端验证和中文字幕演示视频 |
 | [代码审查 Agent](cases/code-review-agent/README.md) | Python CLI + 本地代码仓库审查流程 | 代码理解、问题识别、风险分级和修复建议整理成本高 | ReAct Code Agent；TerminalTool、ContextFetchTool、PlanTool、TodoTool、NoteTool、ApplyPatchExecutor | 已完成真实 LLM 调用验证、真实审查输出、HTML 预览和字幕版演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4` |
-| [科研创新助手 Agent](cases/research-innovation-agent/README.md) | FastAPI + Web 前端 + 科研工作流 API | 论文搜索、PDF 分析、写作辅助、引用校验和综述报告整理链路分散 | Hunter / Miner / Coach / Validator 多智能体协作；ArXiv、PDF 解析、LLM、引用校验、Workflow API | 制作中：已完成文档初版、工作流样例和 HTML 预览页，待 LLM 配置与运行验证 |
+| [科研创新助手 Agent](cases/research-innovation-agent/README.md) | FastAPI + Web 前端 + 科研工作流 API | 论文搜索、PDF 分析、写作辅助、引用校验和综述报告整理链路分散 | Hunter / Miner / Coach / Validator 多智能体协作；论文搜索、PDF 分析、LLM 写作辅助、引用校验 | 已完成 Web/API 验证、真实 LLM 调用验证、分模块演示和中文字幕视频：`assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4` |
 
 ## 技术能力地图
 
@@ -88,8 +88,9 @@
 
 ### 科研创新助手 Agent
 
-科研创新助手 Agent 基于 Apricity-InnocoreAI 复现，展示 Hunter / Miner / Coach / Validator 多智能体协作，支持论文搜索、PDF 分析、写作辅助、引用校验和综述报告生成流程。当前处于制作中，已完成原项目阅读、FastAPI / REST API / WebSocket / 前端能力梳理、文档初版、科研工作流样例和 HTML 预览页；后续将补充 LLM 配置、运行验证、截图和演示视频。
+科研创新助手 Agent 展示 Hunter / Miner / Coach / Validator 多智能体协作，支持论文搜索、PDF 分析、写作辅助、引用校验和综述报告生成流程。当前已完成 Web/API 模式验证、真实 LLM 调用验证、原始录屏归档、抽帧复核、等待片段加速处理和中文字幕演示视频。结果用于科研辅助流程演示，正式研究结论仍需人工复核。
 
+- 演示视频：[research-innovation-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4)
 - 科研工作流样例：[research-workflow-sample.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/research-innovation-agent/research-workflow-sample.md)
 - HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/research-innovation-agent/report-preview.html)
 - 运行记录：[research-innovation-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/research-innovation-agent/research-innovation-run-result.md)
@@ -103,10 +104,10 @@
 - 自然语言数据库查询 Agent：已完成演示视频 `assets/demos/database-query-agent/database-query-agent-demo.mp4`，并整理原始录屏、4 张关键截图、模拟 Schema、SQL 示例、查询结果样例和 HTML 预览。
 - 智能股票分析助手 Agent：已完成中文字幕演示视频 `assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`，并整理运行记录、报告预览、原始录屏、抽帧索引和素材清单。
 - 代码审查 Agent：已完成字幕版演示视频 `assets/demos/code-review-agent/code-review-agent-demo.mp4`，并整理代码审查样例、真实 Agent 输出、审查报告、HTML 预览、原始素材清单和抽帧索引。
-- 科研创新助手 Agent：制作中，已生成科研工作流样例 `assets/reports/research-innovation-agent/research-workflow-sample.md`、运行记录 `assets/reports/research-innovation-agent/research-innovation-run-result.md` 和 HTML 预览 `assets/reports/research-innovation-agent/report-preview.html`。
+- 科研创新助手 Agent：已完成中文字幕演示视频 `assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4`，并整理科研工作流样例、运行记录、HTML 预览、原始录屏、抽帧索引和剪辑计划；结果需人工复核。
 - 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
 - 录屏或交互演示：前 5 个案例、代码审查 Agent 和智能股票分析助手 Agent 已完成第一版演示视频。
-- 报告样例：前 5 个案例已补充到对应 `assets/reports/` 目录；智能股票分析助手 Agent 已补充运行记录、展示报告和 HTML 预览，代码审查 Agent 已补充真实 Agent 审查输出和整理版报告，科研创新助手 Agent 当前为流程演示样例，待真实运行报告。
+- 报告样例：前 5 个案例已补充到对应 `assets/reports/` 目录；智能股票分析助手 Agent 已补充运行记录、展示报告和 HTML 预览，代码审查 Agent 已补充真实 Agent 审查输出和整理版报告，科研创新助手 Agent 已补充运行记录、流程演示样例和 HTML 预览。
 
 以上材料在生成和整理前均不写成已完成交付。
 
