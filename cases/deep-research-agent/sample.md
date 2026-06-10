@@ -75,22 +75,22 @@ assets/reports/deep-research-agent/deep-research-report.md
 | 演示视频 | `assets/demos/deep-research-agent/deep-research-agent-demo.mp4` | 已完成 |
 | 原始录屏 | `assets/demos/deep-research-agent/raw/deep-research-agent-raw-demo.mov` | 已归档 |
 | 主题输入 / 总视图截图 | `assets/screenshots/deep-research-agent/raw/01-topic-input.png` | 已归档 |
-| TODO 列表截图 | `assets/screenshots/deep-research-agent/raw/02-todo-list.png` | 待补充 |
+| TODO 列表截图 | `assets/screenshots/deep-research-agent/raw/02-todo-list.png` | 可选补充 |
 | 搜索来源截图 | `assets/screenshots/deep-research-agent/raw/03-search-sources.png` | 已归档 |
 | 任务总结截图 | `assets/screenshots/deep-research-agent/raw/04-task-summary.png` | 已归档 |
 | 最终报告截图 | `assets/screenshots/deep-research-agent/raw/05-final-report.png` | 已归档 |
-| 完成状态截图 | `assets/screenshots/deep-research-agent/raw/06-completed-status.png` | 待补充 |
+| 完成状态截图 | `assets/screenshots/deep-research-agent/raw/06-completed-status.png` | 可选补充 |
 | 运行结果记录 | `assets/reports/deep-research-agent/deep-research-run-result.md` | 已完成 |
 | 抽帧索引 | `assets/reports/deep-research-agent/frame-preview-index.md` | 已完成 |
 
 当前视频为第一版演示成片，不处理配音；字幕和配音后续可继续优化。
 
-## 9. 当前不足
+## 9. 边界说明
 
-1. `02-todo-list.png` 和 `06-completed-status.png` 两张独立截图仍待补充。
+1. `02-todo-list.png` 和 `06-completed-status.png` 两张独立截图仍可选补充。
 2. 为降低 Report Writer 超时概率，当前演示采用较少任务数、较少搜索来源和精简上下文。
 3. 前端依赖存在 `npm audit` 风险提示，后续可单独处理。
-4. 当前视频尚未处理配音。
+4. 当前视频作为后续维护项配音。
 
 ## 10. 后续优化方向
 

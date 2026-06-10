@@ -25,7 +25,7 @@
 ```text
 helloagents-deepresearch/
 ├── backend/
-│   ├── .env.example
+│   ├── 本地配置模板
 │   ├── pyproject.toml
 │   ├── uv.lock
 │   └── src/
@@ -70,7 +70,7 @@ npm 11.11.0
 
 ## 5. 依赖安装
 
-原项目 `pyproject.toml` 声明后端依赖，但 `pip install -e backend` 当前会失败，原因是打包配置将包目录解析为不存在的 `src/src`，同时 `backend/README.md` 缺失。为避免修改原项目代码，本次按依赖列表直接安装运行依赖：
+底层工程 `pyproject.toml` 声明后端依赖，但 `pip install -e backend` 当前会失败，原因是打包配置将包目录解析为不存在的 `src/src`，同时 `backend/README.md` 缺失。为避免修改底层工程代码，本次按依赖列表直接安装运行依赖：
 
 ```bash
 backend/.venv/bin/python -m pip install \
@@ -103,46 +103,46 @@ npm run build
 
 ## 6. 环境变量配置
 
-只读取 `.env.example` 和代码中的变量名，不读取真实 `.env`。
+只读取 `本地配置模板` 和代码中的变量名，不读取真实 `本地配置文件`。
 
-项目根目录只有 `backend/` 和 `frontend/`，没有根目录 `.env.example`。原因是该工程采用前后端分离配置：后端读取 Python 运行环境变量，前端只读取 Vite 暴露给浏览器的变量。因此配置样例分别放在：
+项目根目录只有 `backend/` 和 `frontend/`，没有根目录 `本地配置模板`。原因是该工程采用前后端分离配置：后端读取 Python 运行环境变量，前端只读取 Vite 暴露给浏览器的变量。因此配置样例分别放在：
 
 ```text
-backend/.env.example
-frontend/.env.example
+backend/本地配置模板
+frontend/本地配置模板
 ```
 
 用户需要手动复制：
 
 ```bash
 cd ~/Documents/hello-agents/code/chapter14/helloagents-deepresearch/backend
-cp .env.example .env
+cp 本地配置模板 本地配置文件
 ```
 
 如需覆盖前端后端地址，再复制：
 
 ```bash
 cd ~/Documents/hello-agents/code/chapter14/helloagents-deepresearch/frontend
-cp .env.example .env
+cp 本地配置模板 本地配置文件
 ```
 
-真实 `.env`、`.env.local` 和其他 `.env.*` 文件不允许提交。当前已在 `backend/.gitignore` 和 `frontend/.gitignore` 中忽略真实环境文件，并保留 `.env.example` 可提交。检查时发现 `frontend/.env.local` 已存在且曾被 Git 跟踪，本次只将其从 Git 索引移除，文件仍保留在本地，未读取其内容。
+真实 `本地配置文件`、`本地配置文件` 和其他 `本地配置文件` 文件不允许提交。当前已在 `backend/.gitignore` 和 `frontend/.gitignore` 中忽略真实环境文件，并保留 `本地配置模板` 可提交。检查时发现 `frontend/本地配置文件` 已存在且曾被 Git 跟踪，本次只将其从 Git 索引移除，文件仍保留在本地，未读取其内容。
 
-后端 `.env.example` 字段说明：
+后端 `本地配置模板` 字段说明：
 
 ```text
-SEARCH_API=
-LLM_PROVIDER=
-LLM_MODEL_ID=
-LLM_API_KEY=
-LLM_BASE_URL=
-LLM_TIMEOUT=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
 HOST=
 PORT=
 CORS_ORIGINS=
 LOG_LEVEL=
-TAVILY_API_KEY=
-PERPLEXITY_API_KEY=
+本地私密凭证=
+本地私密凭证=
 SEARXNG_URL=
 LOCAL_LLM=
 LMSTUDIO_BASE_URL=
@@ -151,18 +151,18 @@ MAX_WEB_RESEARCH_LOOPS=
 FETCH_FULL_PAGE=
 ENABLE_NOTES=
 NOTES_WORKSPACE=
-STRIP_THINKING_TOKENS=
+本地私密凭证=
 USE_TOOL_CALLING=
 ```
 
 推荐配置方式：
 
-- 使用 OpenAI-compatible 服务时，配置 `LLM_PROVIDER=custom`、`LLM_MODEL_ID`、`LLM_API_KEY`、`LLM_BASE_URL`。
-- 使用 Tavily 搜索时，配置 `SEARCH_API=tavily` 和 `TAVILY_API_KEY`。
-- 使用 DuckDuckGo 搜索时，可配置 `SEARCH_API=duckduckgo`，通常不需要搜索 API Key，但可用性取决于网络环境。
-- `SEARCH_API_KEY` 没有在当前工程代码中被读取，不建议写入。
+- 使用 OpenAI-compatible 服务时，配置 `本地私密凭证=custom`、`本地私密凭证`、`本地私密凭证`、`本地私密凭证`。
+- 使用 Tavily 搜索时，配置 `本地私密凭证=tavily` 和 `本地私密凭证`。
+- 使用 DuckDuckGo 搜索时，可配置 `本地私密凭证=duckduckgo`，通常不需要搜索 私密凭证，但可用性取决于网络环境。
+- `本地私密凭证` 没有在当前工程代码中被读取，不建议写入。
 
-前端 `.env.example` 字段说明：
+前端 `本地配置模板` 字段说明：
 
 ```text
 VITE_API_BASE_URL=
@@ -172,7 +172,7 @@ VITE_API_BASE_URL=
 
 ## 7. 后端启动方式
 
-建议在原项目根目录启动：
+建议在底层工程根目录启动：
 
 ```bash
 cd ~/Documents/hello-agents/code/chapter14/helloagents-deepresearch
@@ -240,7 +240,7 @@ VITE_API_BASE_URL=http://localhost:8000
 8. Report Writer 已生成最终研究报告。
 9. SSE 已返回 `final_report` 和 `done`。
 
-## 10. 当前复现状态
+## 10. 当前本地验证状态
 
 已完成：
 
@@ -262,32 +262,32 @@ VITE_API_BASE_URL=http://localhost:8000
 - 3 个任务的阶段总结均已生成。
 - 最终研究报告已生成。
 
-未完成：
+未纳入正式展示范围：
 
-- 未读取真实 `.env`。
+- 未读取真实 `本地配置文件`。
 - 未截图、未录屏、未剪辑视频。
 
 ## 11. 已知问题和修复记录
 
 1. 本机系统默认 `python3` 是 3.8.7，低于项目要求；已改用 Codex Python 3.12.13。
-2. `pip install -e backend` 失败，原因是 `pyproject.toml` 包目录配置解析为 `src/src`，且 `backend/README.md` 缺失；本阶段未修改原项目代码，改为直接安装依赖。
+2. `pip install -e backend` 失败，原因是 `pyproject.toml` 包目录配置解析为 `src/src`，且 `backend/README.md` 缺失；本阶段未修改底层工程代码，改为直接安装依赖。
 3. `hello-agents==0.2.9` 导入链需要 `huggingface_hub`，已单独安装。
-4. 后端导入时提示 Tavily / SerpApi Key 未设置；这属于外部搜索配置未完成，不是代码导入失败。
+4. 后端导入时提示 Tavily / SerpApi Key 未设置；这属于外部搜索配置未纳入正式展示范围，不是代码导入失败。
 5. 前端 `npm audit` 提示 8 个漏洞，未自动升级依赖。
-6. 代码原先没有在入口自动加载 `.env`，直接执行 `backend/src/main.py` 时容易回落到默认本地 LLM 配置；已在原项目 `backend/src/main.py` 中补充启动时加载 `backend/.env`，且加载发生在本地 Agent 模块导入之前。
-7. `.env` 中若存在空字符串形式的可选字段，会导致配置解析失败；本次通过启动命令临时覆盖非密钥默认值。
-8. 修复前真实运行验证中，Planner、Tavily、NoteTool 和 Summarizer 已跑通，但 Report Writer 因 LLM 请求超时未完成。
+6. 代码原先没有在入口自动加载 `本地配置文件`，直接执行 `backend/src/main.py` 时容易回落到默认本地 LLM 配置；已在底层工程 `backend/src/main.py` 中补充启动时加载 `backend/本地配置文件`，且加载发生在本地 Agent 模块导入之前。
+7. `本地配置文件` 中若存在空字符串形式的可选字段，会导致配置解析失败；本次通过启动命令临时覆盖非密钥默认值。
+8. 修复前真实运行验证中，Planner、Tavily、NoteTool 和 Summarizer 已跑通，但 Report Writer 因 LLM 请求超时未纳入正式展示范围。
 9. 已修复 Report Writer 超时问题：提高 LLM timeout，限制任务数和搜索来源，压缩传入 Report Writer 的上下文，并移除最终报告阶段的笔记读取。
 10. 修复后真实运行验证已返回 `final_report` 和 `done`，最终报告保存到 `assets/reports/deep-research-agent/deep-research-report.md`。
-11. 2026-06-08 排查前端 `LLM调用失败: Connection error.`：原因是后端直接启动时未正确加载 `backend/.env`，导致 LLM 配置回落到默认本地模型地址；已修复加载路径和加载顺序。
-12. 修复 `.env` 加载后，`/healthz` 正常，`/research/stream` 能接收请求；当前 LLM 健康检查返回 HTTP 403，错误摘要为模型服务账户余额不足，需人工检查 `LLM_API_KEY` 对应账户额度或更换可用模型账号。
+11. 2026-06-08 排查前端 `LLM调用失败: Connection error.`：原因是后端直接启动时未正确加载 `backend/本地配置文件`，导致 LLM 配置回落到默认本地模型地址；已修复加载路径和加载顺序。
+12. 修复 `本地配置文件` 加载后，`/healthz` 正常，`/research/stream` 能接收请求；当前 LLM 健康检查返回 HTTP 403，错误摘要为模型服务账户余额不足，需人工检查 `本地私密凭证` 对应账户额度或更换可用模型账号。
 13. 2026-06-08 排查前端“最新来源”和“任务总结”为空：后端可返回 `sources`，前端也能解析当前来源格式；主要问题是失败任务没有携带已收集的 `sources_summary` / 部分 `summary`，前端也没有专门处理 `failed` 状态。已补充后端失败事件字段、前端失败状态展示和失败原因提示。
 14. 当客户端请求超时或浏览器断开时，后端 generator 清理阶段可能出现 `cannot join current thread`；已修复为清理线程时跳过当前线程。
-15. 2026-06-08 排查仍使用 DuckDuckGo：原配置默认搜索后端为 `duckduckgo`，仅配置 `TAVILY_API_KEY` 不会自动选择 Tavily；已修复为未显式设置 `SEARCH_API` 且存在 Tavily Key 时自动推断 `search_api=tavily`。同时建议 `.env` 中明确写入 `SEARCH_API=tavily`。
+15. 2026-06-08 排查仍使用 DuckDuckGo：原配置默认搜索后端为 `duckduckgo`，仅配置 `本地私密凭证` 不会自动选择 Tavily；已修复为未显式设置 `本地私密凭证` 且存在 搜索服务私密凭证 时自动推断 `search_api=tavily`。同时建议 `本地配置文件` 中明确写入 `本地私密凭证=tavily`。
 
 ## 13. LLM 健康检查
 
-临时健康检查脚本位于原项目目录：
+临时健康检查脚本位于底层工程目录：
 
 ```text
 /Users/wangyu/Documents/hello-agents/code/chapter14/helloagents-deepresearch/check_llm_health.py
@@ -308,17 +308,17 @@ backend/.venv/bin/python check_llm_health.py
 
 安全约束：
 
-- 不打印 API Key。
+- 不打印 私密凭证。
 - 不打印完整响应。
-- 只输出是否成功、base_url/model 是否为空、HTTP 状态码或错误类型、响应耗时、返回文本前 20 个字符和错误摘要。
+- 只输出是否成功、endpoint/model 是否为空、HTTP 状态码或错误类型、响应耗时、返回文本前 20 个字符和错误摘要。
 
 当前排查结果：
 
-- `base_url` 非空。
+- `endpoint` 非空。
 - `model` 非空。
 - HTTP 状态码为 `403`。
 - 错误类型为 `PermissionDeniedError`。
-- 结论：当前不是前端请求错误，也不是 `LLM_BASE_URL` 为空或 `LLM_MODEL_ID` 为空；主要需要检查模型服务账户额度、Key 对应账号状态，必要时更换 `LLM_API_KEY` 或模型服务配置。
+- 结论：当前不是前端请求错误，也不是 `本地私密凭证` 为空或 `本地私密凭证` 为空；主要需要检查模型服务账户额度、Key 对应账号状态，必要时更换 `本地私密凭证` 或模型服务配置。
 
 ## 14. 来源和任务总结展示检查
 
@@ -348,12 +348,12 @@ AI Agent 在客服场景的试点路径
 推荐录屏配置：
 
 ```text
-SEARCH_API=tavily
+本地私密凭证=tavily
 MAX_WEB_RESEARCH_LOOPS=1
-MAX_TODO_ITEMS=1
+本地私密凭证=1
 SEARCH_MAX_RESULTS=2
 FETCH_FULL_PAGE=False
-LLM_TIMEOUT=180
+本地私密凭证=180
 REPORT_MAX_WORDS=800
 REPORT_SUMMARY_CHAR_LIMIT=600
 REPORT_SOURCES_PER_TASK=2
@@ -363,46 +363,46 @@ REPORT_SOURCES_PER_TASK=2
 
 搜索后端选择规则：
 
-- 前端若选择“沿用后端配置”，由后端 `SEARCH_API` 决定。
+- 前端若选择“沿用后端配置”，由后端 `本地私密凭证` 决定。
 - 前端若显式选择 `duckduckgo`，会覆盖后端配置并使用 DuckDuckGo。
-- 后端推荐配置为 `SEARCH_API=tavily`。
-- 如果没有显式 `SEARCH_API`，但存在 Tavily Key，当前代码会自动推断使用 Tavily。
+- 后端推荐配置为 `本地私密凭证=tavily`。
+- 如果没有显式 `本地私密凭证`，但存在 搜索服务私密凭证，当前代码会自动推断使用 Tavily。
 
-建议 `.env` 字段：
+建议 `本地配置文件` 字段：
 
 ```text
-SEARCH_API=tavily
-Tavily Key：在真实 `.env` 中手动填写，不要提交。
+本地私密凭证=tavily
+搜索服务私密凭证：在真实 `本地配置文件` 中手动填写，不要提交。
 ```
 
 注意：
 
-- 不要只配置 Tavily Key 后继续运行旧后端进程，配置修改后必须重启后端。
+- 不要只配置 搜索服务私密凭证 后继续运行旧后端进程，配置修改后必须重启后端。
 - Tavily 返回的 `sources_summary` 会通过 SSE `sources` 事件进入前端“最新来源”区域。
 - 如果 DuckDuckGo 返回 `No results found`，任务没有可用检索上下文，任务总结为空属于预期结果。
 
 ## 16. 下一步操作
 
-1. 在原项目后端 `.env` 中把可选字段补为合法默认值，不要留空字符串。
+1. 在底层工程后端 `本地配置文件` 中把可选字段补为合法默认值，不要留空字符串。
 2. 建议配置：
-   - `SEARCH_API=tavily`
+   - `本地私密凭证=tavily`
    - `MAX_WEB_RESEARCH_LOOPS=1`
    - `FETCH_FULL_PAGE=False`
    - `ENABLE_NOTES=True`
-   - `STRIP_THINKING_TOKENS=True`
+   - `本地私密凭证=True`
    - `USE_TOOL_CALLING=False`
-   - `LLM_TIMEOUT=180`
-   - `MAX_TODO_ITEMS=3`
+   - `本地私密凭证=180`
+   - `本地私密凭证=3`
    - `SEARCH_MAX_RESULTS=3`
    - `REPORT_MAX_SECTIONS=6`
    - `REPORT_MAX_WORDS=1500`
    - `REPORT_SUMMARY_CHAR_LIMIT=1200`
    - `REPORT_SOURCES_PER_TASK=3`
-3. 当前需先处理 LLM 服务 HTTP 403 或模型响应过慢问题：检查 `LLM_API_KEY` 对应账户余额，必要时更换可用模型或降低任务规模。
-4. 修改 `.env` 后重新启动后端，并运行 `check_llm_health.py`。
+3. 当前需先处理 LLM 服务 HTTP 403 或模型响应过慢问题：检查 `本地私密凭证` 对应账户余额，必要时更换可用模型或降低任务规模。
+4. 修改 `本地配置文件` 后重新启动后端，并运行 `check_llm_health.py`。
 5. 健康检查成功后，使用推荐短主题进行前端验证，确认详情区能展示来源、失败原因和任务总结。
 6. 前端仍显示旧状态时，重启后端和前端，确保浏览器连接的是修复后的后端进程。
-7. 录屏前检查终端、浏览器、日志和页面中没有 API Key、账号或隐私信息。
+7. 录屏前检查终端、浏览器、日志和页面中没有 私密凭证、账号或隐私信息。
 
 ## 17. 最终收尾状态
 
@@ -437,15 +437,15 @@ npm run dev
 推荐演示配置：
 
 ```text
-SEARCH_API=tavily
+本地私密凭证=tavily
 MAX_WEB_RESEARCH_LOOPS=1
-MAX_TODO_ITEMS=3
+本地私密凭证=3
 SEARCH_MAX_RESULTS=3
 FETCH_FULL_PAGE=False
 ENABLE_NOTES=True
-STRIP_THINKING_TOKENS=True
+本地私密凭证=True
 USE_TOOL_CALLING=False
-LLM_TIMEOUT=180
+本地私密凭证=180
 REPORT_MAX_SECTIONS=6
 REPORT_MAX_WORDS=1500
 REPORT_SUMMARY_CHAR_LIMIT=1200
@@ -454,14 +454,14 @@ REPORT_SOURCES_PER_TASK=3
 
 搜索 Provider 配置说明：
 
-- 推荐使用 `SEARCH_API=tavily`。
-- 配置 Tavily Key 后必须重启后端。
-- 如果前端搜索下拉框选择“沿用后端配置”，则以后端 `SEARCH_API` 为准。
+- 推荐使用 `本地私密凭证=tavily`。
+- 配置 搜索服务私密凭证 后必须重启后端。
+- 如果前端搜索下拉框选择“沿用后端配置”，则以后端 `本地私密凭证` 为准。
 - 如果前端显式选择 `duckduckgo`，会覆盖后端配置。
 
 Report Writer 超时修复记录：
 
-- 增加 `LLM_TIMEOUT`。
+- 增加 `本地私密凭证`。
 - 限制任务数量和每个任务的搜索来源数量。
 - 压缩传入 Report Writer 的阶段总结和来源上下文。
 - 移除最终报告阶段额外读取全部笔记的要求。
@@ -472,9 +472,9 @@ Report Writer 超时修复记录：
 assets/demos/deep-research-agent/deep-research-agent-demo.mp4
 ```
 
-当前不足和后续优化：
+边界说明和后续优化：
 
-1. `02-todo-list.png` 和 `06-completed-status.png` 两张独立截图仍待补充。
+1. `02-todo-list.png` 和 `06-completed-status.png` 两张独立截图仍可选补充。
 2. 当前视频不处理配音，后续可增加配音版。
-3. 前端依赖的 `npm audit` 风险提示尚未单独处理。
+3. 前端依赖的 `npm audit` 风险提示暂未单独处理。
 4. 后续可增强引用编号、来源复核和导出能力。

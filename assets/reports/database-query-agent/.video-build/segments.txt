@@ -1,7 +1,0 @@
-file 'segment-01-title.mp4'
-file 'segment-02-question.mp4'
-file 'segment-03-schema.mp4'
-file 'segment-04-sql.mp4'
-file 'segment-05-result.mp4'
-file 'segment-06-security.mp4'
-file 'segment-07-closing.mp4'

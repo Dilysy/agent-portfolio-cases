@@ -2,9 +2,9 @@
 
 ## 1. 项目背景
 
-本案例围绕企业经营数据的自然语言查询场景，整理 `939147533-DatabaseAgent` 工程并设计一套本地演示 Schema。原项目基于 HelloAgents 的 ReAct 思路，将中文自然语言问题转换为 Oracle SQL，再执行查询并格式化返回结果。
+本案例围绕企业经营数据的自然语言查询场景，整理 `本地数据库查询工程` 工程并设计一套本地演示 Schema。底层工程基于 HelloAgents 的 ReAct 思路，将中文自然语言问题转换为 Oracle SQL，再执行查询并格式化返回结果。
 
-当前案例为自然语言数据库查询流程演示，使用本地模拟销售业务 Schema，不是真实企业数据库，也不展示真实业务数据。原项目依赖 Oracle 环境，当前作品集版本采用模拟 Schema 展示 Text-to-SQL 流程，覆盖自然语言问题、Schema 感知、SQL 生成、查询结果和结果解释。
+当前案例为自然语言数据库查询流程演示，使用本地模拟销售业务 Schema，不是真实企业数据库，也不展示真实业务数据。底层工程依赖 Oracle 环境，当前作品集版本采用模拟 Schema 展示 Text-to-SQL 流程，覆盖自然语言问题、Schema 感知、SQL 生成、查询结果和结果解释。
 
 ## 2. 业务问题
 
@@ -26,7 +26,7 @@ Agent 按 ReAct 流程执行：
 4. 执行只读查询。
 5. 将结果格式化为表格，并给出业务解释。
 
-原项目面向 Oracle 数据库；作品集阶段使用模拟销售业务 Schema 和查询样例展示 Text-to-SQL 工作流，后续可接入只读 Oracle、MySQL 或 PostgreSQL 测试库完成真实运行验证。
+底层工程面向 Oracle 数据库；作品集阶段使用模拟销售业务 Schema 和查询样例展示 Text-to-SQL 工作流，后续可接入只读 Oracle、MySQL 或 PostgreSQL 测试库完成真实运行验证。
 
 ## 4. Agent 设计
 
@@ -36,7 +36,7 @@ Agent 按 ReAct 流程执行：
 | Schema 获取 | `GetSchema` 调用 `OracleQueryTool.get_schema_info()` | 已在代码中确认 |
 | 自然语言转 SQL | `GenerateSQL` 调用 `SQLGeneratorTool.generate_sql()` | 已在代码中确认 |
 | SQL 执行 | `ExecuteQuery` 调用 `OracleQueryTool.execute_query()` | 已在代码中确认 |
-| 查询结果解释 | 原项目主要输出格式化表格，业务解释能力可通过最终回答补充 | 部分实现，后续可增强 |
+| 查询结果解释 | 底层工程主要输出格式化表格，业务解释能力可通过最终回答补充 | 部分实现，后续可增强 |
 | 工具注册机制 | `ToolRegistry.register_function()` 注册 3 个工具 | 已在代码中确认 |
 | 数据库连接工具 | `oracledb.connect()` 连接 Oracle | 已在代码中确认 |
 
@@ -90,7 +90,7 @@ Agent 按 ReAct 流程执行：
 8. 做表级和字段级权限控制。
 9. SQL 执行前增加人工确认机制，尤其是高成本查询或跨敏感表查询。
 
-原项目已有基础字符串级 SQL 校验，但尚未实现完整 SQL AST 校验、权限矩阵、审计日志和脱敏策略。
+底层工程已有基础字符串级 SQL 校验，完整 SQL AST 校验、权限矩阵、审计日志和脱敏策略作为后续增强。
 
 ## 9. 评估方式
 

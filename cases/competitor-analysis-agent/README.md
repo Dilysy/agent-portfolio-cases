@@ -44,18 +44,18 @@ Agent 接收竞品分析任务后，将用户输入拆解为竞品对象和分�
 
 | 工具名称 | 输入 | 输出 | 作用 | 当前可用状态 |
 | --- | --- | --- | --- | --- |
-| LLM 客户端 | 用户任务、系统提示词、工具执行上下文 | Agent 推理结果、工具调用决策 | 驱动 Agent 理解任务、规划步骤和生成文本 | 已完成本地化运行验证，需配置 LLM API Key 与模型参数 |
+| LLM 客户端 | 用户任务、系统提示词、工具执行上下文 | Agent 推理结果、工具调用决策 | 驱动 Agent 理解任务、规划步骤和生成文本 | 已完成本地化运行验证，需配置 模型服务私密凭证与运行参数 |
 | `PlanAndSolveAgent` | 竞品分析问题、自定义 Planner/Executor 提示词 | 分步骤计划、逐步执行结果、最终报告 | 负责复杂任务拆解和执行编排 | Notebook 中已实现；原生命令行执行仍有导入兼容问题 |
 | `SimpleAgent` | 竞品分析问题、工具列表、系统提示词 | 工具调用过程和分析结果 | 快速验证搜索与报告生成流程 | Notebook 中已实现，适合作为原型演示 |
-| `CompetitiveInfoSearchTool` | 单个产品名称 | Tavily 搜索结果或失败提示 | 查询产品功能、定价、优缺点等公开信息 | 已完成 Tavily 搜索验证，需配置 `TAVILY_API_KEY` 和可用网络 |
+| `CompetitiveInfoSearchTool` | 单个产品名称 | Tavily 搜索结果或失败提示 | 查询产品功能、定价、优缺点等公开信息 | 已完成 Tavily 搜索验证，需配置 `本地私密凭证` 和可用网络 |
 | `DataProcessorTool` | 搜索返回文本 | 产品名称、定位、功能、定价、优势、劣势等结构化字段 | 清洗和结构化竞品信息 | PlanSolve v2.0 可用；SimpleAgent 版本为 PoC 占位 |
 | `ReportGeneratorTool` | 结构化产品字段列表 | Markdown 竞品分析报告 | 生成对比表、分析结论和建议 | PlanSolve v2.0 可用；正式使用需人工复核 |
 | 输出保存逻辑 | Agent 最终报告 | `outputs/demo_result_*.md` | 保存示例报告，便于归档和复盘 | 已有输出样例 |
 
 ## 6. 实现流程
 
-1. 在工程目录安装依赖，并复制 `.env.example` 为 `.env`。
-2. 配置 LLM API Key、模型、Base URL 和 Tavily API Key。
+1. 在工程目录安装依赖，并复制 `本地配置模板` 为 `本地配置文件`。
+2. 配置本地模型服务与搜索服务的私密连接参数。
 3. 通过 `jupyter lab` 打开 Notebook。
 4. 优先运行 `ProductAnalysis_PlanSolveAgent.ipynb`，观察计划生成和逐步执行过程。
 5. 输入竞品分析任务，例如“分析 Notion、飞书文档、语雀在团队知识管理场景下的差异”。
@@ -84,7 +84,7 @@ Agent 接收竞品分析任务后，将用户输入拆解为竞品对象和分�
 - 结构完整度：检查报告是否包含分析目标、竞品对象、定位对比、功能对比、协作能力、知识库能力、价格模式、优劣势和建议。
 - 事实一致性：人工复核官网、帮助中心、价格页或公开资料，避免过期信息。
 - 可追溯性：后续应补充来源链接、引用编号和检索时间。
-- 风险检查：确认输出中没有 API Key、账号、邮箱、微信、浏览器隐私页或真实客户信息。
+- 风险检查：确认输出中没有 私密凭证、账号、邮箱、微信、浏览器隐私页或真实客户信息。
 
 ## 9. 可扩展方向
 
@@ -97,7 +97,7 @@ Agent 接收竞品分析任务后，将用户输入拆解为竞品对象和分�
 ## 10. 演示材料
 
 - 演示视频：已完成字幕版成片，路径为 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。
-- 原始录屏：标准归档目录 `assets/demos/competitor-analysis-agent/raw/` 当前待补充；本次使用的桌面原始录屏位于 `/Users/wangyu/Desktop/案例视频录制/智能竞品分析 Agent /智能竞品.mov`。
+- 原始录屏：最终展示以字幕版 demo MP4 和素材清单为准，桌面录屏路径不进入对外文档。
 - HTML 报告预览：已补充到 `assets/reports/competitor-analysis-agent/report-preview.html`。
 - 竞品分析报告：已补充到 [competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)。
 - 运行验证结果：已补充到 [competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)。

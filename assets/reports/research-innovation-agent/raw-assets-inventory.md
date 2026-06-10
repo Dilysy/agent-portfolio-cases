@@ -101,9 +101,9 @@ assets/demos/research-innovation-agent/raw/research-innovation-agent-raw-demo.mo
 ## 9. 缺失素材提醒
 
 - 未发现独立截图文件。
-- 当前尚未归档最终展示截图。
-- 当前尚未生成最终剪辑视频。
-- 当前尚未生成字幕脚本。
+- 当前暂未归档最终展示截图。
+- 当前暂未生成最终剪辑视频。
+- 当前暂未生成字幕脚本。
 - WebSocket / 任务队列链路不应作为已跑通能力展示。
 
 ## 10. 剪辑前注意事项
@@ -112,4 +112,4 @@ assets/demos/research-innovation-agent/raw/research-innovation-agent-raw-demo.mo
 2. 对等待、加载、按钮点击后长时间无变化画面进行删除或 3x-6x 加速。
 3. 保留结果展示画面，尤其是 Hunter 搜索结果、Miner 结构化分析、Coach 写作建议、Validator 引用校验 / BibTeX。
 4. 不展示敏感配置文件、终端敏感变量、鉴权值、服务地址、模型标识、账号隐私或无关桌面内容。
-5. 本案例只能表述为本地复现和流程演示，不写成真实科研结论。
+5. 本案例只能表述为本地验证和流程演示，不写成真实科研结论。

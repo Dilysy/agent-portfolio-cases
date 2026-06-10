@@ -24,7 +24,7 @@
 
 - `PlanConverter`：将按行计划或 `A -> B -> C` 格式转换为 `flowchart TD/LR`。
 - `MermaidValidatorTool`：去除代码块、补齐 Mermaid 图类型声明、检查括号匹配和 flowchart 节点连线。
-- LLM 服务：根据 `.env` 中的模型配置生成优化文本和 Mermaid 代码。
+- LLM 服务：根据 `本地配置文件` 中的模型配置生成优化文本和 Mermaid 代码。
 - Mermaid 前端渲染：使用 `mermaid.render` 将代码转换为 SVG。
 
 ## 6. 实现流程

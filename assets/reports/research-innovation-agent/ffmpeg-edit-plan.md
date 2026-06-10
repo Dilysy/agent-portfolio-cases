@@ -125,7 +125,7 @@ assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4
 字幕要求：
 
 - 中文硬字幕，白字黑边，底部居中。
-- 不出现原项目名称。
+- 不出现底层工程名称。
 - 不出现鉴权值、服务地址、模型标识或敏感配置文件。
 - 不遮挡主要结果区域，位置尽量靠底部。
 

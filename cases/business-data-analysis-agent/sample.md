@@ -14,14 +14,14 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 
 该数据为模拟销售数据，不包含真实企业、真实客户或真实订单。
 
-实际演示输入为 2025 年模拟销售数据，字段包括订单日期、地区、客户类型、商品类别、商品名称、销售额、订单数和毛利率。当前演示口径为“模拟数据演示 / 本地复现”，用于说明分析链路和展示材料，不代表真实企业经营结论。
+实际演示输入为 2025 年模拟销售数据，字段包括订单日期、地区、客户类型、商品类别、商品名称、销售额、订单数和毛利率。当前演示口径为“模拟数据演示 / 本地验证”，用于说明分析链路和展示材料，不代表真实企业经营结论。
 
 ## 2. 执行过程
 
-本阶段没有完整运行两个原项目的端到端 LLM 链路，而是先完成代码理解、案例文档和演示补充材料生成。实际执行过程如下：
+本阶段没有完整运行两个底层工程的端到端 LLM 链路，而是先完成代码理解、案例文档和演示补充材料生成。实际执行过程如下：
 
-1. 阅读 `alexrunner-DataAnalysisAgent` 的 README、`main.py`、Agent 提示词、ReAct Agent 实现、数据探查工具和数据分析工具。
-2. 阅读 `1zrj-DataAnalysisAgent` 的 README、`main.ipynb`、Excel 示例数据、ECharts 输出和 Markdown 报告输出。
+1. 阅读 `多 Agent 经营分析原型` 的 README、`main.py`、Agent 提示词、ReAct Agent 实现、数据探查工具和数据分析工具。
+2. 阅读 `Notebook 表格分析原型` 的 README、`main.ipynb`、Excel 示例数据、ECharts 输出和 Markdown 报告输出。
 3. 判断两个项目可以合并包装为“企业经营数据分析 Agent”：前者提供多 Agent 流水线，后者提供 Notebook 表格分析与图表报告输出。
 4. 生成 320 行模拟销售数据，日期覆盖 2025 年 1 月至 12 月。
 5. 使用 pandas 计算核心指标和分组聚合结果。
@@ -38,11 +38,11 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 | 3 | matplotlib | 聚合指标 | 4 张 PNG 图表 | 生成趋势、地区、品类、客户类型图表。 |
 | 4 | 报告生成逻辑 | 指标和图表路径 | `business-data-analysis-report.md` | 输出 Markdown 经营分析报告样例。 |
 | 5 | ffmpeg 剪辑脚本 | 图表截图、报告展示图、字幕文件 | `business-data-analysis-agent-demo.mp4` | 生成静音字幕版演示视频。 |
-| 6 | `get_basic_metadata` | 原项目 CSV 数据 | 行列数、字段、类型 | alexrunner 数据探查工具，代码中已实现。 |
-| 7 | `assess_data_quality` | 原项目 CSV 数据 | 缺失率、异常值、有效性 | alexrunner 数据质量工具，代码中已实现。 |
-| 8 | `get_statistical_summary` | 数值字段 | 统计摘要 | alexrunner 统计摘要工具，代码中已实现。 |
-| 9 | `DataCleaningTool` | Excel JSON | 清洗后 JSON | 1zrj Notebook 工具，代码中已实现。 |
-| 10 | `DataStatisticsTool` | 清洗后 JSON | 描述性统计 | 1zrj Notebook 工具，代码中已实现，但需要补注册后再完整验证。 |
+| 6 | `get_basic_metadata` | 底层工程 CSV 数据 | 行列数、字段、类型 | 多 Agent 原型 数据探查工具，代码中已实现。 |
+| 7 | `assess_data_quality` | 底层工程 CSV 数据 | 缺失率、异常值、有效性 | 多 Agent 原型 数据质量工具，代码中已实现。 |
+| 8 | `get_statistical_summary` | 数值字段 | 统计摘要 | 多 Agent 原型 统计摘要工具，代码中已实现。 |
+| 9 | `DataCleaningTool` | Excel JSON | 清洗后 JSON | Notebook 原型 工具，代码中已实现。 |
+| 10 | `DataStatisticsTool` | 清洗后 JSON | 描述性统计 | Notebook 原型 工具，代码中已实现，但需要补注册后再完整验证。 |
 
 ## 4. 示例输出
 
@@ -78,26 +78,26 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 
 当前结论：
 
-- 两个原项目适合合并包装成一个“企业经营数据分析 Agent”案例。
-- `alexrunner` 更适合展示多 Agent 分工和 Plan-and-Solve 思路。
-- `1zrj` 更适合展示 Notebook 表格分析、ECharts 和 Markdown 报告输出。
+- 两个底层工程适合合并包装成一个“企业经营数据分析 Agent”案例。
+- `多 Agent 原型` 更适合展示多 Agent 分工和 Plan-and-Solve 思路。
+- `Notebook 原型` 更适合展示 Notebook 表格分析、ECharts 和 Markdown 报告输出。
 - 本阶段生成的模拟数据、图表和报告适合作为第一版展示材料。
 - 字幕版演示视频已经完成，展示模拟数据、核心指标、销售趋势、地区表现、品类贡献、客户类型差异和经营建议。
-- 当前原项目尚未完成端到端运行验证，不能写成已完整跑通。
-- 1zrj Notebook 中存在硬编码模型环境变量配置，不适合直接录屏展示。
+- 当前正式展示以模拟数据、图表、报告和最终视频为准，不写成真实企业数据端到端交付。
+- Notebook 原型 中存在硬编码模型环境变量配置，不适合直接录屏展示。
 
-## 6. 当前不足
+## 6. 边界说明
 
-1. 原项目尚未完成端到端 LLM 运行验证。
-2. `alexrunner` 分析函数与固定购物行为数据集绑定，迁移到企业经营数据需要字段映射。
-3. `1zrj` Notebook 需要清理硬编码模型配置。
-4. `1zrj` Notebook 需要确认 `DataStatisticsTool` 是否注册到工具表。
+1. 底层工程端到端 LLM 运行验证未纳入正式展示范围。
+2. `多 Agent 原型` 分析函数与固定购物行为数据集绑定，迁移到企业经营数据需要字段映射。
+3. `Notebook 原型` Notebook 需要清理硬编码模型配置。
+4. `Notebook 原型` Notebook 需要确认 `DataStatisticsTool` 是否注册到工具表。
 5. 当前报告基于模拟数据，不代表真实经营结论。
-6. 当前视频为静态图表 + 报告展示图剪辑，不展示原项目 Notebook 或主程序的实时执行过程。
+6. 当前视频为静态图表 + 报告展示图剪辑，不展示底层工程 Notebook 或主程序的实时执行过程。
 
 ## 7. 可改进方向
 
-1. 将模拟销售数据接入原项目 Agent 流水线，完成真实端到端运行验证。
+1. 将模拟销售数据接入底层工程 Agent 流水线，完成真实端到端运行验证。
 2. 增加通用字段映射，让 Agent 可处理不同 CSV / Excel 表格。
 3. 增加同比、环比、目标达成率、回款率和续费率等经营指标。
 4. 增加图表自动选择和报告模板配置。

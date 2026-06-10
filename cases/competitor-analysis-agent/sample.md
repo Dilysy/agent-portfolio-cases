@@ -70,7 +70,7 @@
 - 原始 Notebook 仍存在搜索工具导入不兼容问题，因此本次真实运行使用临时本地验证脚本完成。
 - 正式对外展示前，需要人工核对 Notion、飞书文档、语雀官网、帮助中心、价格页和公开资料。
 
-## 6. 当前不足
+## 6. 边界说明
 
 1. 原始 Notebook 不能直接通过 `nbconvert` 执行，需要修复搜索工具导入路径。
 2. 搜索来源已归档，但部分来源为第三方文章，正式展示前需要优先复核官网和价格页。
@@ -94,5 +94,5 @@
 - 运行验证记录：[competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
 - HTML 预览页：`assets/reports/competitor-analysis-agent/report-preview.html`
 - 字幕版演示视频：`assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`
-- 原始录屏标准归档目录：`assets/demos/competitor-analysis-agent/raw/`，当前待补充；本次桌面原始录屏路径为 `/Users/wangyu/Desktop/案例视频录制/智能竞品分析 Agent /智能竞品.mov`。
-- 输出样例：`~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent/outputs/demo_result_*.md`
+- 原始录屏：最终展示以字幕版 demo MP4 和素材清单为准，桌面录屏路径不进入对外文档。
+- 输出样例：已整理到作品集报告目录。

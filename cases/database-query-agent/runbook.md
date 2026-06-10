@@ -2,28 +2,28 @@
 
 ## 1. 项目来源
 
-原项目路径：
+本地工程路径：
 
 ```text
-~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent
+<local-database-query-source>
 ```
 
 ## 2. 项目定位
 
 该工程是一个命令行自然语言数据库查询 Agent。用户输入中文查询需求后，Agent 按 ReAct 流程获取 Oracle Schema、生成 Oracle SQL、校验 SQL 并执行查询，最后返回格式化结果。
 
-当前作品集阶段已完成工程理解、文档整理、模拟 Schema、SQL 示例、查询结果样例、HTML 预览页、原始录屏归档、抽帧复核和字幕版演示视频。尚未接入真实 Oracle 数据库运行。
+当前作品集阶段已完成工程理解、文档整理、模拟 Schema、SQL 示例、查询结果样例、HTML 预览页、原始录屏归档、抽帧复核和字幕版演示视频。正式展示不接入真实 Oracle 数据库运行。
 
 ## 3. 代码结构
 
 ```text
-939147533-DatabaseAgent/
+本地数据库查询工程/
 ├── README.md
 ├── main.py
 ├── test.py
 ├── requirements.txt
 ├── setup_database.sql
-├── .env.example
+├── 本地配置模板
 └── src/
     ├── config.py
     ├── react_agent.py
@@ -52,7 +52,7 @@
 ## 5. 依赖安装
 
 ```bash
-cd ~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent
+cd <local-database-query-source>
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install --upgrade pip
@@ -68,7 +68,7 @@ python3 -m pip install -r requirements.txt
 
 ## 6. 数据库配置
 
-原项目依赖 Oracle 数据库，`setup_database.sql` 提供员工、部门和项目测试表。正式演示前可选择：
+底层工程依赖 Oracle 数据库，`setup_database.sql` 提供员工、部门和项目测试表。正式演示前可选择：
 
 1. 使用 Oracle 测试库执行 `setup_database.sql`。
 2. 改造为 SQLite / DuckDB 本地演示库。
@@ -83,14 +83,14 @@ python3 -m pip install -r requirements.txt
 
 ## 7. 环境变量配置
 
-只读取 `.env.example` 和代码中的变量名，不读取真实 `.env`。
+只读取 `本地配置模板` 和代码中的变量名，不读取真实 `本地配置文件`。
 
 需要配置：
 
 ```text
-LLM_MODEL_ID=
-LLM_API_KEY=
-LLM_BASE_URL=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
 DB_HOST=
 DB_PORT=
 DB_SERVICE_NAME=
@@ -100,8 +100,8 @@ DB_PASSWORD=
 
 安全要求：
 
-- `.env` 不允许提交。
-- 不在文档、截图、录屏或日志中展示 API Key、数据库用户名或密码。
+- `本地配置文件` 不允许提交。
+- 不在文档、截图、录屏或日志中展示 私密凭证、数据库用户名或密码。
 - 数据库账号必须使用只读账号，不使用管理员账号进行演示。
 
 ## 8. 启动方式
@@ -109,7 +109,7 @@ DB_PASSWORD=
 运行主程序：
 
 ```bash
-cd ~/Documents/hello-agents/Co-creation-projects/939147533-DatabaseAgent
+cd <local-database-query-source>
 source .venv/bin/activate
 PYTHONPATH=src python main.py
 ```
@@ -148,7 +148,7 @@ sqlplus <只读或测试用户>/<密码>@<主机>:1521/<服务名> @setup_databa
 
 已完成：
 
-- 阅读原项目 README 和代码结构。
+- 阅读底层工程 README 和代码结构。
 - 确认工程为 CLI + Oracle + ReAct Agent。
 - 确认工具包含 GetSchema、GenerateSQL、ExecuteQuery。
 - 确认已有基础 SQL 安全校验。
@@ -160,17 +160,17 @@ sqlplus <只读或测试用户>/<密码>@<主机>:1521/<服务名> @setup_databa
 - 生成抽帧索引和 ffmpeg 剪辑计划。
 - 生成字幕版演示视频。
 
-未完成：
+未纳入正式展示范围：
 
 - 未接入真实 Oracle。
 - 未运行真实 LLM + Oracle 查询链路。
 
 ## 11. 已知问题
 
-1. 原项目依赖 Oracle，环境准备成本高于 SQLite / DuckDB。
+1. 底层工程依赖 Oracle，环境准备成本高于 SQLite / DuckDB。
 2. `test.py` 会打印数据库连接串，真实演示时需避免展示账号和密码。
 3. `DatabaseConfig` 默认用户名为 `system`，企业演示必须改为只读账号。
-4. SQL 安全控制当前是字符串级校验，尚未做 SQL AST 校验。
+4. SQL 安全控制当前是字符串级校验，暂未做 SQL AST 校验。
 5. 当前没有查询行数限制、超时限制、审计日志和字段脱敏。
 
 ## 12. 视频生成方式
@@ -193,7 +193,7 @@ assets/demos/database-query-agent/database-query-agent-demo.mp4
 
 后续可按以下方向扩展：
 
-1. Oracle：沿用原项目 `oracledb` 连接方式，使用只读账号和测试库。
+1. Oracle：沿用底层工程 `oracledb` 连接方式，使用只读账号和测试库。
 2. MySQL：将连接工具改为 `pymysql` 或 SQLAlchemy，并适配 MySQL 方言。
 3. PostgreSQL：将连接工具改为 `psycopg` 或 SQLAlchemy，并适配 PostgreSQL 方言。
 4. SQLite / DuckDB：用于低成本本地演示和录屏，适合快速验证 Text-to-SQL 流程。

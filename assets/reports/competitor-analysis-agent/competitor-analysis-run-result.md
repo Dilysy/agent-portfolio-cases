@@ -3,7 +3,7 @@
 ## 运行信息
 
 - 验证时间：2026-06-05 12:31:03
-- 工程目录：`~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent`
+- 工程目录：`<local-competitor-analysis-source>`
 - 虚拟环境：`.venv`
 - Python 版本：3.12.13
 - 优先入口：`ProductAnalysis_PlanSolveAgent.ipynb`

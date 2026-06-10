@@ -1,7 +1,0 @@
-file '00-title.mp4'
-file '01-homepage.mp4'
-file '02-inspiration.mp4'
-file '03-standard.mp4'
-file '04-plan.mp4'
-file '05-code-export.mp4'
-file '06-ending.mp4'

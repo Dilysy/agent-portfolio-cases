@@ -53,9 +53,9 @@
 
 | 文件 | 当前状态 |
 | --- | --- |
-| `assets/reports/stock-insight-agent/stock-insight-run-result.md` | 缺失，待补充或从现有金融案例材料迁移时另行确认。 |
-| `assets/reports/stock-insight-agent/stock-insight-report.md` | 缺失，待补充真实运行报告或演示报告。 |
-| `assets/reports/stock-insight-agent/report-preview.html` | 缺失，待补充报告预览页。 |
+| `assets/reports/stock-insight-agent/stock-insight-run-result.md` | 缺失，可选补充或从现有金融案例材料迁移时另行确认。 |
+| `assets/reports/stock-insight-agent/stock-insight-report.md` | 缺失，可选补充真实运行报告或演示报告。 |
+| `assets/reports/stock-insight-agent/report-preview.html` | 缺失，可选补充报告预览页。 |
 
 ## 6. Gradio 页面素材
 
@@ -89,7 +89,7 @@
 | --- | --- |
 | `assets/screenshots/stock-insight-agent/raw/01-gradio-home.png` | README 的 Gradio 前端整体界面展示。 |
 
-待补充后可优先用于 README 的截图：
+可选补充后可优先用于 README 的截图：
 
 - `02-stock-query.png`：股票查询输入。
 - `03-realtime-price.png`：实时行情结果。
@@ -124,7 +124,7 @@
 
 1. 对外展示名称统一使用“智能股票分析助手 Agent”。
 2. 对外展示名称统一为“智能股票分析助手 Agent”。
-3. 对外展示页不要出现原项目名称。
+3. 对外展示页不要出现底层工程名称。
 4. 不要展示真实密钥、接口地址、本地私密配置文件、模型配置或账号信息。
 5. 不要写成交易建议系统、真实金融服务或真实交易决策系统。
 6. 必须保留边界说明：不构成投资建议，仅用于公开信息分析流程演示。

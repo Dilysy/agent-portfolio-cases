@@ -4,7 +4,7 @@
 
 本案例面向企业知识密集型研究任务，完成 `helloagents-deepresearch` 完整工程的本地化运行验证。用户输入开放式研究主题后，系统通过任务规划、公开资料检索、阶段总结、笔记沉淀和报告生成，把一次深度研究拆成可追踪的多阶段 Agent 工作流。
 
-本案例不写成真实客户交付，展示重点是完整工程复现、LLM 接入、搜索工具接入、SSE 流式返回和多 Agent 协作链路。
+本案例不写成真实客户交付，展示重点是完整工程本地验证、LLM 接入、搜索工具接入、SSE 流式返回和多 Agent 协作链路。
 
 ## 2. 业务问题
 
@@ -65,7 +65,7 @@
 
 已完成输出：
 
-- 完整工程复现：后端和前端均可运行。
+- 完整工程本地验证：后端和前端均可运行。
 - 后端接口：已验证 `/healthz`、`/research`、`/research/stream`。
 - LLM 接入：TODO Planner、Task Summarizer、Report Writer 均已验证。
 - 搜索工具接入：Tavily SearchTool 已验证。
@@ -82,7 +82,7 @@
 - 摘要质量：是否忠于来源，是否保留关键事实、时间和引用。
 - 报告质量：结构是否清晰，是否区分事实、推断和建议。
 - 可追溯性：观点是否能回到来源、任务总结或笔记记录。
-- 安全性：录屏、日志和页面中不得出现 API Key、账号或隐私信息。
+- 安全性：录屏、日志和页面中不得出现 私密凭证、账号或隐私信息。
 
 ## 9. 可扩展方向
 
@@ -100,11 +100,11 @@
 | 演示视频 | `assets/demos/deep-research-agent/deep-research-agent-demo.mp4` | 已完成 |
 | 原始录屏 | `assets/demos/deep-research-agent/raw/deep-research-agent-raw-demo.mov` | 已归档 |
 | 主题输入 / 总视图截图 | `assets/screenshots/deep-research-agent/raw/01-topic-input.png` | 已归档 |
-| TODO 列表截图 | `assets/screenshots/deep-research-agent/raw/02-todo-list.png` | 待补充 |
+| TODO 列表截图 | `assets/screenshots/deep-research-agent/raw/02-todo-list.png` | 可选补充 |
 | 搜索来源截图 | `assets/screenshots/deep-research-agent/raw/03-search-sources.png` | 已归档 |
 | 任务总结截图 | `assets/screenshots/deep-research-agent/raw/04-task-summary.png` | 已归档 |
 | 最终报告截图 | `assets/screenshots/deep-research-agent/raw/05-final-report.png` | 已归档 |
-| 完成状态截图 | `assets/screenshots/deep-research-agent/raw/06-completed-status.png` | 待补充 |
+| 完成状态截图 | `assets/screenshots/deep-research-agent/raw/06-completed-status.png` | 可选补充 |
 | 运行验证结果 | `assets/reports/deep-research-agent/deep-research-run-result.md` | 已完成 |
 | 最终研究报告 | `assets/reports/deep-research-agent/deep-research-report.md` | 已完成 |
 | 素材清单 | `assets/reports/deep-research-agent/raw-assets-inventory.md` | 已完成 |

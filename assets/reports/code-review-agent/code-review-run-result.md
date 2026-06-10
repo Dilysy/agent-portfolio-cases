@@ -1,6 +1,6 @@
 # 代码审查 Agent 运行结果记录
 
-## 1. 当前是否完成工程复现
+## 1. 当前是否完成工程本地验证
 
 已完成真实 LLM 健康检查和一次真实 CodeAgent 审查输出。
 
@@ -19,9 +19,9 @@
 - 已完成抽帧预览。
 - 已生成中文字幕版最终演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4`。
 
-未完成：
+未纳入正式展示范围：
 
-- 未完成 `hello-agents[all]` 全量可选依赖安装。
+- 全量可选依赖安装不纳入正式展示范围。
 - 直接运行 `python -m code_agent.hello_code_cli --repo ~/Documents/agent-portfolio-cases` 会因 prompt 路径绑定到目标 repo 而失败。
 
 ## 2. 真实运行入口
@@ -53,7 +53,7 @@ python run_code_review_real.py
 检查结果：
 
 - LLM 是否可用：是。
-- 模型名是否为空：否。
+- 模型配置是否为空：否。
 - 模型服务配置是否为空：否。
 - 返回文本前 20 个字符：`代码审查健康检查通过。`
 - 是否输出敏感配置：否。
@@ -96,13 +96,13 @@ assets/reports/code-review-agent/code-review-real-output.md
 | JSON 解析缺少异常处理 | 低 | `parse_profile()` |
 | 数据库连接未使用上下文管理器 | 低 | `connect_database()` 和调用处 |
 
-## 6. 当前不足
+## 6. 边界说明
 
 1. 直接 CLI 指向外部作品集仓库存在 prompt 路径限制，需要后续改造 `CodeAgentPaths.prompts_dir`，让提示词路径与被审查仓库路径解耦。
 2. `hello-agents[all]` 全量可选依赖过重，安装时会拉取大量与本 CLI 审查无关的训练、Gradio 和协议生态依赖。
 3. 本次真实审查为单轮只读审查，没有生成补丁，也没有执行“修复后复审”。
 4. 模型原始输出中自行生成了不准确的审查日期，作品集正式报告已按当前真实运行记录重新整理。
-5. 当前尚未接入 ruff、mypy、bandit 等专用静态分析工具。
+5. 当前专用静态分析工具作为后续增强。
 
 ## 7. 后续可扩展方向
 

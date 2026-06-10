@@ -2,127 +2,172 @@
 
 ## 项目定位
 
-本仓库是企业知识工作流 Agent 落地案例集，用于求职作品集和轻量级接单展示。案例围绕竞品分析、经营数据分析、流程图生成、深度研究、自然语言数据库查询和股票公开信息分析等场景，进行自主工程化实现、能力封装、流程编排和本地化验证；不写成真实客户交付项目，不虚构企业名称、客户结果、上线效果或生产部署。
+本仓库围绕企业知识工作流，整理并实现了 8 个 Agent 落地案例，覆盖流程生成、信息分析、经营数据分析、自然语言数据库查询、代码审查、科研辅助和公开信息分析等典型场景。每个案例均包含场景说明、运行记录、样例输出、演示视频和边界说明，可用于展示 Agent 应用设计、工具调用、结构化输出和工程化落地能力。
+
+这些案例用于求职作品集和轻量级接单展示，不写成真实客户交付项目，不声明生产部署效果，也不使用未授权的企业内部数据。部分案例基于本地样例数据、公开信息或演示环境完成验证。
 
 ## 案例总览
 
-| 案例 | 实现形态 | 解决的问题 | Agent 与工具设计 | 当前产出 |
+| 案例 | 场景 | 实现形态 | 核心能力 | 当前状态 |
 | --- | --- | --- | --- | --- |
-| [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | Notebook 多工具分析链路 | 竞品信息收集慢、对比维度不统一、报告整理成本高 | 快速工具调用 Agent 与 Plan-and-Solve；Tavily Search、结构化解析、Markdown 报告生成 | 已完成本地运行验证、真实竞品报告、HTML 预览和字幕版演示视频 |
-| [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | Python 主程序 + Notebook 分析链路 | 表格数据分析门槛高、图表和报告生成耗时 | Plan-and-Solve + ReAct 多智能体流水线；表格清洗与统计；pandas、matplotlib、ECharts | 已完成模拟销售数据、图表、经营分析报告和字幕版演示视频 |
-| [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | FastAPI + React/Vite 产品化界面 | 自然语言转 Mermaid 成本高、流程缺少可视反馈 | 流程图生成 Agent；Validator 校验与修复；SSE 流式返回 | 已完成字幕版演示视频、四模式截图、实时预览、`.mmd`/SVG 导出 |
-| [自动化深度研究 Agent](cases/deep-research-agent/README.md) | FastAPI + Vue + SSE 研究工作流 | 研究任务信息发散、来源分散、总结难追溯 | TODO Planner、SearchTool、NoteTool、Task Summarizer、Report Writer；SSE 流式返回 | 已完成完整工程复现、真实运行验证、最终研究报告和演示视频 |
-| [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Python CLI + Oracle 查询链路 + 本地演示 Schema | 非技术用户难以直接编写 SQL 查询数据库 | ReAct Agent；GetSchema、GenerateSQL、ExecuteQuery；Oracle 连接与只读 SQL 校验 | 已完成文档、模拟 Schema、SQL 示例、HTML 预览、关键截图和演示视频 |
-| [智能股票分析助手 Agent](cases/stock-insight-agent/README.md) | Gradio 股票公开信息分析助手 | 公开行情、技术指标和风险因素整理成本高 | ReAct 风格工具调用；公开行情查询、技术指标计算、结构化输出和人工复核边界 | 已完成真实 LLM 调用验证、Gradio 前端验证和中文字幕演示视频 |
-| [代码审查 Agent](cases/code-review-agent/README.md) | Python CLI + 本地代码仓库审查流程 | 代码理解、问题识别、风险分级和修复建议整理成本高 | ReAct Code Agent；TerminalTool、ContextFetchTool、PlanTool、TodoTool、NoteTool、ApplyPatchExecutor | 已完成真实 LLM 调用验证、真实审查输出、HTML 预览和字幕版演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4` |
-| [科研创新助手 Agent](cases/research-innovation-agent/README.md) | FastAPI + Web 前端 + 科研工作流 API | 论文搜索、PDF 分析、写作辅助、引用校验和综述报告整理链路分散 | Hunter / Miner / Coach / Validator 多智能体协作；论文搜索、PDF 分析、LLM 写作辅助、引用校验 | 已完成 Web/API 验证、真实 LLM 调用验证、分模块演示和中文字幕视频：`assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4` |
+| [AutoFlow 流程图生成 Agent](cases/autoflow-agent/README.md) | 自然语言生成流程图 | FastAPI + React/Vite | Mermaid 生成、结构校验、实时预览、导出 | 已完成 |
+| [智能竞品分析 Agent](cases/competitor-analysis-agent/README.md) | 公开竞品信息分析 | Notebook + 多工具分析链路 | 搜索、结构化对比、报告生成 | 已完成 |
+| [企业经营数据分析 Agent](cases/business-data-analysis-agent/README.md) | 销售与经营数据分析 | Python + Notebook 分析链路 | 数据清洗、统计分析、图表和报告 | 已完成 |
+| [自动化深度研究 Agent](cases/deep-research-agent/README.md) | 主题研究和报告生成 | FastAPI + Vue + SSE | 任务拆解、搜索、笔记、阶段总结、最终报告 | 已完成 |
+| [自然语言数据库查询 Agent](cases/database-query-agent/README.md) | Text-to-SQL 查询演示 | Python CLI + 本地演示 Schema | Schema 理解、SQL 生成、只读查询、安全边界 | 已完成 |
+| [智能股票分析助手 Agent](cases/stock-insight-agent/README.md) | 公开股票信息分析 | Gradio Web 应用 | 公开行情查询、技术指标、风险因素归纳 | 已完成 |
+| [代码审查 Agent](cases/code-review-agent/README.md) | 本地代码审查 | Python CLI | 代码理解、问题识别、风险分级、修复建议 | 已完成 |
+| [科研创新助手 Agent](cases/research-innovation-agent/README.md) | 科研辅助工作流 | FastAPI + Web 前端 | 论文搜索、论文分析、写作辅助、引用校验 | 已完成 |
 
-## 技术能力地图
+## Agent 能力路径
 
-- Agent 编排：SimpleAgent、ReAct、Plan-and-Solve、多阶段研究流水线。
-- 工具调用：搜索、网页信息提取、数据探查、统计分析、图表生成、Mermaid 校验、SQL 生成与执行。
-- 结构化输出：Markdown 报告、对比矩阵、图表引用、Mermaid 流程图、SQL 查询结果表格。
-- 工程化封装：Notebook 原型、Python CLI、FastAPI 后端、React/Vite 或 Vue 前端、SSE 流式状态。
-- 评估意识：工具链有效性、规划质量、数据口径、SQL 安全、Mermaid 可渲染性、人工复核清单。
+- 任务理解与规划：将自然语言目标拆解为可执行步骤、查询条件或分析子任务。
+- 工具调用：调用搜索、数据处理、图表生成、SQL 生成、代码审查、论文检索等工具。
+- 结构化输出：生成 Markdown 报告、对比表、SQL 示例、Mermaid 流程图、审查清单和研究摘要。
+- 过程可视化：通过 Web 前端、CLI、HTML 预览、截图和演示视频展示关键链路。
+- 评估与边界：记录数据口径、工具有效性、安全限制、人工复核点和可扩展方向。
 
-## 重点案例
-
-### 智能竞品分析 Agent
-
-该案例对比了快速工具调用 Agent 和 Plan-and-Solve 两种范式。快速工具调用链路适合作为调试脚手架；Plan-and-Solve 将竞品分析拆成规划、搜索、结构化解析和报告生成，执行过程更白盒。智能竞品分析 Agent 已完成本地运行验证，支持通过 LLM 与 Tavily 搜索获取公开信息，并生成竞品对比、优劣势分析和销售切入建议。
-
-- 演示视频：[competitor-analysis-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4)
-- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/report-preview.html)
-- 运行报告：[competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
-
-### 企业经营数据分析 Agent
-
-该案例融合两个数据分析项目：一个采用 Plan-and-Solve + ReAct，把数据探查、任务规划、任务执行和报告生成拆开；另一个使用 SimpleAgent 和 Notebook 完成 Excel 数据清洗、统计、ECharts 图表和 Markdown 报告生成。企业经营数据分析 Agent 已完成模拟销售数据分析演示，支持销售趋势、地区表现、商品类别贡献、客户类型差异和经营建议输出。
-
-- 演示视频：[business-data-analysis-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4)
-- 经营分析报告：[business-data-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/business-data-analysis-agent/business-data-analysis-report.md)
-- 关键图表：[01-sales-trend.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png)、[02-region-comparison.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png)、[03-category-contribution.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png)、[04-customer-type-analysis.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png)
+## 8 个案例清单
 
 ### AutoFlow 流程图生成 Agent
 
-该案例是前后端分离应用，包含计划模式、灵感模式、标准模式和 Mermaid 代码模式。后端封装 Mermaid 生成 Agent，并用 MermaidValidatorTool 做结构校验和有限修复；前端提供实时渲染、方向切换、缩放、拖拽和导出能力。当前已完成字幕版演示视频，可用于展示 LLM 接入、四模式验证、本地化运行验证和导出链路。
+面向业务流程梳理场景，将自然语言描述转为 Mermaid 流程图，并提供四种交互模式、实时预览和导出能力。
 
-- 演示视频：[autoflow-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/autoflow-agent/autoflow-agent-demo.mp4)
-- 关键截图：[standard-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/standard-mode.png)、[inspiration-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/inspiration-mode.png)、[plan-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/plan-mode.png)、[code-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/code-mode.png)
+- 案例文档：[README](cases/autoflow-agent/README.md)
+- 示例记录：[sample.md](cases/autoflow-agent/sample.md)
+- 运行说明：[runbook.md](cases/autoflow-agent/runbook.md)
+- 演示视频：`assets/demos/autoflow-agent/autoflow-agent-demo.mp4`
+
+### 智能竞品分析 Agent
+
+面向公开竞品调研场景，完成信息搜索、结构化解析、竞品对比和报告生成。
+
+- 案例文档：[README](cases/competitor-analysis-agent/README.md)
+- 示例记录：[sample.md](cases/competitor-analysis-agent/sample.md)
+- 运行说明：[runbook.md](cases/competitor-analysis-agent/runbook.md)
+- 演示视频：`assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`
+
+### 企业经营数据分析 Agent
+
+面向经营分析和销售复盘场景，使用本地模拟销售数据生成趋势图、地区对比、品类贡献和经营分析报告。
+
+- 案例文档：[README](cases/business-data-analysis-agent/README.md)
+- 示例记录：[sample.md](cases/business-data-analysis-agent/sample.md)
+- 运行说明：[runbook.md](cases/business-data-analysis-agent/runbook.md)
+- 演示视频：`assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`
 
 ### 自动化深度研究 Agent
 
-自动化深度研究 Agent 已完成完整工程复现，支持输入开放式研究主题，自动完成任务拆解、搜索来源获取、阶段总结和最终研究报告生成。该案例验证了 FastAPI 后端、Vue 3 前端、HelloAgents 多阶段 Agent、Tavily 搜索、NoteTool 记录和 `/research/stream` SSE 流式返回链路。
+面向开放主题研究场景，完成任务拆解、公开来源检索、阶段总结和最终研究报告生成。
 
-- 演示视频：[deep-research-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/deep-research-agent/deep-research-agent-demo.mp4)
-- 最终研究报告：[deep-research-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/deep-research-agent/deep-research-report.md)
-- 关键截图：[01-topic-input.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/01-topic-input.png)、[03-search-sources.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/03-search-sources.png)、[04-task-summary.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/04-task-summary.png)、[05-final-report.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/deep-research-agent/raw/05-final-report.png)
+- 案例文档：[README](cases/deep-research-agent/README.md)
+- 示例记录：[sample.md](cases/deep-research-agent/sample.md)
+- 运行说明：[runbook.md](cases/deep-research-agent/runbook.md)
+- 演示视频：`assets/demos/deep-research-agent/deep-research-agent-demo.mp4`
 
 ### 自然语言数据库查询 Agent
 
-自然语言数据库查询 Agent 已完成本地演示流程，支持从业务自然语言问题到 SQL 生成、查询结果展示和安全控制说明的完整链路。当前版本使用本地模拟销售业务 Schema，不是真实企业数据库；原项目依赖 Oracle 环境，作品集版本用于展示 Text-to-SQL 流程和企业落地安全控制要求。
+面向业务人员查询数据场景，基于本地演示 Schema 展示自然语言到 SQL、查询结果和安全控制说明。
 
-- 演示视频：[database-query-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/database-query-agent/database-query-agent-demo.mp4)
-- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/database-query-agent/report-preview.html)
-- SQL 示例：[database-query-sql-example.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/database-query-agent/database-query-sql-example.md)
-- 关键截图：[01-natural-language-question.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/01-natural-language-question.png)、[02-schema-example.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/02-schema-example.png)、[03-generated-sql.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/03-generated-sql.png)、[04-query-result-security.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/database-query-agent/raw/04-query-result-security.png)
+- 案例文档：[README](cases/database-query-agent/README.md)
+- 示例记录：[sample.md](cases/database-query-agent/sample.md)
+- 运行说明：[runbook.md](cases/database-query-agent/runbook.md)
+- 演示视频：`assets/demos/database-query-agent/database-query-agent-demo.mp4`
 
 ### 智能股票分析助手 Agent
 
-智能股票分析助手 Agent 已完成本地运行验证，支持通过 Gradio 前端输入股票分析问题，调用公开行情和技术指标工具，输出实时行情、基础指标、技术指标分析、近期行情和主要风险因素。本案例仅用于公开信息分析流程演示，不构成投资建议。
+面向公开股票信息整理场景，展示公开行情查询、技术指标计算和主要风险因素归纳。输出仅用于流程演示，不构成投资建议。
 
-- 演示视频：[stock-insight-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4)
-- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/stock-insight-agent/report-preview.html)
-- 运行记录：[stock-insight-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/stock-insight-agent/stock-insight-run-result.md)
+- 案例文档：[README](cases/stock-insight-agent/README.md)
+- 示例记录：[sample.md](cases/stock-insight-agent/sample.md)
+- 运行说明：[runbook.md](cases/stock-insight-agent/runbook.md)
+- 演示视频：`assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`
 
 ### 代码审查 Agent
 
-代码审查 Agent 围绕本地代码审查场景构建，用于展示代码理解、问题识别、风险分级、修复建议和审查报告生成流程。当前已完成真实 LLM 调用验证、真实审查输出、报告预览、原始素材归档、抽帧复核和中文字幕版演示视频。
+面向本地代码审查场景，展示代码理解、问题定位、风险分级、修复建议和审查报告生成。
 
-- 演示视频：[code-review-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/code-review-agent/code-review-agent-demo.mp4)
-- 代码样例：[code-review-sample.py](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-sample.py)
-- 真实输出：[code-review-real-output.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-real-output.md)
-- 审查报告：[code-review-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-report.md)
-- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/code-review-agent/report-preview.html)
-- 运行记录：[code-review-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-run-result.md)
+- 案例文档：[README](cases/code-review-agent/README.md)
+- 示例记录：[sample.md](cases/code-review-agent/sample.md)
+- 运行说明：[runbook.md](cases/code-review-agent/runbook.md)
+- 演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4`
 
 ### 科研创新助手 Agent
 
-科研创新助手 Agent 展示 Hunter / Miner / Coach / Validator 多智能体协作，支持论文搜索、PDF 分析、写作辅助、引用校验和综述报告生成流程。当前已完成 Web/API 模式验证、真实 LLM 调用验证、原始录屏归档、抽帧复核、等待片段加速处理和中文字幕演示视频。结果用于科研辅助流程演示，正式研究结论仍需人工复核。
+面向科研辅助工作流，展示论文搜索、论文分析、写作辅助、引用校验和综述样例生成。结果仍需人工复核。
 
-- 演示视频：[research-innovation-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4)
-- 科研工作流样例：[research-workflow-sample.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/research-innovation-agent/research-workflow-sample.md)
-- HTML 预览：[report-preview.html](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/research-innovation-agent/report-preview.html)
-- 运行记录：[research-innovation-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/research-innovation-agent/research-innovation-run-result.md)
+- 案例文档：[README](cases/research-innovation-agent/README.md)
+- 示例记录：[sample.md](cases/research-innovation-agent/sample.md)
+- 运行说明：[runbook.md](cases/research-innovation-agent/runbook.md)
+- 演示视频：`assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4`
 
-## 演示材料
+## 演示视频入口
 
-- AutoFlow：已完成字幕版演示视频 `assets/demos/autoflow-agent/autoflow-agent-demo.mp4`，并整理四模式截图到 `assets/screenshots/autoflow-agent/raw/`。
-- 智能竞品分析 Agent：已完成字幕版演示视频 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`，并整理真实运行报告与 HTML 预览到 `assets/reports/competitor-analysis-agent/`。
-- 企业经营数据分析 Agent：已完成字幕版演示视频 `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`，并整理模拟销售数据、4 张图表和经营分析报告到 `assets/reports/business-data-analysis-agent/` 与 `assets/screenshots/business-data-analysis-agent/`。
-- 自动化深度研究 Agent：已完成演示视频 `assets/demos/deep-research-agent/deep-research-agent-demo.mp4`，并整理原始录屏、关键截图、最终研究报告、素材清单和抽帧索引。
-- 自然语言数据库查询 Agent：已完成演示视频 `assets/demos/database-query-agent/database-query-agent-demo.mp4`，并整理原始录屏、4 张关键截图、模拟 Schema、SQL 示例、查询结果样例和 HTML 预览。
-- 智能股票分析助手 Agent：已完成中文字幕演示视频 `assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`，并整理运行记录、报告预览、原始录屏、抽帧索引和素材清单。
-- 代码审查 Agent：已完成字幕版演示视频 `assets/demos/code-review-agent/code-review-agent-demo.mp4`，并整理代码审查样例、真实 Agent 输出、审查报告、HTML 预览、原始素材清单和抽帧索引。
-- 科研创新助手 Agent：已完成中文字幕演示视频 `assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4`，并整理科研工作流样例、运行记录、HTML 预览、原始录屏、抽帧索引和剪辑计划；结果需人工复核。
-- 架构图：计划放置在 `assets/architecture/`，当前尚未补充。
-- 录屏或交互演示：前 5 个案例、代码审查 Agent 和智能股票分析助手 Agent 已完成第一版演示视频。
-- 报告样例：前 5 个案例已补充到对应 `assets/reports/` 目录；智能股票分析助手 Agent 已补充运行记录、展示报告和 HTML 预览，代码审查 Agent 已补充真实 Agent 审查输出和整理版报告，科研创新助手 Agent 已补充运行记录、流程演示样例和 HTML 预览。
+| 案例 | 视频路径 |
+| --- | --- |
+| AutoFlow 流程图生成 Agent | `assets/demos/autoflow-agent/autoflow-agent-demo.mp4` |
+| 智能竞品分析 Agent | `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4` |
+| 企业经营数据分析 Agent | `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4` |
+| 自动化深度研究 Agent | `assets/demos/deep-research-agent/deep-research-agent-demo.mp4` |
+| 自然语言数据库查询 Agent | `assets/demos/database-query-agent/database-query-agent-demo.mp4` |
+| 智能股票分析助手 Agent | `assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4` |
+| 代码审查 Agent | `assets/demos/code-review-agent/code-review-agent-demo.mp4` |
+| 科研创新助手 Agent | `assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4` |
 
-以上材料在生成和整理前均不写成已完成交付。
+## 本地运行说明
 
-## 项目文档
+每个案例目录均包含独立运行说明：
 
-- [案例制作 SOP](docs/case-production-sop.md)
+```text
+cases/<case-name>/README.md
+cases/<case-name>/sample.md
+cases/<case-name>/runbook.md
+```
 
-## 后续计划
+建议阅读顺序：
 
-1. 将已完成案例整理为统一可运行入口或最小验证脚本。
-2. 为每个案例补充固定示例输入、输出和人工复核表。
-3. 整理截图、架构图和报告样例，放入 `assets/`。
-4. 建立统一评估清单，覆盖事实一致性、工具调用有效性和输出可复核性。
-5. 提炼 PDF 作品集和简历话术，保持克制，不写真实客户交付。
+1. 先阅读案例 `README.md`，理解场景、Agent 设计、工具调用和边界。
+2. 再阅读 `sample.md`，查看示例输入、输出结果和人工复核点。
+3. 如需本地验证，按 `runbook.md` 执行依赖安装、启动和 smoke test。
 
-## 依赖与合规说明
+真实私密配置只应保存在本地配置文件中，不应提交到仓库、日志、截图或录屏。
 
-项目开发过程中使用了若干开源框架、模型接口和第三方工具库，相关依赖按其原始许可证要求保留必要声明。仓库中的案例实现重点面向企业知识工作流场景进行工程化封装、流程编排和应用验证。
+## 案例目录结构
+
+```text
+cases/
+  autoflow-agent/
+  business-data-analysis-agent/
+  code-review-agent/
+  competitor-analysis-agent/
+  database-query-agent/
+  deep-research-agent/
+  research-innovation-agent/
+  stock-insight-agent/
+
+assets/
+  demos/        # 最终演示视频和必要原始素材
+  reports/      # 运行记录、报告样例、HTML 预览和剪辑说明
+  screenshots/  # 关键截图和抽帧材料
+
+docs/
+  evidence-checklist.md
+  deployment.md
+```
+
+## 安全与边界说明
+
+- 本仓库不包含真实客户交付记录，不声明生产环境上线效果。
+- 企业经营数据分析使用本地样例数据，不代表真实企业经营结果。
+- 自然语言数据库查询使用本地演示 Schema，不连接真实企业数据库。
+- 智能股票分析助手仅用于公开信息分析流程演示，不构成投资建议、证券研究报告或交易依据。
+- 科研创新助手生成的研究摘要、引用校验和写作建议仍需人工复核。
+- 代码审查 Agent 输出用于辅助定位风险，正式修复前仍需人工确认、测试和评审。
+- 演示材料发布前应复核是否包含账号、私密配置、浏览器隐私页或未授权数据。
+
+## 后续扩展方向
+
+1. 为 8 个案例增加统一的本地 smoke test 入口。
+2. 将 HTML 预览整理为静态作品集页面。
+3. 补充架构图和更精简的面试讲解版本。
+4. 增加自动化敏感信息扫描和素材发布前检查脚本。

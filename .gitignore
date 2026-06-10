@@ -1,0 +1,16 @@
+.env
+*.env
+**/.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.video-build/
+assets/**/.video-build/
+*.log
+
+# Local video build intermediates.
+**/.autoflow-demo-build/
+assets/reports/**/video-build-tmp/
+*-nosub.mp4

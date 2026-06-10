@@ -2,7 +2,7 @@
 
 ## 1. 工程入口
 
-- 工程目录：`~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent`
+- 工程目录：`<local-competitor-analysis-source>`
 - 作品集目录：`cases/competitor-analysis-agent/`
 - 实现形态：Jupyter Notebook 示例项目
 - 主要入口：
@@ -18,10 +18,10 @@
 ## 3. 代码结构
 
 ```text
-czxgg0630-ProductAnalysisAgent/
+本地竞品分析工程/
 ├── README.md
 ├── requirements.txt
-├── .env.example
+├── 本地配置模板
 ├── ProductAnalysis_SimpleAgent.ipynb
 ├── ProductAnalysis_PlanSolveAgent.ipynb
 └── outputs/
@@ -42,7 +42,7 @@ czxgg0630-ProductAnalysisAgent/
 ## 5. 依赖安装
 
 ```bash
-cd ~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent
+cd <local-competitor-analysis-source>
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install --upgrade pip
@@ -66,37 +66,37 @@ python3 -m ipykernel install --user --name competitor-analysis-agent --display-n
 
 ## 6. 环境变量配置
 
-工程目录提供 `.env.example`。本作品集也保留了安全占位文件：
+工程目录提供 `本地配置模板`。本作品集也保留了安全占位文件：
 
-- 工程模板：`~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent/.env.example`
-- 作品集模板：[.env.example](/Users/wangyu/Documents/agent-portfolio-cases/cases/competitor-analysis-agent/.env.example)
+- 工程模板：`<local-competitor-analysis-source>/本地配置模板`
+- 作品集模板：[本地配置模板](/Users/wangyu/Documents/agent-portfolio-cases/cases/competitor-analysis-agent/本地配置模板)
 
-运行前需要在工程目录中创建 `.env`：
+运行前需要在工程目录中创建 `本地配置文件`：
 
 ```bash
-cp .env.example .env
+cp 本地配置模板 本地配置文件
 ```
 
 需要配置的关键变量：
 
 ```text
-OPENAI_API_KEY=
-OPENAI_BASE_URL=
-OPENAI_MODEL=
-TAVILY_API_KEY=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
+本地私密凭证=
 ```
 
-如果使用 Anthropic 或其他 OpenAI 兼容服务，可按工程目录 `.env.example` 调整。不要把真实 API Key 写入作品集仓库。
+如果使用 Anthropic 或其他 OpenAI 兼容服务，可按工程目录 `本地配置模板` 调整。不要把真实 私密凭证 写入作品集仓库。
 
 OpenAI 兼容模型配置注意事项：
 
-1. `OPENAI_API_KEY`、`OPENAI_BASE_URL`、`OPENAI_MODEL` 需要同时匹配当前模型服务。
+1. `本地私密凭证`、`本地私密凭证`、`本地私密凭证` 需要同时匹配当前模型服务。
 2. 如果更换模型，先用最小请求验证模型可用，再运行完整竞品分析任务。
-3. 不要在 Notebook、日志、报告或作品集文档中输出真实 Key。
+3. 不要在 Notebook、日志、报告或作品集文档中输出真实私密凭证。
 
 Tavily 配置注意事项：
 
-1. `TAVILY_API_KEY` 需要配置在原项目目录 `.env` 中。
+1. `本地私密凭证` 需要配置在底层工程目录 `本地配置文件` 中。
 2. 搜索结果受网络、额度、限流和查询词影响，正式展示前需要复核来源。
 3. 如果搜索失败，优先检查网络、Key 权限和 Tavily 服务状态。
 
@@ -105,7 +105,7 @@ Notebook 中曾设置 `HTTPS_PROXY=http://127.0.0.1:8800`，该值属于本地�
 ## 7. 启动方式
 
 ```bash
-cd ~/Documents/hello-agents/Co-creation-projects/czxgg0630-ProductAnalysisAgent
+cd <local-competitor-analysis-source>
 source .venv/bin/activate
 jupyter lab
 ```
@@ -117,7 +117,7 @@ jupyter lab
 
 运行入口说明：
 
-- 原项目的推荐入口仍是 `ProductAnalysis_PlanSolveAgent.ipynb`。
+- 底层工程的推荐入口仍是 `ProductAnalysis_PlanSolveAgent.ipynb`。
 - Notebook 原生命令行执行当前存在导入兼容问题：`PlanAndSolveAgent` 命名与当前安装包中的 `PlanSolveAgent` 不一致，且 Notebook 引用的 `hello_agents.tools.builtin.search_tool.SearchTool` 在当前安装包中不可用。
 - 本次作品集运行验证采用临时本地验证脚本完成 LLM + Tavily 联动验证，未把临时脚本提交为正式案例入口。
 
@@ -146,7 +146,7 @@ jupyter lab
 - 阅读工程 README、Notebook 和输出样例。
 - 梳理项目定位、代码结构、Agent 设计和工具调用。
 - 为作品集补充 README、runbook、sample 和报告样例。
-- 创建安全的 `.env.example` 占位文件。
+- 创建安全的 `本地配置模板` 占位文件。
 - 更新证据清单状态。
 - 使用 Python 3.12.13 创建 `.venv`，并按 `requirements.txt` 安装依赖。
 - 安装 `notebook`、`nbconvert`、`ipykernel`，并注册 `competitor-analysis-agent` kernel。
@@ -159,7 +159,7 @@ jupyter lab
 当前仍需注意：
 
 - 原始 Notebook 仍未直接通过 `nbconvert` 跑通，原因是搜索工具导入路径与当前安装包不兼容。
-- 标准原始录屏归档目录 `assets/demos/competitor-analysis-agent/raw/` 当前待补充；已完成的字幕版成片位于 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。
+- 标准原始录屏归档目录 `assets/demos/competitor-analysis-agent/raw/` 当前可选补充；已完成的字幕版成片位于 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。
 
 因此当前状态是：已完成虚拟环境、依赖安装、Notebook 命令行执行检查、临时验证脚本运行、真实报告生成、HTML 预览和字幕版演示视频制作；Tavily 搜索与 LLM 均已成功。该案例可以作为作品集中的已完成案例展示，但 Notebook 原生运行兼容问题仍作为后续工程优化项保留。
 
