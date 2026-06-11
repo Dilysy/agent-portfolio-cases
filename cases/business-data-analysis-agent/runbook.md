@@ -231,10 +231,10 @@ output/echarts.html
 - 使用 pandas 完成月度、地区、商品类别和客户类型聚合。
 - 使用 matplotlib 输出 4 张中文 PNG 图表。
 - 图表路径：
-  - `assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png`
-  - `assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png`
-  - `assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png`
-  - `assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png`
+  - `assets/screenshots/business-data-analysis-agent/final/01-sales-trend.png`
+  - `assets/screenshots/business-data-analysis-agent/final/02-region-comparison.png`
+  - `assets/screenshots/business-data-analysis-agent/final/03-category-contribution.png`
+  - `assets/screenshots/business-data-analysis-agent/final/04-customer-type-analysis.png`
 
 ### 报告生成方式
 

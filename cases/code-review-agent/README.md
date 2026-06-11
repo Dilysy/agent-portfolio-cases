@@ -109,8 +109,7 @@
 - 最终演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4`
 - HTML 报告预览：`assets/reports/code-review-agent/report-preview.html`
 - 真实审查输出：`assets/reports/code-review-agent/code-review-real-output.md`
-- 原始录屏：`assets/demos/code-review-agent/raw/`
-- 原始截图：`assets/screenshots/code-review-agent/raw/`
+- 公开截图：`assets/screenshots/code-review-agent/final/01-code-sample.png`、`assets/screenshots/code-review-agent/final/02-review-output.png`、`assets/screenshots/code-review-agent/final/03-report-preview.png`
 - HTML 预览：`assets/reports/code-review-agent/report-preview.html`
 - 审查报告样例：`assets/reports/code-review-agent/code-review-report.md`
 

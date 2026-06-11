@@ -159,7 +159,7 @@ jupyter lab
 当前仍需注意：
 
 - 原始 Notebook 仍未直接通过 `nbconvert` 跑通，原因是搜索工具导入路径与当前安装包不兼容。
-- 标准原始录屏归档目录 `assets/demos/competitor-analysis-agent/raw/` 当前可选补充；已完成的字幕版成片位于 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。
+- 已完成的字幕版成片位于 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`；原始录屏素材不纳入公开展示路径。
 
 因此当前状态是：已完成虚拟环境、依赖安装、Notebook 命令行执行检查、临时验证脚本运行、真实报告生成、HTML 预览和字幕版演示视频制作；Tavily 搜索与 LLM 均已成功。该案例可以作为作品集中的已完成案例展示，但 Notebook 原生运行兼容问题仍作为后续工程优化项保留。
 

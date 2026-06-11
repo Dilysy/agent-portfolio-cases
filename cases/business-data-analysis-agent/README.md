@@ -85,10 +85,10 @@
 - 模拟销售数据：`assets/reports/business-data-analysis-agent/sample-sales-data.csv`
 - 经营分析报告：`assets/reports/business-data-analysis-agent/business-data-analysis-report.md`
 - 运行结果记录：`assets/reports/business-data-analysis-agent/business-data-analysis-run-result.md`
-- 月度销售趋势图：`assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png`
-- 地区销售额对比图：`assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png`
-- 商品类别销售贡献图：`assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png`
-- 客户类型销售表现图：`assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png`
+- 月度销售趋势图：`assets/screenshots/business-data-analysis-agent/final/01-sales-trend.png`
+- 地区销售额对比图：`assets/screenshots/business-data-analysis-agent/final/02-region-comparison.png`
+- 商品类别销售贡献图：`assets/screenshots/business-data-analysis-agent/final/03-category-contribution.png`
+- 客户类型销售表现图：`assets/screenshots/business-data-analysis-agent/final/04-customer-type-analysis.png`
 - 报告概览图：`assets/screenshots/business-data-analysis-agent/final/05-report-overview.png`
 - 经营建议图：`assets/screenshots/business-data-analysis-agent/final/06-business-insights.png`
 
@@ -115,10 +115,10 @@
 
 - 演示视频：已完成字幕版成片，路径为 `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`。
 - 模拟销售数据：已补充到 `assets/reports/business-data-analysis-agent/sample-sales-data.csv`。
-- 销售趋势图：已补充到 `assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png`。
-- 地区对比图：已补充到 `assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png`。
-- 商品类别贡献图：已补充到 `assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png`。
-- 客户类型分析图：已补充到 `assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png`。
+- 销售趋势图：已补充到 `assets/screenshots/business-data-analysis-agent/final/01-sales-trend.png`。
+- 地区对比图：已补充到 `assets/screenshots/business-data-analysis-agent/final/02-region-comparison.png`。
+- 商品类别贡献图：已补充到 `assets/screenshots/business-data-analysis-agent/final/03-category-contribution.png`。
+- 客户类型分析图：已补充到 `assets/screenshots/business-data-analysis-agent/final/04-customer-type-analysis.png`。
 - 报告概览图：已补充到 `assets/screenshots/business-data-analysis-agent/final/05-report-overview.png`。
 - 经营建议图：已补充到 `assets/screenshots/business-data-analysis-agent/final/06-business-insights.png`。
 - 经营分析报告：已补充到 `assets/reports/business-data-analysis-agent/business-data-analysis-report.md`。

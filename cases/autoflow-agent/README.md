@@ -43,10 +43,10 @@
 ## 演示材料
 
 - 字幕版演示视频：[autoflow-agent-demo.mp4](../../assets/demos/autoflow-agent/autoflow-agent-demo.mp4)
-- 标准模式截图：[standard-mode.png](../../assets/screenshots/autoflow-agent/raw/standard-mode.png)
-- 灵感模式截图：[inspiration-mode.png](../../assets/screenshots/autoflow-agent/raw/inspiration-mode.png)
-- 计划模式截图：[plan-mode.png](../../assets/screenshots/autoflow-agent/raw/plan-mode.png)
-- Mermaid 代码模式截图：[code-mode.png](../../assets/screenshots/autoflow-agent/raw/code-mode.png)
+- 标准模式截图：[04-standard-result.png](../../assets/screenshots/autoflow-agent/final/04-standard-result.png)
+- 灵感模式截图：[03-inspiration-result.png](../../assets/screenshots/autoflow-agent/final/03-inspiration-result.png)
+- 计划模式截图：[05-plan-result.png](../../assets/screenshots/autoflow-agent/final/05-plan-result.png)
+- Mermaid 代码模式截图：[06-mermaid-code-mode.png](../../assets/screenshots/autoflow-agent/final/06-mermaid-code-mode.png)
 - 抽帧复核索引：[frame-preview-index.md](../../assets/reports/autoflow-agent/frame-preview-index.md)
 
 ## 8. 评估方式

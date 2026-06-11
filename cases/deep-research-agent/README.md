@@ -71,7 +71,7 @@
 - 搜索工具接入：Tavily SearchTool 已验证。
 - 笔记工具：NoteTool 已验证。
 - 最终研究报告：`assets/reports/deep-research-agent/deep-research-report.md`。
-- 原始录屏与关键截图：已归档到 `assets/demos/deep-research-agent/raw/` 与 `assets/screenshots/deep-research-agent/raw/`。
+- 公开展示截图：已整理到 `assets/screenshots/deep-research-agent/final/`。
 - 演示视频：`assets/demos/deep-research-agent/deep-research-agent-demo.mp4`。
 
 ## 8. 评估方式
@@ -98,13 +98,9 @@
 | 材料 | 路径 | 状态 |
 | --- | --- | --- |
 | 演示视频 | `assets/demos/deep-research-agent/deep-research-agent-demo.mp4` | 已完成 |
-| 原始录屏 | `assets/demos/deep-research-agent/raw/deep-research-agent-raw-demo.mov` | 已归档 |
-| 主题输入 / 总视图截图 | `assets/screenshots/deep-research-agent/raw/01-topic-input.png` | 已归档 |
-| TODO 列表截图 | `assets/screenshots/deep-research-agent/raw/02-todo-list.png` | 可选补充 |
-| 搜索来源截图 | `assets/screenshots/deep-research-agent/raw/03-search-sources.png` | 已归档 |
-| 任务总结截图 | `assets/screenshots/deep-research-agent/raw/04-task-summary.png` | 已归档 |
-| 最终报告截图 | `assets/screenshots/deep-research-agent/raw/05-final-report.png` | 已归档 |
-| 完成状态截图 | `assets/screenshots/deep-research-agent/raw/06-completed-status.png` | 可选补充 |
+| 主题输入截图 | `assets/screenshots/deep-research-agent/final/01-topic-input.png` | 已完成 |
+| 来源摘要截图 | `assets/screenshots/deep-research-agent/final/02-source-summary.png` | 已完成 |
+| 最终报告截图 | `assets/screenshots/deep-research-agent/final/03-final-report.png` | 已完成 |
 | 运行验证结果 | `assets/reports/deep-research-agent/deep-research-run-result.md` | 已完成 |
 | 最终研究报告 | `assets/reports/deep-research-agent/deep-research-report.md` | 已完成 |
 | 素材清单 | `assets/reports/deep-research-agent/raw-assets-inventory.md` | 已完成 |

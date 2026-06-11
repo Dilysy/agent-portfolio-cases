@@ -78,7 +78,6 @@ assets/reports/stock-insight-agent/stock-insight-report.md
 - 运行结果：`assets/reports/stock-insight-agent/stock-insight-run-result.md`
 - HTML 报告预览：`assets/reports/stock-insight-agent/report-preview.html`
 - 最终视频：`assets/demos/stock-insight-agent/stock-insight-agent-demo.mp4`
-- 原始录屏：`assets/demos/stock-insight-agent/raw/stock-insight-agent-raw-demo.mov`
-- 原始截图：`assets/screenshots/stock-insight-agent/raw/01-gradio-home.png`
+- 公开截图：`assets/screenshots/stock-insight-agent/final/01-overview.png`、`assets/screenshots/stock-insight-agent/final/02-analysis-panel.png`、`assets/screenshots/stock-insight-agent/final/03-risk-summary.png`
 
 边界说明：本案例仅用于公开信息分析流程演示，不构成投资建议。

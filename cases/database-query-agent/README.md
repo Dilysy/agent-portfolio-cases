@@ -115,11 +115,9 @@ Agent 按 ReAct 流程执行：
 | 材料 | 路径 | 当前状态 |
 | --- | --- | --- |
 | 演示视频 | `assets/demos/database-query-agent/database-query-agent-demo.mp4` | 已完成 |
-| 原始录屏 | `assets/demos/database-query-agent/raw/database-query-agent-raw-demo.mov` | 已完成 |
-| 自然语言问题截图 | `assets/screenshots/database-query-agent/raw/01-natural-language-question.png` | 已完成 |
-| Schema 示例截图 | `assets/screenshots/database-query-agent/raw/02-schema-example.png` | 已完成 |
-| SQL 生成截图 | `assets/screenshots/database-query-agent/raw/03-generated-sql.png` | 已完成 |
-| 查询结果与安全控制截图 | `assets/screenshots/database-query-agent/raw/04-query-result-security.png` | 已完成 |
+| 自然语言查询截图 | `assets/screenshots/database-query-agent/final/01-natural-language-query.png` | 已完成 |
+| SQL 生成截图 | `assets/screenshots/database-query-agent/final/02-generated-sql.png` | 已完成 |
+| 查询结果与安全控制截图 | `assets/screenshots/database-query-agent/final/03-query-result.png` | 已完成 |
 | Schema 示例 | `assets/reports/database-query-agent/database-schema-example.md` | 已完成 |
 | SQL 示例 | `assets/reports/database-query-agent/database-query-sql-example.md` | 已完成 |
 | 查询结果样例 | `assets/reports/database-query-agent/database-query-result.md` | 已完成 |

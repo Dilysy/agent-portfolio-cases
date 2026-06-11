@@ -101,6 +101,5 @@ assets/reports/code-review-agent/code-review-sample.py
 - 审查报告：`assets/reports/code-review-agent/code-review-report.md`
 - HTML 预览页：`assets/reports/code-review-agent/report-preview.html`
 - 运行结果记录：`assets/reports/code-review-agent/code-review-run-result.md`
-- 原始截图目录：`assets/screenshots/code-review-agent/raw/`
-- 原始录屏目录：`assets/demos/code-review-agent/raw/`
+- 公开截图目录：`assets/screenshots/code-review-agent/final/`
 - 最终演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4`

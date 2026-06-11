@@ -51,10 +51,10 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 - [sample-sales-data.csv](../../assets/reports/business-data-analysis-agent/sample-sales-data.csv)
 - [business-data-analysis-report.md](../../assets/reports/business-data-analysis-agent/business-data-analysis-report.md)
 - [business-data-analysis-run-result.md](../../assets/reports/business-data-analysis-agent/business-data-analysis-run-result.md)
-- [01-sales-trend.png](../../assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png)
-- [02-region-comparison.png](../../assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png)
-- [03-category-contribution.png](../../assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png)
-- [04-customer-type-analysis.png](../../assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png)
+- [01-sales-trend.png](../../assets/screenshots/business-data-analysis-agent/final/01-sales-trend.png)
+- [02-region-comparison.png](../../assets/screenshots/business-data-analysis-agent/final/02-region-comparison.png)
+- [03-category-contribution.png](../../assets/screenshots/business-data-analysis-agent/final/03-category-contribution.png)
+- [04-customer-type-analysis.png](../../assets/screenshots/business-data-analysis-agent/final/04-customer-type-analysis.png)
 - [05-report-overview.png](../../assets/screenshots/business-data-analysis-agent/final/05-report-overview.png)
 - [06-business-insights.png](../../assets/screenshots/business-data-analysis-agent/final/06-business-insights.png)
 - [business-data-analysis-agent-demo.mp4](../../assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4)
@@ -110,6 +110,6 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 - 模拟销售数据：`assets/reports/business-data-analysis-agent/sample-sales-data.csv`
 - 经营分析报告：`assets/reports/business-data-analysis-agent/business-data-analysis-report.md`
 - 运行结果记录：`assets/reports/business-data-analysis-agent/business-data-analysis-run-result.md`
-- 图表目录：`assets/screenshots/business-data-analysis-agent/raw/`
+- 图表目录：`assets/screenshots/business-data-analysis-agent/final/`
 - 报告展示图：`assets/screenshots/business-data-analysis-agent/final/05-report-overview.png`、`assets/screenshots/business-data-analysis-agent/final/06-business-insights.png`
 - 演示视频：`assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`

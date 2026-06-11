@@ -25,7 +25,7 @@ assets/reports/database-query-agent/database-schema-example.md
 关键截图：
 
 ```text
-assets/screenshots/database-query-agent/raw/02-schema-example.png
+assets/screenshots/database-query-agent/final/01-natural-language-query.png
 ```
 
 ## 3. SQL 生成过程
@@ -139,7 +139,6 @@ assets/reports/database-query-agent/database-query-result.md
 - 运行记录：`assets/reports/database-query-agent/database-query-run-result.md`
 - HTML 预览页：`assets/reports/database-query-agent/report-preview.html`
 - 演示视频：`assets/demos/database-query-agent/database-query-agent-demo.mp4`
-- 自然语言问题截图：`assets/screenshots/database-query-agent/raw/01-natural-language-question.png`
-- Schema 示例截图：`assets/screenshots/database-query-agent/raw/02-schema-example.png`
-- SQL 生成截图：`assets/screenshots/database-query-agent/raw/03-generated-sql.png`
-- 查询结果与安全控制截图：`assets/screenshots/database-query-agent/raw/04-query-result-security.png`
+- 自然语言查询截图：`assets/screenshots/database-query-agent/final/01-natural-language-query.png`
+- SQL 生成截图：`assets/screenshots/database-query-agent/final/02-generated-sql.png`
+- 查询结果与安全控制截图：`assets/screenshots/database-query-agent/final/03-query-result.png`

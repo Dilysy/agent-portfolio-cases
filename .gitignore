@@ -15,6 +15,10 @@ AGENTS.md
 scripts/
 docs/
 
+# Local screenshot working files.
+assets/screenshots/**/raw/
+assets/screenshots/financial-report-agent/
+
 # Raw recording files.
 assets/demos/**/raw/*.mov
 assets/demos/**/raw/*.mp4
