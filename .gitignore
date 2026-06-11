@@ -15,6 +15,31 @@ AGENTS.md
 scripts/
 docs/
 
+# Internal / process assets.
+assets/_discarded/
+assets/demos/**/raw/
+assets/demos/**/backup/
+assets/demos/autoflow-agent/clips/
+assets/demos/autoflow-agent/*voiceover*
+assets/reports/**/frame-preview/
+assets/reports/final-video-subtitle-check/
+assets/reports/**/.video-build/
+assets/reports/**/video-build-tmp/
+assets/reports/**/raw-assets-inventory.md
+assets/reports/**/*raw-assets-inventory.md
+assets/reports/**/ffmpeg-edit-plan.md
+assets/reports/**/frame-preview-index.md
+assets/reports/**/demo-subtitles.srt
+assets/reports/**/*demo-subtitles.srt
+assets/reports/**/demo-subtitles-final.srt
+assets/reports/**/demo-subtitles.ass
+assets/reports/**/*video-subtitles.srt
+assets/reports/**/*voiceover*
+assets/reports/**/*shot-list*
+assets/reports/**/*storyboard*
+assets/reports/**/jianying-*.md
+assets/reports/public-repo-audit.md
+
 # Local screenshot working files.
 assets/screenshots/**/raw/
 assets/screenshots/financial-report-agent/

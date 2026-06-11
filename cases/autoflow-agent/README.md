@@ -47,7 +47,6 @@
 - 灵感模式截图：[03-inspiration-result.png](../../assets/screenshots/autoflow-agent/final/03-inspiration-result.png)
 - 计划模式截图：[05-plan-result.png](../../assets/screenshots/autoflow-agent/final/05-plan-result.png)
 - Mermaid 代码模式截图：[06-mermaid-code-mode.png](../../assets/screenshots/autoflow-agent/final/06-mermaid-code-mode.png)
-- 抽帧复核索引：[frame-preview-index.md](../../assets/reports/autoflow-agent/frame-preview-index.md)
 
 ## 8. 评估方式
 

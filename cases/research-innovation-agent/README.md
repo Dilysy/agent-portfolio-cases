@@ -98,7 +98,5 @@
 - 最终视频：`assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4`
 - 报告预览：`assets/reports/research-innovation-agent/report-preview.html`
 - 运行结果：`assets/reports/research-innovation-agent/research-innovation-run-result.md`
-- 原始素材清单：`assets/reports/research-innovation-agent/raw-assets-inventory.md`
-- 抽帧索引：`assets/reports/research-innovation-agent/frame-preview-index.md`
 
 用于科研辅助流程演示，正式研究结论仍需人工复核。

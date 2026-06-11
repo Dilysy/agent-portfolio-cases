@@ -183,11 +183,9 @@ assets/demos/database-query-agent/database-query-agent-demo.mp4
 
 生成过程：
 
-1. 归档原始录屏到 `assets/demos/database-query-agent/raw/database-query-agent-raw-demo.mov`。
+1. 最终演示视频输出到 `assets/demos/database-query-agent/database-query-agent-demo.mp4`。
 2. 公开展示截图整理到 `assets/screenshots/database-query-agent/final/`。
-3. 使用 `assets/reports/database-query-agent/frame-preview-index.md` 复核关键画面。
-4. 使用 `scripts/database_query_video/build_demo.sh` 生成 1920x1080 MP4。
-5. 第一版为字幕版演示，不处理配音。
+3. 第一版为字幕版演示，不处理配音。
 
 ## 13. 后续如何接入真实数据库
 

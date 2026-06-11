@@ -77,7 +77,6 @@ assets/reports/deep-research-agent/deep-research-report.md
 | 来源摘要截图 | `assets/screenshots/deep-research-agent/final/02-source-summary.png` | 已完成 |
 | 最终报告截图 | `assets/screenshots/deep-research-agent/final/03-final-report.png` | 已完成 |
 | 运行结果记录 | `assets/reports/deep-research-agent/deep-research-run-result.md` | 已完成 |
-| 抽帧索引 | `assets/reports/deep-research-agent/frame-preview-index.md` | 已完成 |
 
 当前视频为第一版演示成片，不处理配音；字幕和配音后续可继续优化。
 

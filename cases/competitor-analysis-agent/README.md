@@ -101,4 +101,3 @@ Agent 接收竞品分析任务后，将用户输入拆解为竞品对象和分�
 - HTML 报告预览：已补充到 `assets/reports/competitor-analysis-agent/report-preview.html`。
 - 竞品分析报告：已补充到 [competitor-analysis-report.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-report.md)。
 - 运行验证结果：已补充到 [competitor-analysis-run-result.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)。
-- 素材清单：已补充到 `assets/reports/competitor-analysis-agent/raw-assets-inventory.md`。

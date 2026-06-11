@@ -115,7 +115,7 @@ VALIDATOR_MAX_RETRIES=2
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-不要把真实 私密凭证 写入仓库。当前作品集中的 `cases/autoflow-agent/本地配置模板` 仅保留占位字段。
+不要把真实私密凭证写入仓库；公开文档只保留占位字段和本地配置说明。
 
 `本地配置文件` 提交规则：
 

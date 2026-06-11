@@ -72,7 +72,6 @@ Agent 按 ReAct 流程执行：
 - 运行验证记录：`assets/reports/database-query-agent/database-query-run-result.md`
 - HTML 预览页：`assets/reports/database-query-agent/report-preview.html`
 - 字幕版演示视频：`assets/demos/database-query-agent/database-query-agent-demo.mp4`
-- 原始录屏：`assets/demos/database-query-agent/raw/database-query-agent-raw-demo.mov`
 
 这些材料基于模拟销售业务数据逻辑，不代表真实企业数据或真实生产数据库查询结果。
 
@@ -123,5 +122,3 @@ Agent 按 ReAct 流程执行：
 | 查询结果样例 | `assets/reports/database-query-agent/database-query-result.md` | 已完成 |
 | 运行验证记录 | `assets/reports/database-query-agent/database-query-run-result.md` | 已完成 |
 | HTML 预览页 | `assets/reports/database-query-agent/report-preview.html` | 已完成 |
-| 素材清单 | `assets/reports/database-query-agent/raw-assets-inventory.md` | 已完成 |
-| 抽帧索引 | `assets/reports/database-query-agent/frame-preview-index.md` | 已完成 |

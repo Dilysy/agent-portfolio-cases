@@ -109,6 +109,4 @@ assets/reports/research-innovation-agent/research-innovation-run-result.md
 assets/reports/research-innovation-agent/report-preview.html
 assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4
 assets/reports/research-innovation-agent/research-workflow-sample.md
-assets/reports/research-innovation-agent/raw-assets-inventory.md
-assets/reports/research-innovation-agent/frame-preview-index.md
 ```

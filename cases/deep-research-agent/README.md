@@ -103,7 +103,5 @@
 | 最终报告截图 | `assets/screenshots/deep-research-agent/final/03-final-report.png` | 已完成 |
 | 运行验证结果 | `assets/reports/deep-research-agent/deep-research-run-result.md` | 已完成 |
 | 最终研究报告 | `assets/reports/deep-research-agent/deep-research-report.md` | 已完成 |
-| 素材清单 | `assets/reports/deep-research-agent/raw-assets-inventory.md` | 已完成 |
-| 抽帧索引 | `assets/reports/deep-research-agent/frame-preview-index.md` | 已完成 |
 
 当前演示视频为第一版视频成片，不处理配音；字幕和配音后续可继续优化。

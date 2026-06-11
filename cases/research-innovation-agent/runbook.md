@@ -154,11 +154,6 @@ assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4
 assets/reports/research-innovation-agent/research-innovation-run-result.md
 assets/reports/research-innovation-agent/research-workflow-sample.md
 assets/reports/research-innovation-agent/report-preview.html
-assets/reports/research-innovation-agent/raw-assets-inventory.md
-assets/reports/research-innovation-agent/ffmpeg-edit-plan.md
-assets/reports/research-innovation-agent/frame-preview-index.md
-assets/reports/research-innovation-agent/demo-subtitles.srt
-assets/demos/research-innovation-agent/raw/
 assets/demos/research-innovation-agent/research-innovation-agent-demo.mp4
 ```
 

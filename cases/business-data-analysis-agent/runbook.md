@@ -246,8 +246,6 @@ output/echarts.html
 
 ### 视频生成方式
 
-- 剪辑脚本：`scripts/business_data_analysis_video/build_demo.sh`
-- 字幕文件：`assets/reports/business-data-analysis-agent/demo-subtitles.srt`
 - 输入素材：4 张图表 + 2 张报告展示图。
 - 输出成片：`assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`
 - 处理方式：ffmpeg 将静态图片转为 1920x1080 H.264 MP4，并叠加底部硬字幕；当前不处理配音。

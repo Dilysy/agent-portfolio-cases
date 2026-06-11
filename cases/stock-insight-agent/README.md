@@ -102,8 +102,5 @@
 - 运行结果记录：`assets/reports/stock-insight-agent/stock-insight-run-result.md`
 - 分析报告样例：`assets/reports/stock-insight-agent/stock-insight-report.md`
 - 公开截图：`assets/screenshots/stock-insight-agent/final/01-overview.png`、`assets/screenshots/stock-insight-agent/final/02-analysis-panel.png`、`assets/screenshots/stock-insight-agent/final/03-risk-summary.png`
-- 素材清单：`assets/reports/stock-insight-agent/raw-assets-inventory.md`
-- 抽帧索引：`assets/reports/stock-insight-agent/frame-preview-index.md`
-- 字幕文件：`assets/reports/stock-insight-agent/demo-subtitles.srt`
 
 视频和截图中局部页面标题为应用内部标题，正式片头和字幕已统一使用“智能股票分析助手 Agent”。
