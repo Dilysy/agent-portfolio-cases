@@ -12,6 +12,8 @@
 
 👉 [查看在线演示页面](https://dilysy.github.io/agent-portfolio-cases/)
 
+在线展示页面基于 GitHub Pages 发布。
+
 如需了解每个案例的设计说明、样例输出和运行记录，可继续浏览下方案例目录。
 
 ## 案例总览
@@ -134,6 +136,8 @@ cases/<case-name>/runbook.md
 ```text
 README.md
 .gitignore
+index.html
+styles.css
 
 cases/
   autoflow-agent/
@@ -160,6 +164,8 @@ docs/
 
 - `README.md`：仓库首页说明，包含项目定位、案例总览、在线展示入口、目录说明和边界说明。
 - `.gitignore`：忽略本地配置、内部工作文件、过程素材和临时构建文件。
+- `index.html`：在线展示页面入口。
+- `styles.css`：在线展示页面样式。
 
 `cases/` 存放各 Agent 案例的文字说明与运行记录。每个案例目录通常包含：
 
@@ -185,10 +191,10 @@ docs/
 - `assets/screenshots/`：存放各案例精选截图。公开仓库中优先保留 `final/` 下的正式展示截图。
 - `assets/architecture/`：用于后续补充正式架构图和流程图素材。
 
-`docs/` 用于在线展示页面：
+`docs/` 保留在线展示页面的镜像文件：
 
-- `docs/index.html`：在线展示页面入口。
-- `docs/styles.css`：在线展示页面样式。
+- `docs/index.html`：在线展示页面镜像入口。
+- `docs/styles.css`：在线展示页面镜像样式。
 
 本地制作过程中使用的内部指令、制作脚本、原始素材、过程检查和临时构建文件不纳入公开仓库，仅保留正式案例文档、最终演示视频、报告预览和精选截图。
 
