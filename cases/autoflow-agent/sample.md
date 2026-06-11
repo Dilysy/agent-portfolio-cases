@@ -16,7 +16,7 @@
 1. 阅读工程 README、`backend/app`、`frontend/src`、依赖文件和 `本地配置模板`。
 2. 确认后端入口为 `backend/app/main.py`，启动命令为 `uvicorn app.main:app --host 127.0.0.1 --port 8000`。
 3. 确认前端入口为 Vite React 应用，启动命令为 `npm run dev -- --host 127.0.0.1 --port 5173`。
-4. 已完成依赖前置修复：`backend/requirements.txt` 中的 `hello-agents=1.0.0` 已改为 `hello-agents==1.0.0`。
+4. 已完成依赖前置修复：修正 `backend/requirements.txt` 中的版本声明写法。
 5. 后端启动成功，`/health` 返回 `{"status":"ok","service":"AutoFlow API"}`。
 6. 前端依赖 `npm install` 成功，Vite 启动在 `http://127.0.0.1:5173/`。
 7. 做最小修复：将后端 LLM timeout 默认值和运行时最低值提升到 120 秒，并更新 `backend/本地配置模板`。
@@ -40,16 +40,16 @@
 
 ## 示例输出
 
-四模式测试总表已保存到 [autoflow-four-modes-test.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/autoflow-four-modes-test.md)。
+四模式测试总表已保存到 [autoflow-four-modes-test.md](../../assets/reports/autoflow-agent/autoflow-four-modes-test.md)。
 
-最终字幕版演示视频已保存到 [autoflow-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/autoflow-agent/autoflow-agent-demo.mp4)。
+最终字幕版演示视频已保存到 [autoflow-agent-demo.mp4](../../assets/demos/autoflow-agent/autoflow-agent-demo.mp4)。
 
 各模式 Mermaid 记录：
 
-- [01-inspiration-mode-mermaid.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/01-inspiration-mode-mermaid.md)
-- [02-standard-mode-mermaid.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/02-standard-mode-mermaid.md)
-- [03-plan-mode-mermaid.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/03-plan-mode-mermaid.md)
-- [04-code-mode-mermaid.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/04-code-mode-mermaid.md)
+- [01-inspiration-mode-mermaid.md](../../assets/reports/autoflow-agent/01-inspiration-mode-mermaid.md)
+- [02-standard-mode-mermaid.md](../../assets/reports/autoflow-agent/02-standard-mode-mermaid.md)
+- [03-plan-mode-mermaid.md](../../assets/reports/autoflow-agent/03-plan-mode-mermaid.md)
+- [04-code-mode-mermaid.md](../../assets/reports/autoflow-agent/04-code-mode-mermaid.md)
 
 标准模式生成的 Mermaid 示例：
 

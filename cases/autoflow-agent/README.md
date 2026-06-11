@@ -42,12 +42,12 @@
 
 ## 演示材料
 
-- 字幕版演示视频：[autoflow-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/autoflow-agent/autoflow-agent-demo.mp4)
-- 标准模式截图：[standard-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/standard-mode.png)
-- 灵感模式截图：[inspiration-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/inspiration-mode.png)
-- 计划模式截图：[plan-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/plan-mode.png)
-- Mermaid 代码模式截图：[code-mode.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/autoflow-agent/raw/code-mode.png)
-- 抽帧复核索引：[frame-preview-index.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/frame-preview-index.md)
+- 字幕版演示视频：[autoflow-agent-demo.mp4](../../assets/demos/autoflow-agent/autoflow-agent-demo.mp4)
+- 标准模式截图：[standard-mode.png](../../assets/screenshots/autoflow-agent/raw/standard-mode.png)
+- 灵感模式截图：[inspiration-mode.png](../../assets/screenshots/autoflow-agent/raw/inspiration-mode.png)
+- 计划模式截图：[plan-mode.png](../../assets/screenshots/autoflow-agent/raw/plan-mode.png)
+- Mermaid 代码模式截图：[code-mode.png](../../assets/screenshots/autoflow-agent/raw/code-mode.png)
+- 抽帧复核索引：[frame-preview-index.md](../../assets/reports/autoflow-agent/frame-preview-index.md)
 
 ## 8. 评估方式
 

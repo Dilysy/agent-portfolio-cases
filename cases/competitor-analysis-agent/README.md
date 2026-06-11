@@ -67,8 +67,8 @@ Agent 接收竞品分析任务后，将用户输入拆解为竞品对象和分�
 
 本阶段已完成一次本地化运行验证，LLM 与 Tavily 均调用成功，并生成真实运行报告：
 
-- [competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
-- [competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
+- [competitor-analysis-report.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
+- [competitor-analysis-run-result.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
 
 该报告使用任务：
 
@@ -99,6 +99,6 @@ Agent 接收竞品分析任务后，将用户输入拆解为竞品对象和分�
 - 演示视频：已完成字幕版成片，路径为 `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`。
 - 原始录屏：最终展示以字幕版 demo MP4 和素材清单为准，桌面录屏路径不进入对外文档。
 - HTML 报告预览：已补充到 `assets/reports/competitor-analysis-agent/report-preview.html`。
-- 竞品分析报告：已补充到 [competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)。
-- 运行验证结果：已补充到 [competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)。
+- 竞品分析报告：已补充到 [competitor-analysis-report.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-report.md)。
+- 运行验证结果：已补充到 [competitor-analysis-run-result.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)。
 - 素材清单：已补充到 `assets/reports/competitor-analysis-agent/raw-assets-inventory.md`。

@@ -10,6 +10,11 @@ __pycache__/
 assets/**/.video-build/
 *.log
 
+# Internal working files.
+AGENTS.md
+scripts/
+docs/
+
 # Raw recording files.
 assets/demos/**/raw/*.mov
 assets/demos/**/raw/*.mp4

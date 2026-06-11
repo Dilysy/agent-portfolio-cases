@@ -48,16 +48,16 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 
 已生成：
 
-- [sample-sales-data.csv](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/business-data-analysis-agent/sample-sales-data.csv)
-- [business-data-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/business-data-analysis-agent/business-data-analysis-report.md)
-- [business-data-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/business-data-analysis-agent/business-data-analysis-run-result.md)
-- [01-sales-trend.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png)
-- [02-region-comparison.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png)
-- [03-category-contribution.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png)
-- [04-customer-type-analysis.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png)
-- [05-report-overview.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/final/05-report-overview.png)
-- [06-business-insights.png](/Users/wangyu/Documents/agent-portfolio-cases/assets/screenshots/business-data-analysis-agent/final/06-business-insights.png)
-- [business-data-analysis-agent-demo.mp4](/Users/wangyu/Documents/agent-portfolio-cases/assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4)
+- [sample-sales-data.csv](../../assets/reports/business-data-analysis-agent/sample-sales-data.csv)
+- [business-data-analysis-report.md](../../assets/reports/business-data-analysis-agent/business-data-analysis-report.md)
+- [business-data-analysis-run-result.md](../../assets/reports/business-data-analysis-agent/business-data-analysis-run-result.md)
+- [01-sales-trend.png](../../assets/screenshots/business-data-analysis-agent/raw/01-sales-trend.png)
+- [02-region-comparison.png](../../assets/screenshots/business-data-analysis-agent/raw/02-region-comparison.png)
+- [03-category-contribution.png](../../assets/screenshots/business-data-analysis-agent/raw/03-category-contribution.png)
+- [04-customer-type-analysis.png](../../assets/screenshots/business-data-analysis-agent/raw/04-customer-type-analysis.png)
+- [05-report-overview.png](../../assets/screenshots/business-data-analysis-agent/final/05-report-overview.png)
+- [06-business-insights.png](../../assets/screenshots/business-data-analysis-agent/final/06-business-insights.png)
+- [business-data-analysis-agent-demo.mp4](../../assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4)
 
 报告包含：
 

@@ -115,7 +115,7 @@ VALIDATOR_MAX_RETRIES=2
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-不要把真实 私密凭证 写入仓库。当前作品集中的 [cases/autoflow-agent/本地配置模板](/Users/wangyu/Documents/agent-portfolio-cases/cases/autoflow-agent/本地配置模板) 仅保留占位字段。
+不要把真实 私密凭证 写入仓库。当前作品集中的 `cases/autoflow-agent/本地配置模板` 仅保留占位字段。
 
 `本地配置文件` 提交规则：
 
@@ -165,7 +165,7 @@ OpenAI-compatible API 支持判断：
 - 标准模式：命中 `rule-sales-process`，未调用 LLM，结构校验和前端渲染均通过，耗时约 0.007 秒。
 - 计划模式：命中 `rule-linear-plan`，未调用 LLM，规则拆解生成结构化 Mermaid，结构校验和前端渲染均通过，耗时约 0.024 秒。
 - Mermaid 代码模式：不依赖 LLM，手工 Mermaid 示例通过结构校验和前端渲染。
-- 测试报告见 [autoflow-four-modes-test.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-agent/autoflow-four-modes-test.md)。
+- 测试报告见 [autoflow-four-modes-test.md](../../assets/reports/autoflow-agent/autoflow-four-modes-test.md)。
 
 最小修复记录：
 
@@ -279,7 +279,7 @@ http://127.0.0.1:5173/
 
 1. 打开 `http://127.0.0.1:5173/`。
 2. 切换到 Mermaid 代码模式。
-3. 粘贴 [autoflow-mermaid-example.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/autoflow-mermaid-example.md) 中的 Mermaid 示例。
+3. 粘贴 [autoflow-mermaid-example.md](../../assets/reports/autoflow-mermaid-example.md) 中的 Mermaid 示例。
 4. 观察右侧实时预览，切换上到下/左到右方向，按需导出 `.mmd` 或 SVG。
 
 计划模式演示输入：

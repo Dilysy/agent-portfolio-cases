@@ -38,8 +38,8 @@
 
 已整理本次真实运行输出：
 
-- [competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
-- [competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
+- [competitor-analysis-report.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
+- [competitor-analysis-run-result.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
 
 真实竞品分析报告包含：
 
@@ -90,8 +90,8 @@
 
 ## 8. 演示材料路径
 
-- 真实竞品分析报告：[competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
-- 运行验证记录：[competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
+- 真实竞品分析报告：[competitor-analysis-report.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
+- 运行验证记录：[competitor-analysis-run-result.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
 - HTML 预览页：`assets/reports/competitor-analysis-agent/report-preview.html`
 - 字幕版演示视频：`assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`
 - 原始录屏：最终展示以字幕版 demo MP4 和素材清单为准，桌面录屏路径不进入对外文档。

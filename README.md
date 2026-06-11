@@ -138,6 +138,8 @@ cases/<case-name>/runbook.md
 ## 案例目录结构
 
 ```text
+README.md
+
 cases/
   autoflow-agent/
   business-data-analysis-agent/
@@ -152,10 +154,6 @@ assets/
   demos/        # 最终演示视频和必要原始素材
   reports/      # 运行记录、报告样例、HTML 预览和剪辑说明
   screenshots/  # 关键截图和抽帧材料
-
-docs/
-  evidence-checklist.md
-  deployment.md
 ```
 
 ## 安全与边界说明

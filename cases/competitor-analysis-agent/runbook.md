@@ -69,7 +69,7 @@ python3 -m ipykernel install --user --name competitor-analysis-agent --display-n
 工程目录提供 `本地配置模板`。本作品集也保留了安全占位文件：
 
 - 工程模板：`<local-competitor-analysis-source>/本地配置模板`
-- 作品集模板：[本地配置模板](/Users/wangyu/Documents/agent-portfolio-cases/cases/competitor-analysis-agent/本地配置模板)
+- 作品集模板：`本地配置模板`
 
 运行前需要在工程目录中创建 `本地配置文件`：
 
@@ -165,8 +165,8 @@ jupyter lab
 
 运行验证记录：
 
-- [competitor-analysis-run-result.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
-- [competitor-analysis-report.md](/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
+- [competitor-analysis-run-result.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-run-result.md)
+- [competitor-analysis-report.md](../../assets/reports/competitor-analysis-agent/competitor-analysis-report.md)
 - `assets/reports/competitor-analysis-agent/report-preview.html`
 - `assets/demos/competitor-analysis-agent/competitor-analysis-agent-demo.mp4`
 
