@@ -1,4 +1,4 @@
-# 自然语言数据库查询 Agent 本地化运行验证步骤
+# 自然语言数据库查询 Agent 本地运行验证步骤
 
 ## 1. 项目来源
 
@@ -12,7 +12,7 @@
 
 该工程是一个命令行自然语言数据库查询 Agent。用户输入中文查询需求后，Agent 按 ReAct 流程获取 Oracle Schema、生成 Oracle SQL、校验 SQL 并执行查询，最后返回格式化结果。
 
-当前作品集阶段已完成工程理解、文档整理、模拟 Schema、SQL 示例、查询结果样例、HTML 预览页、原始录屏归档、抽帧复核和字幕版演示视频。正式展示不接入真实 Oracle 数据库运行。
+当前当前示例已完成工程理解、文档整理、模拟 Schema、SQL 示例、查询结果样例、HTML 预览页、原始录屏归档、抽帧复核和字幕版演示视频。正式展示不接入真实 Oracle 数据库运行。
 
 ## 3. 代码结构
 
@@ -47,7 +47,7 @@
 - Oracle 数据库或 Oracle 测试环境
 - 可用 LLM API 服务
 
-当前不强制接入真实 Oracle；作品集演示使用模拟销售业务 Schema。
+当前不强制接入真实 Oracle；公开演示使用模拟销售业务 Schema。
 
 ## 5. 依赖安装
 
@@ -61,7 +61,7 @@ python3 -m pip install -r requirements.txt
 
 主要依赖：
 
-- `hello-agents`
+- `Agent 运行依赖`
 - `openai`
 - `oracledb`
 - `python-dotenv`
@@ -72,7 +72,7 @@ python3 -m pip install -r requirements.txt
 
 1. 使用 Oracle 测试库执行 `setup_database.sql`。
 2. 改造为 SQLite / DuckDB 本地演示库。
-3. 使用当前作品集的模拟 Schema 展示 Text-to-SQL 流程，不执行真实数据库查询。
+3. 使用当前本案例的模拟 Schema 展示 Text-to-SQL 流程，不执行真实数据库查询。
 
 当前阶段采用第 3 种方式，已生成：
 
@@ -88,9 +88,9 @@ python3 -m pip install -r requirements.txt
 需要配置：
 
 ```text
-本地私密凭证=
-本地私密凭证=
-本地私密凭证=
+本地配置项=
+本地配置项=
+本地配置项=
 DB_HOST=
 DB_PORT=
 DB_SERVICE_NAME=
@@ -101,7 +101,7 @@ DB_PASSWORD=
 安全要求：
 
 - `本地配置文件` 不允许提交。
-- 不在文档、截图、录屏或日志中展示 私密凭证、数据库用户名或密码。
+- 不在文档、截图、录屏或日志中展示 本地配置、数据库用户名或密码。
 - 数据库账号必须使用只读账号，不使用管理员账号进行演示。
 
 ## 8. 启动方式
@@ -144,7 +144,7 @@ sqlplus <只读或测试用户>/<密码>@<主机>:1521/<服务名> @setup_databa
 4. `ExecuteQuery` 执行 SQL。
 5. `format_query_result` 格式化结果。
 
-## 10. 当前本地化运行验证状态
+## 10. 当前本地运行验证状态
 
 已完成：
 

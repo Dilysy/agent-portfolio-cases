@@ -7,7 +7,7 @@
 - `多 Agent 经营分析原型`：Python 主程序形态，包含 Plan / Analysis / Report 三段 Agent 流水线，面向商品销售数据做任务规划、数据分析、图表生成和报告汇总。
 - `Notebook 表格分析原型`：Notebook 形态，使用 SimpleAgent 结合数据清洗、统计工具，对 Excel 表格生成 ECharts 图表和 Markdown 报告。
 
-作品集版本将两者合并包装为“企业经营数据分析 Agent”，用于展示从经营数据输入、指标计算、分组对比、图表生成到经营报告输出的本地化运行验证链路。本案例不接入真实企业数据，不写成真实客户交付项目。
+本案例将两者整合为“企业经营数据分析 Agent”，用于展示从经营数据输入、指标计算、分组对比、图表生成到经营报告输出的本地运行验证流程。本案例不接入实际企业数据，基于演示环境和样例数据完成，不代表已上线运行。
 
 ## 2. 业务问题
 
@@ -29,14 +29,14 @@
 5. 图表生成：生成趋势图、地区对比图、品类贡献图和客户类型分析图。
 6. 报告生成：输出 Markdown 经营分析报告，并保留人工复核说明。
 
-当前已完成模拟销售数据演示、本地验证材料整理和字幕版演示视频剪辑。两个底层工程的端到端 LLM 运行验证仍作为后续优化项保留，因此本案例展示口径为“模拟数据演示 / 本地验证”，不代表真实企业数据分析结果。
+当前已完成模拟销售数据演示、本地验证材料整理和字幕版演示视频剪辑。两个底层工程的端到端 LLM 运行验证仍作为后续优化项保留，因此本案例展示口径为“模拟数据演示 / 本地验证”，不代表实际企业数据分析结果。
 
 ## 4. Agent 设计
 
-| 设计点 | 多 Agent 原型 | Notebook 原型 | 作品集包装口径 |
+| 设计点 | 多 Agent 原型 | Notebook 原型 | 本案例案例口径 |
 | --- | --- | --- | --- |
 | SimpleAgent | ReportAgent 使用 SimpleAgent 汇总结果 | 主体使用 SimpleAgent 调用工具并生成图表/报告 | 可用于报告汇总和轻量表格分析 |
-| Plan-and-Solve | 已包含，Plan Agent 先规划子任务 | 未体现 | 适合包装为复杂经营分析的任务拆解能力 |
+| Plan-and-Solve | 已包含，Plan Agent 先规划子任务 | 未体现 | 适合构建为复杂经营分析的任务拆解能力 |
 | ReAct | PlanningAgent 和 AnalysisAgent 使用重写 ReActAgent | 未体现 | 用于工具调用和逐步分析 |
 | 任务拆解 | 已包含，规划 2-5 个分析任务 | 由提示词引导但不形成显式计划列表 | 已实现于 多 Agent 原型，Notebook 版本为轻量补充 |
 | 数据理解 | 数据探查工具读取形状、字段、类型、质量和统计摘要 | 读取 Excel 后交给清洗/统计工具 | 已包含 |
@@ -64,14 +64,14 @@
 | `Payment Method Impact Analysis` | 分析子任务 | 支付方式与购买金额关系 | 支付方式分析 | 多 Agent 原型 中已实现，面向固定购物数据 |
 | `DataCleaningTool` | Excel JSON、空值策略、保留列 | 清洗后 JSON | Excel 表格清洗 | Notebook 原型 中已实现 |
 | `DataStatisticsTool` | 清洗后 JSON | 数值统计、分类字段 Top 值 | 描述性统计 | Notebook 原型 中已实现，但当前注册表只注册了清洗工具，需补注册统计工具 |
-| LLM 调用 | 提示词、工具上下文、分析任务 | 任务规划、分析结论、报告文本 | 驱动 Agent 推理和报告生成 | 需要配置模型 私密凭证 和 服务接入地址 |
+| LLM 调用 | 提示词、工具上下文、分析任务 | 任务规划、分析结论、报告文本 | 驱动 Agent 推理和报告生成 | 需要配置模型 本地配置 和 服务接入地址 |
 
 ## 6. 实现流程
 
 1. 阅读两个底层工程 README、入口和工具代码。
 2. 将 `多 Agent 原型` 定位为多 Agent 经营分析流水线：Plan 规划、Analysis 调工具、Report 汇总。
 3. 将 `Notebook 原型` 定位为 Notebook 表格分析原型：Excel 读取、清洗、统计、ECharts、Markdown 报告。
-4. 为作品集生成模拟销售数据 `sample-sales-data.csv`。
+4. 为本案例生成模拟销售数据 `sample-sales-data.csv`。
 5. 使用 Python 对模拟数据做月度、地区、品类和客户类型分析。
 6. 生成 4 张中文图表和一份经营分析报告样例。
 7. 基于图表和报告展示图生成字幕版演示视频。
@@ -79,7 +79,7 @@
 
 ## 7. 输出结果
 
-本阶段已生成以下作品集材料：
+本阶段已生成以下案例材料：
 
 - 演示视频：`assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4`
 - 模拟销售数据：`assets/reports/business-data-analysis-agent/sample-sales-data.csv`
@@ -92,15 +92,15 @@
 - 报告概览图：`assets/screenshots/business-data-analysis-agent/final/05-report-overview.png`
 - 经营建议图：`assets/screenshots/business-data-analysis-agent/final/06-business-insights.png`
 
-报告明确标注为基于模拟数据生成，不代表真实企业经营结论。
+报告明确标注为基于模拟数据生成，不代表实际企业经营结论。
 
 ## 8. 评估方式
 
 - 数据完整性：检查日期范围、地区、客户类型、商品类别是否覆盖要求。
 - 指标正确性：复核销售额、订单数、客单价、加权毛利率、分组聚合计算。
 - 图表可读性：检查中文标题、坐标轴、图例和数值标注是否清晰。
-- 结论边界：确认经营建议只基于模拟数据，不写成真实客户结论。
-- 安全检查：确认报告和图表不包含 私密凭证、真实企业名称、客户名称、邮箱、电话或内部账号。
+- 结论边界：确认经营建议只基于模拟数据，不写成实际业务结论。
+- 安全检查：确认报告和图表不包含 本地配置、实际企业名称、客户名称、邮箱、电话或内部账号。
 
 ## 9. 可扩展方向
 
@@ -124,4 +124,4 @@
 - 经营分析报告：已补充到 `assets/reports/business-data-analysis-agent/business-data-analysis-report.md`。
 - 运行结果记录：已补充到 `assets/reports/business-data-analysis-agent/business-data-analysis-run-result.md`。
 
-以上材料均为模拟数据演示 / 本地验证素材，不包含真实企业数据，不写成真实客户交付。
+以上材料均为模拟数据演示 / 本地验证素材，不包含实际企业数据，基于演示环境和样例数据完成，不代表已上线运行。

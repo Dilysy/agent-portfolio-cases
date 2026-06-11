@@ -16,7 +16,7 @@ assets/reports/code-review-agent/code-review-sample.py
 
 示例文件：`assets/reports/code-review-agent/code-review-sample.py`
 
-该文件是为作品集演示生成的 Python 代码样例，不涉及真实业务系统，不包含真实密钥。样例中故意保留了若干适合审查的问题，包括硬编码配置、输入校验不足、字符串拼接 SQL、异常处理不足、重复逻辑和命名不清晰。
+该文件是为公开演示生成的 Python 代码样例，不涉及真实业务系统，不包含真实密钥。样例中故意保留了若干适合审查的问题，包括硬编码配置、输入校验不足、字符串拼接 SQL、异常处理不足、重复逻辑和命名不清晰。
 
 ## 3. 执行过程
 
@@ -26,20 +26,20 @@ assets/reports/code-review-agent/code-review-sample.py
 2. 安装 CLI 主链路最小依赖。
 3. 使用临时健康检查脚本验证 LLM 可用，且本地模型配置完整。
 4. 验证审查 Agent CLI 可启动并退出。
-5. 由于直接 `--repo` 指向作品集仓库存在 prompts 路径限制，改用真实代码审查调用链路。
+5. 由于直接 `--repo` 指向公开仓库存在 prompts 路径限制，改用真实代码审查调用链路。
 6. 将待审查文件内容传入 Agent，执行只读审查。
 7. Agent 输出结构化审查报告，不直接修改文件。
 8. 保存真实输出到 `assets/reports/code-review-agent/code-review-real-output.md`。
 
 ## 4. 工具调用记录
 
-真实运行记录如下：
+运行记录如下：
 
 | 步骤 | 工具 | 输入 | 预期输出 | 状态 |
 | --- | --- | --- | --- | --- |
-| 1 | `HelloAgentsLLM` | 健康检查提示 | 返回中文健康检查文本 | 已完成 |
+| 1 | `LLMClient` | 健康检查提示 | 返回中文健康检查文本 | 已完成 |
 | 2 | `hello_code_cli.py` | `--repo .` 与 `:quit` | CLI 启动并退出 | 已完成 |
-| 3 | `hello_code_cli.py` | `--repo ~/Documents/agent-portfolio-cases` | 初始化失败，缺少目标仓库下的 prompts | 已记录 |
+| 3 | `hello_code_cli.py` | `--repo /path/to/target/repo` | 初始化失败，缺少目标仓库下的提示词模板 | 已记录 |
 | 4 | 真实代码审查调用链路 | 内联待审查代码和只读审查任务 | 真实审查报告 | 已完成 |
 
 原始输出：`assets/reports/code-review-agent/code-review-real-output.md`。
@@ -61,7 +61,7 @@ assets/reports/code-review-agent/code-review-sample.py
 ## 6. 修复建议
 
 - 使用参数化查询替代 SQL 字符串拼接，不提供攻击 payload。
-- 将数据库配置移入环境变量或配置文件，并使用占位值。
+- 将数据库配置移入环境变量或配置文件，并使用示例值。
 - 对输入参数做白名单、类型和范围校验。
 - 对文件读取、JSON 解析和数据库连接增加可预期异常处理。
 - 抽取重复格式化逻辑。
@@ -79,7 +79,7 @@ assets/reports/code-review-agent/code-review-sample.py
 
 ## 8. 边界说明
 
-- 直接 `--repo` 指向作品集仓库存在 prompts 路径限制。
+- 直接 `--repo` 指向公开仓库存在 prompts 路径限制。
 - 全量可选依赖安装不纳入正式展示范围。
 - 本次为单轮只读审查，未执行修复和复审。
 - 专用静态分析工具作为后续增强。

@@ -1,4 +1,4 @@
-# AutoFlow 流程图生成 Agent 本地化运行验证步骤
+# AutoFlow 流程图生成 Agent 本地运行验证步骤
 
 ## 环境准备
 
@@ -6,7 +6,7 @@
 - 项目要求：Python 3.10+、Node.js 18+、npm 9+
 - 本次验证环境：
   - 系统 `python3`：3.8.7，不满足项目要求
-  - Codex 打包 Python：3.12.13，可用于后端运行验证
+  - 本地 Python 运行环境：3.12.13，可用于后端运行验证
   - Node.js：25.8.0
   - npm：11.11.0
 
@@ -22,7 +22,7 @@ pip install -r requirements.txt
 历史阻塞点：此前 `backend/requirements.txt` 中存在非法依赖写法：
 
 ```text
-hello-agents=1.0.0
+Agent 运行依赖
 ```
 
 pip 报错为：`= is not a valid operator. Did you mean == ?`
@@ -30,7 +30,7 @@ pip 报错为：`= is not a valid operator. Did you mean == ?`
 前置修复记录：已将工程目录中的 `backend/requirements.txt` 修复为合法 pip 依赖写法：
 
 ```text
-hello-agents==1.0.0
+Agent 运行依赖
 ```
 
 修复后可重新使用标准安装命令：
@@ -58,12 +58,12 @@ npm install
 - `backend/app/config.py`
 - `backend/app/services/llm_service.py`
 
-前置修复记录：已更新工程目录中的 `backend/本地配置模板`，其中 LLM 字段为占位空值：
+前置修复记录：已更新工程目录中的 `backend/本地配置模板`，其中 LLM 字段为示例空值：
 
 ```env
-本地私密凭证=
-本地私密凭证=
-本地私密凭证=
+本地配置项=
+本地配置项=
+本地配置项=
 ```
 
 `backend/app/config.py` 会从 `backend/本地配置文件` 读取环境变量。`backend/app/services/llm_service.py` 将配置传给 LLM 客户端：
@@ -87,15 +87,15 @@ LLMClient(
 | `APP_HOST` | 否 | 后端监听地址 |
 | `APP_PORT` | 否 | 后端监听端口 |
 | `CORS_ORIGINS` | 否 | 允许的前端来源 |
-| `本地私密凭证` | 是 | 模型配置称 |
-| `本地私密凭证` | 是 | 模型服务 私密凭证 |
-| `本地私密凭证` | 是 | 模型服务 base URL |
-| `本地私密凭证` | 否 | LLM 请求超时时间 |
-| `本地私密凭证` | 否 | Agent 最大步骤数配置，当前代码中未直接用于 `SimpleAgent` 构造 |
+| `本地配置项` | 是 | 模型配置称 |
+| `本地配置项` | 是 | 模型服务 本地配置 |
+| `本地配置项` | 是 | 模型服务地址 |
+| `本地配置项` | 否 | LLM 请求超时时间 |
+| `本地配置项` | 否 | Agent 最大步骤数配置，当前代码中未直接用于 `SimpleAgent` 构造 |
 | `VALIDATOR_MAX_RETRIES` | 否 | Mermaid 后置校验最多修复次数，实际代码会限制为最多 1 次修复 |
-| `VITE_API_BASE_URL` | 前端可选 | 前端请求后端 API 的 base URL |
+| 前端 API 地址配置项 | 前端可选 | 前端请求后端 API 的服务地址 |
 
-`本地配置模板` 应包含的占位字段：
+`本地配置模板` 应包含的示例字段：
 
 ```env
 APP_NAME=AutoFlow API
@@ -104,18 +104,18 @@ APP_HOST=0.0.0.0
 APP_PORT=8000
 CORS_ORIGINS=http://localhost:5173
 
-本地私密凭证=
-本地私密凭证=
-本地私密凭证=
-本地私密凭证=120
+本地配置项=
+本地配置项=
+本地配置项=
+本地配置项=120
 
-本地私密凭证=6
+本地配置项=6
 VALIDATOR_MAX_RETRIES=2
 
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-不要把真实私密凭证写入仓库；公开文档只保留占位字段和本地配置说明。
+不要把真实本地配置写入仓库；公开文档只保留示例字段和本地配置说明。
 
 `本地配置文件` 提交规则：
 
@@ -128,13 +128,13 @@ cd <local-autoflow-source>/backend
 cp 本地配置模板 本地配置文件
 ```
 
-然后只在本地 `本地配置文件` 中填入真实 `本地私密凭证`、`本地私密凭证`、`本地私密凭证`。已经配置过 `本地配置文件` 时，不需要重复复制。不要把真实私密凭证 复制到作品集、日志、截图或录屏中。
+然后只在本地 `本地配置文件` 中填入真实 `本地配置项`、`本地配置项`、`本地配置项`。已经配置过 `本地配置文件` 时，不需要重复复制。不要把真实本地配置 复制到本案例、日志、截图或录屏中。
 
 ## LLM 配置检查
 
 LLM 调用相关代码路径：
 
-- `backend/app/config.py`：读取 `本地配置文件` 中的 `本地私密凭证`、`本地私密凭证`、`本地私密凭证`、`本地私密凭证`。
+- `backend/app/config.py`：读取 `本地配置文件` 中的 `本地配置项`、`本地配置项`、`本地配置项`、`本地配置项`。
 - `backend/app/services/llm_service.py`：创建 LLM 客户端。
 - `backend/app/agents/mermaid/agent_factory.py`：为灵感模式、标准代码生成模式构建 `SimpleAgent`。
 - `backend/app/services/rule_flow_converter.py`：规则优先的快速路径，覆盖销售条件流程和线性计划拆解。
@@ -146,7 +146,7 @@ OpenAI-compatible API 支持判断：
 - 支持自定义 `endpoint`、`credential`、`model`。
 - LLM 客户端构造函数接收 `model`、`credential`、`endpoint`、`timeout`。
 - 本次检查到模型适配逻辑为：`anthropic.com` 使用 AnthropicAdapter，`googleapis.com` 或 `generativelanguage` 使用 GeminiAdapter，其他 endpoint 默认使用 OpenAIAdapter。
-- 因此，AutoFlow 可接入 OpenAI-compatible API，前提是模型服务兼容 OpenAI Chat Completions 风格，并正确配置 `本地私密凭证`、`本地私密凭证`、`本地私密凭证`。
+- 因此，AutoFlow 可接入 OpenAI-compatible API，前提是模型服务兼容 OpenAI Chat Completions 风格，并正确配置 `本地配置项`、`本地配置项`、`本地配置项`。
 
 未配置真实 LLM 时的表现：
 
@@ -154,7 +154,7 @@ OpenAI-compatible API 支持判断：
 - 前端页面可用。
 - 计划模式可用。
 - Mermaid 代码模式可用。
-- 灵感模式和标准模式若命中规则快速路径，可不依赖 LLM 生成；若输入未命中规则并进入 LLM 兜底，则需要配置 `本地私密凭证`、`本地私密凭证` 和 `本地私密凭证`。
+- 灵感模式和标准模式若命中规则快速路径，可不依赖 LLM 生成；若输入未命中规则并进入 LLM 兜底，则需要配置 `本地配置项`、`本地配置项` 和 `本地配置项`。
 
 已配置真实 LLM 后的本轮测试结果：
 
@@ -170,9 +170,9 @@ OpenAI-compatible API 支持判断：
 最小修复记录：
 
 - 已定位超时配置在 `backend/app/config.py`、`backend/app/services/llm_service.py` 和 `backend/app/agents/mermaid_agent_service.py`。
-- 已将 `backend/app/config.py` 中 `本地私密凭证` 默认值从 60 调整为 120。
+- 已将 `backend/app/config.py` 中 `本地配置项` 默认值从 60 调整为 120。
 - 已将 `backend/app/agents/mermaid_agent_service.py` 中运行时最低 `llm_timeout` 从 30 调整为 120。
-- 已将工程目录 `backend/本地配置模板` 中 `本地私密凭证=60` 更新为 `本地私密凭证=120`。
+- 已将工程目录 `backend/本地配置模板` 中 `本地配置项=60` 更新为 `本地配置项=120`。
 - 已修复计划模式伪成功问题：原实现位于 `backend/app/services/plan_converter.py`，只按换行或 `A -> B -> C` 拆分文本；单段自然语言会被当成一个大节点渲染。
 - 已增强 `backend/app/tools/mermaid_validator_tool.py`，补充结构校验：图声明、节点数量、连接数量、整段输入节点检测、条件分支判断节点检测。
 - 已增强 `backend/app/services/plan_converter.py`，对“包含 A、B、C...”类单段输入先做规则拆解，生成 `Start -> N1 -> ... -> End` 结构；规则结果不合格时，再使用已有 `LLMService` 作为最小 LLM 兜底分支。
@@ -190,9 +190,9 @@ OpenAI-compatible API 支持判断：
 
 若后续再次出现超时，排查优先级：
 
-1. `本地私密凭证` 是否可从本机访问，是否为 OpenAI-compatible 接口地址。
-2. `本地私密凭证` 是否与模型服务端实际模型配置一致。
-3. 模型服务是否响应过慢；当前演示输入已命中规则快速路径，不依赖 LLM。若输入未命中规则并进入 LLM 兜底，必要时继续提高 `本地私密凭证` 或换用更快模型。
+1. `本地配置项` 是否可从本机访问，是否为 OpenAI-compatible 接口地址。
+2. `本地配置项` 是否与模型服务端实际模型配置一致。
+3. 模型服务是否响应过慢；当前演示输入已命中规则快速路径，不依赖 LLM。若输入未命中规则并进入 LLM 兜底，必要时继续提高 `本地配置项` 或换用更快模型。
 4. 是否存在代理或网络问题。
 5. 若服务快速返回但仍失败，再检查模型服务是否支持当前响应格式、依赖版本和 LLM 返回内容是否为合法 Mermaid。
 
@@ -275,7 +275,7 @@ http://127.0.0.1:5173/
 3. 输入上方演示文本。
 4. 等待 Mermaid 返回后，检查右侧流程图是否覆盖需求确认、信息补充、客户评审和退回修改。
 
-未配置真实 LLM 或模型服务临时不可用时，可使用 Mermaid 代码模式作为替代演示：
+未配置真实 LLM 或模型服务临时不可用时，可使用 Mermaid 代码模式作为演示模式：
 
 1. 打开 `http://127.0.0.1:5173/`。
 2. 切换到 Mermaid 代码模式。
@@ -292,10 +292,10 @@ http://127.0.0.1:5173/
 
 ## 常见问题
 
-- 后端依赖安装失败：确认 `backend/requirements.txt` 中为 `hello-agents==1.0.0`，不是 `hello-agents=1.0.0`。
+- 后端依赖安装失败：确认 `backend/requirements.txt` 中为 `Agent 运行依赖`，不是 `Agent 运行依赖`。
 - Python 版本过低：使用 Python 3.10+，本次用 Python 3.12.13 完成运行验证。
-- 标准/灵感模式慢或失败：检查 `本地私密凭证`、`本地私密凭证`、`本地私密凭证`、`本地私密凭证`，不要把真实私密凭证 写入仓库。
-- OpenAI-compatible 服务无法调用：确认 `本地私密凭证` 是否为兼容 OpenAI 的接口地址，模型配置是否与服务端一致。
+- 标准/灵感模式慢或失败：检查 `本地配置项`、`本地配置项`、`本地配置项`、`本地配置项`，不要把真实本地配置 写入仓库。
+- OpenAI-compatible 服务无法调用：确认 `本地配置项` 是否为兼容 OpenAI 的接口地址，模型配置是否与服务端一致。
 - 前端 API 不通：确认后端在 8000 端口运行；Vite 配置已将 `/api` 代理到 `http://127.0.0.1:8000`。
 - 计划模式输出过于简单：该模式已支持多行步骤、`A -> B -> C` 和“包含 A、B、C...”类线性计划；复杂条件流程仍建议使用标准模式或 Mermaid 代码模式。
 - Mermaid 渲染错误：先用 `MermaidValidatorTool` 检查结构，再在前端代码模式粘贴渲染。

@@ -1,4 +1,4 @@
-# 企业经营数据分析 Agent 本地化运行验证步骤
+# 企业经营数据分析 Agent 本地运行验证步骤
 
 ## 1. 项目来源
 
@@ -7,7 +7,7 @@
 1. `<local-business-analysis-source-a>`
 2. `<local-business-analysis-source-b>`
 
-作品集目录：
+案例目录：
 
 ```text
 cases/business-data-analysis-agent/
@@ -27,7 +27,7 @@ assets/demos/business-data-analysis-agent/
 
 `Notebook 表格分析原型` 适合作为 Notebook 表格分析原型参考：读取 Excel 数据，调用清洗工具，生成 ECharts 配置和 Markdown 报告。
 
-作品集版本定位为“企业经营数据分析 Agent”，用于展示模拟经营数据到指标分析、图表和报告的链路。本阶段不接入真实企业数据，不写成真实客户交付。
+本案例定位为“企业经营数据分析 Agent”，用于展示模拟经营数据到指标分析、图表和报告的链路。本阶段不接入实际企业数据，基于演示环境和样例数据完成，不代表已上线运行。
 
 ## 3. 代码结构
 
@@ -64,7 +64,7 @@ Notebook 表格分析原型/
 ├── data/
 │   └── simple_data.xls
 └── output/
-    ├── echarts.html
+    ├── HTML 图表页
     └── report.md
 ```
 
@@ -79,7 +79,7 @@ Notebook 表格分析原型/
 - 可访问 LLM 服务的网络环境
 - matplotlib / pandas / xlrd 等数据分析依赖
 
-注意：不要读取、打印或提交 `本地配置文件`。如果 Notebook 中存在硬编码 私密凭证，展示前必须清理。
+注意：不要读取、打印或提交 `本地配置文件`。如果 Notebook 中存在硬编码 本地配置，展示前必须清理。
 
 ## 5. 依赖安装
 
@@ -112,7 +112,7 @@ python3 -m pip install -r requirements.txt
 - `多 Agent 原型` 使用 `data/shopping_behavior_updated.csv`，约 3900 行，字段包含年龄、性别、商品类别、购买金额、季节、订阅状态、支付方式等。
 - `Notebook 原型` 使用 `data/simple_data.xls`，用于 Notebook 表格分析和 ECharts 输出。
 
-### 作品集模拟数据
+### 本案例模拟数据
 
 本阶段已生成模拟销售数据：
 
@@ -126,7 +126,7 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 订单日期, 地区, 客户类型, 商品类别, 商品名称, 销售额, 订单数, 毛利率
 ```
 
-该数据为人工构造的模拟经营数据，不包含真实企业、真实客户或真实订单。
+该数据为人工构造的模拟经营数据，不包含实际企业、实际客户或真实订单。
 
 ## 7. 启动方式
 
@@ -142,16 +142,16 @@ python3 ./main.py
 需要配置：
 
 ```text
-本地私密凭证=
-本地私密凭证=
-本地私密凭证=
-本地私密凭证=
+本地配置项=
+本地配置项=
+本地配置项=
+本地配置项=
 ```
 
 输出路径：
 
 ```text
-out/analysis_report.md
+多 Agent 原型输出报告
 out/figures/
 ```
 
@@ -173,14 +173,14 @@ main.ipynb
 
 ```text
 output/report.md
-output/echarts.html
+Notebook 原型输出图表页
 ```
 
-注意：Notebook 中存在硬编码模型环境变量配置，正式展示前应改为 `本地配置文件` 加载或脱敏后的占位符。
+注意：Notebook 中存在硬编码模型环境变量配置，正式展示前应改为 `本地配置文件` 加载或脱敏后的示例符。
 
 ## 8. 示例运行方式
 
-作品集演示任务：
+公开演示任务：
 
 ```text
 请基于 2025 年模拟销售数据，分析企业全年经营表现，输出月度销售趋势、地区销售表现、商品类别贡献、客户类型差异、毛利率分析和经营建议。
@@ -200,7 +200,7 @@ output/echarts.html
 
 当前运行状态：已完成演示样例。
 
-当前演示口径为“模拟数据演示 / 本地验证”。本案例未接入真实企业数据，所有销售数据、经营问题和建议均基于模拟数据生成，不代表真实企业经营结论。
+当前演示口径为“模拟数据演示 / 本地验证”。本案例未接入实际企业数据，所有销售数据、经营问题和建议均基于模拟数据生成，不代表实际企业经营结论。
 
 已完成：
 
@@ -224,7 +224,7 @@ output/echarts.html
 
 - 数据文件：`assets/reports/business-data-analysis-agent/sample-sales-data.csv`
 - 生成方式：使用 Python 构造 2025 年全年模拟销售记录，字段包括订单日期、地区、客户类型、商品类别、商品名称、销售额、订单数和毛利率。
-- 数据边界：仅用于案例演示，不包含真实企业、真实客户或真实订单。
+- 数据边界：仅用于案例演示，不包含实际企业、实际客户或真实订单。
 
 ### 图表生成方式
 
@@ -265,12 +265,12 @@ output/echarts.html
 3. `Notebook 原型` Notebook 中存在硬编码模型环境变量配置，不适合直接录屏或对外展示。
 4. `Notebook 原型` Notebook 的 README 提到 `本地配置模板`，但当前目录未发现该文件。
 5. `Notebook 原型` Notebook 注册了 `DataCleaningTool`，但系统提示词要求使用 `DataStatisticsTool`，当前代码需要补注册统计工具后再验证完整链路。
-6. `Notebook 原型` 输出的 `echarts.html` 引入外部 ECharts CDN，离线展示时可能无法加载。
+6. `Notebook 原型` 输出的 HTML 图表页引入外部 ECharts CDN，离线展示时可能无法加载。
 
 ## 11. 下一步操作
 
-1. 配置安全的 LLM 环境变量，不在文档或 Notebook 中写真实私密凭证。
-2. 优先验证 `多 Agent 原型` 的 `python3 ./main.py` 是否能稳定生成 `out/analysis_report.md` 和图表。
+1. 配置安全的 LLM 环境变量，不在文档或 Notebook 中写真实本地配置。
+2. 优先验证 `多 Agent 原型` 的 `python3 ./main.py` 是否能稳定生成报告和图表。
 3. 清理 `Notebook 原型` Notebook 中的硬编码模型配置，并补注册 `DataStatisticsTool`。
 4. 为录屏准备展示顺序：模拟数据 CSV、四张图表、经营分析报告、运行结果记录。
 5. 后续进入截图、录屏和 ffmpeg 字幕版剪辑阶段。

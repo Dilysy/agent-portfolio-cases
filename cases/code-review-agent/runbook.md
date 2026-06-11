@@ -1,11 +1,10 @@
 # 代码审查 Agent 运行手册
 
-## 1. 项目来源
+## 1. 工程入口
 
 - 本地工程路径：`<local-code-review-source>`
-- 底层工程 GitHub：`<upstream-code-review-reference>`
-- 作品集目录：`~/Documents/agent-portfolio-cases/cases/code-review-agent/`
-- 资产目录：`~/Documents/agent-portfolio-cases/assets/reports/code-review-agent/`
+- 案例目录：`cases/code-review-agent/`
+- 资产目录：`assets/reports/code-review-agent/`
 
 ## 2. 项目定位
 
@@ -50,7 +49,7 @@
 
 ## 4. 环境准备
 
-建议使用 Python 3.10 或更高版本。本次验证使用 Codex bundled Python 创建虚拟环境，版本为 Python 3.12.13。
+建议使用 Python 3.10 或更高版本。本次验证使用 本地 Python 运行环境 创建虚拟环境，版本为 Python 3.12.13。
 
 ```bash
 cd <local-code-review-source>
@@ -75,27 +74,27 @@ python3 -m pip install -r requirement.txt
 
 本次验证中的最小修复：
 
-- `requirement.txt` 中原本写有 `hello-agents[all]=0.2.7`，pip 无法解析，已修正为 `hello-agents[all]==0.2.7`。
-- `hello-agents[all]` 全量 extras 安装会拉取大量训练、Gradio 和协议生态依赖，并在解析阶段长时间回溯。本次为完成代码审查 CLI 验证，改为安装主链路最小依赖：`openai`、`pydantic`、`python-dotenv`、`tiktoken`、`hello-agents==0.2.7`。
-- `code_agent/README.md` 提到 `requirements-mvp.txt`，但当前项目目录未发现该文件。
+- 依赖清单中某个运行依赖的版本约束格式无法解析，已在本地验证环境中修正。
+- 全量 extras 安装会拉取大量训练、Gradio 和协议生态依赖，并在解析阶段长时间回溯。本次为完成代码审查 CLI 验证，改为安装主链路最小依赖。
+- 工程说明文件提到轻量依赖清单，但当前项目目录未发现该文件。
 
 ## 6. 本地模型配置
 
-不要提交或展示本地模型凭据。可在底层工程根目录创建本地配置文件，只放本机私有配置；作品集文档不记录具体值。
+不要提交或展示本地模型凭据。可在底层工程根目录创建本地配置文件，只放本机私有配置；公开文档不记录具体值。
 
 需要配置的内容包括：
 
 - 模型访问凭据。
-- 模型配置称。
+- 模型配置名称。
 - 模型服务地址。
 
 可选配置：
 
 ```bash
-HELLOAGENTS_DIR=.helloagents
-CODE_本地私密凭证=8
+LOCAL_AGENT_DIR=.local-agent
+MAX_REVIEW_FILES=8
 CODE_AGENT_MAX_REACT_STEPS=20
-本地私密凭证=60
+REQUEST_TIMEOUT_SECONDS=60
 ```
 
 源码中还包含搜索工具相关配置，但当前 CodeAgent CLI 主流程没有默认注册搜索工具，代码审查演示阶段不需要配置。
@@ -118,7 +117,7 @@ python -m code_agent.hello_code_cli --repo /path/to/target/repo
 
 - `python3 -m py_compile ...`：核心文件语法检查通过。
 - 底层工程自身 CLI：可运行。
-- `--repo ~/Documents/agent-portfolio-cases`：会通过 LLM 预检，但随后因 `CodeAgent` 到目标仓库查找 `code_agent/prompts/react.md` 而失败。该问题属于本地工程路径设计限制。
+- `--repo /path/to/target/repo`：会通过 LLM 预检，但随后因提示词模板查找路径依赖底层工程目录而失败。该问题属于本地工程路径设计限制。
 
 ## 8. CLI 使用方式
 
@@ -165,7 +164,7 @@ cd <local-code-review-source>
 assets/reports/code-review-agent/code-review-real-output.md
 ```
 
-建议后续修复 prompts 路径限制后，再使用标准 CLI 方式审查作品集仓库。
+建议后续修复 prompts 路径限制后，再使用标准 CLI 方式审查公开仓库。
 
 ## 10. 当前本地验证状态
 
@@ -178,7 +177,7 @@ assets/reports/code-review-agent/code-review-real-output.md
 - 已完成 LLM 健康检查，本地模型配置项完整。
 - 底层工程自身 CLI 可运行。
 - 已通过真实 `CodeAgent.run_turn()` 调用链路生成代码审查输出。
-- 已生成作品集阶段的代码样例、真实审查报告和 HTML 预览页。
+- 已生成当前示例的代码样例、真实审查报告和 HTML 预览页。
 - 已归档原始录屏和截图，完成抽帧预览。
 - 已生成中文字幕版最终演示视频：`assets/demos/code-review-agent/code-review-agent-demo.mp4`。
 
@@ -186,9 +185,9 @@ assets/reports/code-review-agent/code-review-real-output.md
 
 1. 依赖文件命名与 README 不一致：实际为 `requirement.txt`。
 2. `requirement.txt` 中原版本约束写法需要修正为 `==`。
-3. `hello-agents[all]` 全量 extras 依赖较重，安装时间长且容易回溯。
-4. 直接使用 `--repo` 指向作品集仓库时，prompt 路径会错误地绑定到目标仓库。
-5. 底层工程没有固定代码审查报告模板，作品集报告为补充整理。
+3. `Agent 运行依赖` 全量 extras 依赖较重，安装时间长且容易回溯。
+4. 直接使用 `--repo` 指向公开仓库时，prompt 路径会错误地绑定到目标仓库。
+5. 底层工程没有固定代码审查报告模板，本案例报告为补充整理。
 6. 当前没有专用静态分析工具接入，审查主要依赖代码读取和 LLM 判断。
 
 ## 12. 下一步操作

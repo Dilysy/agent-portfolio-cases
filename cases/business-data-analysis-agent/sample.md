@@ -12,9 +12,9 @@
 assets/reports/business-data-analysis-agent/sample-sales-data.csv
 ```
 
-该数据为模拟销售数据，不包含真实企业、真实客户或真实订单。
+该数据为模拟销售数据，不包含实际企业、实际客户或真实订单。
 
-实际演示输入为 2025 年模拟销售数据，字段包括订单日期、地区、客户类型、商品类别、商品名称、销售额、订单数和毛利率。当前演示口径为“模拟数据演示 / 本地验证”，用于说明分析链路和展示材料，不代表真实企业经营结论。
+实际演示输入为 2025 年模拟销售数据，字段包括订单日期、地区、客户类型、商品类别、商品名称、销售额、订单数和毛利率。当前演示口径为“模拟数据演示 / 本地验证”，用于说明分析链路和展示材料，不代表实际企业经营结论。
 
 ## 2. 执行过程
 
@@ -22,7 +22,7 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 
 1. 阅读 `多 Agent 经营分析原型` 的 README、`main.py`、Agent 提示词、ReAct Agent 实现、数据探查工具和数据分析工具。
 2. 阅读 `Notebook 表格分析原型` 的 README、`main.ipynb`、Excel 示例数据、ECharts 输出和 Markdown 报告输出。
-3. 判断两个项目可以合并包装为“企业经营数据分析 Agent”：前者提供多 Agent 流水线，后者提供 Notebook 表格分析与图表报告输出。
+3. 判断两个项目可以整合为“企业经营数据分析 Agent”：前者提供多 Agent 流水线，后者提供 Notebook 表格分析与图表报告输出。
 4. 生成 320 行模拟销售数据，日期覆盖 2025 年 1 月至 12 月。
 5. 使用 pandas 计算核心指标和分组聚合结果。
 6. 使用 matplotlib 生成 4 张中文图表。
@@ -33,11 +33,11 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 
 | 步骤 | 工具/模块 | 输入 | 输出 | 说明 |
 | --- | --- | --- | --- | --- |
-| 1 | 数据生成脚本 | 地区、客户类型、商品类别、月份权重、毛利率规则 | `sample-sales-data.csv` | 生成模拟经营数据，不使用真实企业数据。 |
+| 1 | 数据生成脚本 | 地区、客户类型、商品类别、月份权重、毛利率规则 | `sample-sales-data.csv` | 生成模拟经营数据，不使用实际企业数据。 |
 | 2 | pandas | 模拟销售数据 CSV | 月度、地区、品类、客户类型聚合结果 | 计算销售额、订单数、客单价、加权毛利率。 |
 | 3 | matplotlib | 聚合指标 | 4 张 PNG 图表 | 生成趋势、地区、品类、客户类型图表。 |
-| 4 | 报告生成逻辑 | 指标和图表路径 | `business-data-analysis-report.md` | 输出 Markdown 经营分析报告样例。 |
-| 5 | ffmpeg 剪辑脚本 | 图表截图、报告展示图、字幕文件 | `business-data-analysis-agent-demo.mp4` | 生成静音字幕版演示视频。 |
+| 4 | 报告生成逻辑 | 指标和图表路径 | `assets/reports/business-data-analysis-agent/business-data-analysis-report.md` | 输出 Markdown 经营分析报告样例。 |
+| 5 | ffmpeg 剪辑脚本 | 图表截图、报告展示图、字幕文件 | `assets/demos/business-data-analysis-agent/business-data-analysis-agent-demo.mp4` | 生成静音字幕版演示视频。 |
 | 6 | `get_basic_metadata` | 底层工程 CSV 数据 | 行列数、字段、类型 | 多 Agent 原型 数据探查工具，代码中已实现。 |
 | 7 | `assess_data_quality` | 底层工程 CSV 数据 | 缺失率、异常值、有效性 | 多 Agent 原型 数据质量工具，代码中已实现。 |
 | 8 | `get_statistical_summary` | 数值字段 | 统计摘要 | 多 Agent 原型 统计摘要工具，代码中已实现。 |
@@ -78,12 +78,12 @@ assets/reports/business-data-analysis-agent/sample-sales-data.csv
 
 当前结论：
 
-- 两个底层工程适合合并包装成一个“企业经营数据分析 Agent”案例。
+- 两个底层工程适合整合为一个“企业经营数据分析 Agent”案例。
 - `多 Agent 原型` 更适合展示多 Agent 分工和 Plan-and-Solve 思路。
 - `Notebook 原型` 更适合展示 Notebook 表格分析、ECharts 和 Markdown 报告输出。
 - 本阶段生成的模拟数据、图表和报告适合作为第一版展示材料。
 - 字幕版演示视频已经完成，展示模拟数据、核心指标、销售趋势、地区表现、品类贡献、客户类型差异和经营建议。
-- 当前正式展示以模拟数据、图表、报告和最终视频为准，不写成真实企业数据端到端交付。
+- 当前正式展示以模拟数据、图表、报告和最终视频为准，不写成实际企业数据端到端交付。
 - Notebook 原型 中存在硬编码模型环境变量配置，不适合直接录屏展示。
 
 ## 6. 边界说明
