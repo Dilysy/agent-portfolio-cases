@@ -22,7 +22,7 @@
 未纳入正式展示范围：
 
 - 全量可选依赖安装不纳入正式展示范围。
-- 直接运行 `python -m code_agent.hello_code_cli --repo ~/Documents/agent-portfolio-cases` 会因 prompt 路径绑定到目标 repo 而失败。
+- 直接运行 CLI 并将目标仓库作为 `--repo` 参数时，会因 prompt 路径绑定到目标 repo 而失败。
 
 ## 2. 真实运行入口
 
@@ -40,7 +40,7 @@ cd <local-code-agent-project>
 python run_code_review_real.py
 ```
 
-说明：`CodeAgent` 当前会从 `repo_root/code_agent/prompts` 读取提示词。直接将 `--repo` 指向作品集仓库时，作品集仓库没有 `code_agent/prompts`，因此会在初始化阶段报 `FileNotFoundError`。本次验证用原始工程作为 `repo_root`，并把作品集中的目标文件内容传入真实 Agent 调用链路，避免修改作品集目录结构。
+说明：`CodeAgent` 当前会从 `repo_root/code_agent/prompts` 读取提示词。直接将 `--repo` 指向外部仓库时，目标仓库没有对应提示词目录，因此会在初始化阶段报 `FileNotFoundError`。本次验证用本地运行目录作为 `repo_root`，并把目标文件内容传入真实 Agent 调用链路，避免修改案例目录结构。
 
 ## 3. LLM 调用结果
 
@@ -61,7 +61,7 @@ python run_code_review_real.py
 ## 4. 实际审查输入文件
 
 ```text
-~/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-sample.py
+assets/reports/code-review-agent/code-review-sample.py
 ```
 
 审查任务：
@@ -98,10 +98,10 @@ assets/reports/code-review-agent/code-review-real-output.md
 
 ## 6. 边界说明
 
-1. 直接 CLI 指向外部作品集仓库存在 prompt 路径限制，需要后续改造 `CodeAgentPaths.prompts_dir`，让提示词路径与被审查仓库路径解耦。
-2. `hello-agents[all]` 全量可选依赖过重，安装时会拉取大量与本 CLI 审查无关的训练、Gradio 和协议生态依赖。
+1. 直接 CLI 指向外部仓库存在 prompt 路径限制，需要后续改造 `CodeAgentPaths.prompts_dir`，让提示词路径与被审查仓库路径解耦。
+2. 全量可选依赖过重，安装时会拉取大量与本 CLI 审查无关的训练、Gradio 和协议生态依赖。
 3. 本次真实审查为单轮只读审查，没有生成补丁，也没有执行“修复后复审”。
-4. 模型原始输出中自行生成了不准确的审查日期，作品集正式报告已按当前真实运行记录重新整理。
+4. 模型原始输出中自行生成了不准确的审查日期，正式报告已按当前运行记录重新整理。
 5. 当前专用静态分析工具作为后续增强。
 
 ## 7. 后续可扩展方向

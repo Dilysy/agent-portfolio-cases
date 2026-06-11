@@ -4,7 +4,7 @@
 
 ## 1. 审查目标
 
-审查作品集样例文件中的常见工程问题：
+审查公开演示样例文件中的常见工程问题：
 
 ```text
 assets/reports/code-review-agent/code-review-sample.py
@@ -24,10 +24,10 @@ assets/reports/code-review-agent/code-review-sample.py
 ## 2. 待审查文件
 
 ```text
-~/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-sample.py
+assets/reports/code-review-agent/code-review-sample.py
 ```
 
-该文件是作品集演示样例，不涉及真实业务系统，不包含真实密钥。
+该文件是公开演示样例，不涉及真实业务系统，不包含真实密钥。
 
 ## 3. 运行方式
 
@@ -39,7 +39,7 @@ assets/reports/code-review-agent/code-review-sample.py
 assets/reports/code-review-agent/code-review-real-output.md
 ```
 
-说明：直接使用 CLI 参数 `--repo ~/Documents/agent-portfolio-cases` 时，当前实现会到目标仓库下寻找 `code_agent/prompts`，导致初始化失败。因此本次真实运行使用审查 Agent 的运行目录作为 Agent 根目录，并将目标文件内容传入审查任务。
+说明：直接使用 CLI 参数指向外部仓库时，当前实现会到目标仓库下寻找提示词模板，导致初始化失败。因此本次运行验证使用审查 Agent 的运行目录作为 Agent 根目录，并将目标文件内容传入审查任务。
 
 ## 4. 代码概览
 

@@ -2,7 +2,7 @@
 
 > 本文件由真实代码审查调用链路生成。运行时使用本地 LLM 配置；本文不记录敏感配置。
 
-审查输入文件：`/Users/wangyu/Documents/agent-portfolio-cases/assets/reports/code-review-agent/code-review-sample.py`
+审查输入文件：`assets/reports/code-review-agent/code-review-sample.py`
 
 ## Agent 输出
 

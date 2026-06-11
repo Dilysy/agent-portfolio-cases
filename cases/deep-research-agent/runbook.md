@@ -15,7 +15,7 @@
 ## 3. 前后端结构
 
 ```text
-helloagents-deepresearch/
+本地深度研究工程/
 ├── backend/
 │   ├── 本地配置模板
 │   ├── pyproject.toml

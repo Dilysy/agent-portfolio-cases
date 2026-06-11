@@ -157,10 +157,10 @@ assets/reports/deep-research-agent/deep-research-report.md
 
 录屏前仍需检查：
 
-- 页面、终端和日志中不要展示 私密凭证。
+- 页面、终端和日志中不要展示本地配置。
 - 不展示真实 `本地配置文件`。
 - 不展示浏览器私人信息、账号或隐私页面。
-- 正式作品集表述为本地运行验证和案例演示，不写成真实客户交付。
+- 正式公开表述为本地运行验证和案例演示，不写成实际客户交付。
 
 ## 2026-06-08 前端 LLM Connection error 排查
 
@@ -173,13 +173,13 @@ assets/reports/deep-research-agent/deep-research-report.md
 
 1. 当前后端若直接使用 `PYTHONPATH=backend/src backend/.venv/bin/python backend/src/main.py` 启动，原入口没有在本地模块导入前自动加载 `backend/本地配置文件`。
 2. 未加载 `本地配置文件` 时，LLM 配置会回落到默认 `ollama` 和本地地址，导致前端看到 `Connection error`。
-3. 已将 `backend/src/main.py` 调整为在导入本地 Agent 模块前加载 `backend/本地配置文件`，并将启动日志中的 私密凭证 显示方式改为仅显示 `set/unset`。
+3. 已将 `backend/src/main.py` 调整为在导入本地 Agent 模块前加载 `backend/本地配置文件`，并将启动日志中的本地配置显示方式改为仅显示 `set/unset`。
 4. 修复加载路径后，后端 `/healthz` 正常，Tavily 初始化成功。
 5. 重新调用 `/research/stream` 后，错误从 `Connection error` 变为模型服务返回的 HTTP 403：账户余额不足。
 
 临时 LLM 健康检查：
 
-- 临时脚本路径：`/Users/wangyu/Documents/hello-agents/code/chapter14/helloagents-deepresearch/check_llm_health.py`
+- 健康检查入口：本地验证脚本。
 - 脚本只输出成功状态、endpoint/model 是否为空、HTTP 状态码或错误类型、耗时、返回文本前 20 个字符和错误摘要。
 - 健康检查结果：LLM 请求未成功，`endpoint` 非空，`model` 非空，错误类型为 `PermissionDeniedError`，HTTP 状态码为 `403`。
 

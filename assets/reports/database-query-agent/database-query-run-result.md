@@ -68,7 +68,7 @@ assets/reports/database-query-agent/database-query-sql-example.md
 assets/reports/database-query-agent/database-query-result.md
 ```
 
-结果为模拟数据逻辑生成，仅用于作品集演示，不代表真实企业数据库查询结果。
+结果为模拟数据逻辑生成，仅用于公开演示，不代表实际企业数据库查询结果。
 
 ## 7. 当前安全控制说明
 
