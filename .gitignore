@@ -13,7 +13,10 @@ assets/**/.video-build/
 # Internal working files.
 AGENTS.md
 scripts/
-docs/
+pages/
+
+# Internal docs, keep GitHub Pages files.
+docs/*.md
 
 # Internal / process assets.
 assets/_discarded/

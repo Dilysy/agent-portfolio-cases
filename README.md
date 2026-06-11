@@ -12,7 +12,7 @@
 
 https://Dilysy.github.io/agent-portfolio-cases/
 
-如果 GitHub Pages 尚未开启，请在仓库 Settings → Pages 中选择 `main` 分支的 `/pages` 目录作为发布来源。如果 GitHub Pages 不支持直接选择 `/pages` 目录，可以将 `pages/` 目录内容移动到 `docs/`，或使用 GitHub Actions 发布静态页面。
+如果 GitHub Pages 尚未开启，请在仓库 Settings → Pages 中选择 `main` 分支的 `/docs` 目录作为发布来源。
 
 ## 案例总览
 
