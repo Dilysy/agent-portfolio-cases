@@ -189,7 +189,7 @@ docs/
 - `assets/demos/`：存放各案例最终演示视频。公开仓库中仅保留对外展示用的最终 demo MP4。
 - `assets/reports/`：存放案例报告、运行结果和 HTML 预览页面，用于展示结构化输出结果。
 - `assets/screenshots/`：存放各案例精选截图。公开仓库中优先保留 `final/` 下的正式展示截图。
-- `assets/architecture/`：用于后续补充正式架构图和流程图素材。
+- `assets/architecture/`：Agent设计架构图。
 
 `docs/` 保留在线展示页面的镜像文件：
 
